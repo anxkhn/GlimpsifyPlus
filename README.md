@@ -1,6 +1,14 @@
 # Most Information Frame Extractor
 Pass a YouTube Video link and get the screenshots of the frame which has the most information content (like if someone is explaining with the help of a PPT, capture screenshot when all the text of one slide of PPT has animated in)
 
+Frame with most information it can possibly have
+![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/854332d4-5d59-4f11-aeff-e0fa0c8e1fcd)
+
+This frame can have more information and thus not the most information frame
+![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/35eed63d-e490-441a-ab65-06ad336cb8aa)
+
+
+
 # How
 The approach I have taken in this code is to perform frame-by-frame analysis of a video to extract text using Optical Character Recognition (OCR) and save only the frames that contain significant changes or improvements in the text content.
 
@@ -17,8 +25,14 @@ This approach allows the script to analyze the video frame-by-frame, identify fr
 
 
 I used the concept of point processing on images to compare difference in image on pixel level and proceed to compare using text content of the current and previous frame only if the difference is significant on image pixel level.
+
 ![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/b27dccf8-62d5-48e8-875a-748a8e4671f6)
 
+This way I reduced the redundancy by almost half; 87 frames (see left in the img) with only text content difference comparison and 47 frames (see right in the img) with the aforementioned optimization technique
+
+There is a huge scope of improvement in this project and I would love to work on improving this...But since I have other projects to do as well, I couldn't work on it more for now.
+
+If you would like to contribute/collaborate on this project, kindly ping me at vedantpanchal1345@gmail.com
 
 # Made in 3hrs with Claude.ai
 

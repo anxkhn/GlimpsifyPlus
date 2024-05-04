@@ -15,12 +15,20 @@ The main steps involved in this approach are:
 
 This approach allows the script to analyze the video frame-by-frame, identify frames with significant visual and textual changes, and save only those frames that contain improved or new text information. By adjusting the thresholds for frame difference and text difference, the script can be fine-tuned to capture the desired level of changes in the video content.
 
+
+I used the concept of point processing on images to compare difference in image on pixel level and proceed to compare using text content of the current and previous frame only if the difference is significant on image pixel level.
+![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/b27dccf8-62d5-48e8-875a-748a8e4671f6)
+
+
 # Made in 3hrs with Claude.ai
 
+Start Time:
 ‎04 ‎May ‎2024, ‏‎14:07:39
 ![alt text](image.png)
 
-Sat May 4 17:05:41 2024 +0530
+End Time:
+Sat May 4 17:11:13 2024 +0530
+![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/8e491cf1-10a9-405a-9f40-19986c69ffe9)
 
 https://claude.ai/chat/b8d512fa-ad56-4134-9637-ad94a68a4bc6
 

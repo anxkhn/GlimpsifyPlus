@@ -20,6 +20,7 @@ def create_directory(directory_name):
 def main():
     # Generate a random 6-digit word
     random_word = generate_random_word(6)
+    random_word = "data/" + random_word
     print(f"Random word: {random_word}")
 
     # Create a directory using the random word as the name

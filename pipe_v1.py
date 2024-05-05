@@ -3,6 +3,7 @@ import random
 import string
 from yt_down import *
 from u1 import *
+import shutil
 
 def generate_random_word(length):
     """Generates a random word of given length."""
@@ -16,6 +17,22 @@ def create_directory(directory_name):
         print(f"Directory '{directory_name}' created successfully.")
     except FileExistsError:
         print(f"Directory '{directory_name}' already exists.")
+
+def random_10_frames(dir):
+    # Get the list of all files in directory tree at given path
+    list_of_files = list()
+    for (dirpath, dirnames, filenames) in os.walk(dir):
+        list_of_files += [os.path.join(dirpath, file) for file in filenames]
+
+    # Get 10 random files
+    random_files = random.sample(list_of_files, 10)
+    # return random_files
+    new_dir = dir + "_10_" + generate_random_word(3)
+    print(f"New directory: {new_dir}")
+    create_directory(new_dir)
+    # copy to new directory
+    for file in random_files:
+        shutil.copy(file, new_dir)
 
 def main():
     # Generate a random 6-digit word
@@ -32,7 +49,7 @@ def main():
 
     # get frames
     frame_dir_1 = random_word + "_frames"
-    frame_dir = frame_dir_1 + "/frame.jpg"
+    frame_dir = frame_dir_1  
     create_directory(frame_dir_1)
     # video_path = "data/v1_t5.mp4"
     # rename the file in the random_word directory to v1.mp4
@@ -49,9 +66,11 @@ def main():
 
     # Extract text with a difference threshold of 0.05 (5%)
     extract_text_from_video(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=1.0)
+    random_10_frames(frame_dir)
 
 
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    random_10_frames("data/vdcakt_frames")

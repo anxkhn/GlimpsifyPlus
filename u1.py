@@ -99,7 +99,7 @@ def save_frame(frame: cv2.Mat, output_path: str, frame_number: int) -> None:
         frame_number (int): The frame number to burn on the frame.
     """
  
-    output_path = os.path.join(os.path.split(output_path)[0], f"frame_{frame_number}.jpg" )
+    output_path = os.path.join(output_path, f"frame_{frame_number}.jpg" )
     font = cv2.FONT_HERSHEY_SIMPLEX
     text = f"Frame: {frame_number}"
     text_size, _ = cv2.getTextSize(text, font, 1, 2)

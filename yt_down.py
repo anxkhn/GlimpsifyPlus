@@ -37,7 +37,7 @@ def get_highest_resolution_mp4_stream(yt: YouTube) -> Optional[pytube.Stream]:
     return yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
 
 if __name__ == "__main__":
-    video_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"  # Replace with your desired video URL
-    output_directory = os.path.join(os.getcwd(), "downloads")  # Change this to your desired output directory
+    video_url = "https://www.youtube.com/watch?v=dichIcUZfOw"  # Replace with your desired video URL
+    output_directory = os.path.join(os.getcwd(), "data")  # Change this to your desired output directory
 
     download_youtube_video(video_url, output_directory)

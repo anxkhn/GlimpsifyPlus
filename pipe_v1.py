@@ -72,5 +72,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    random_10_frames("data/vdcakt_frames")
+    main()
+    # random_10_frames("data/vdcakt_frames")

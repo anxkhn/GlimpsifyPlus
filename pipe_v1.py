@@ -67,7 +67,7 @@ def main():
     # Extract text with a difference threshold of 0.05 (5%)
     # extract_text_from_video(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=1.0)
     # plot_output_path = random_word + "_plot.png"
-    plot_output_path = os.path.join(os.path.dirname(output_path), "word_count_vs_frame.png")
+    plot_output_path = os.path.join(output_directory, "word_count_vs_frame.png")
     
     peak_output_path = random_word + "_peak_frames"
     frame_text_data, frames = extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=3.0)

@@ -54,3 +54,6 @@ https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 - saving only the frame after which the info content drops
 
 ![alt text](image-1.png)
+
+# TODO
+[] Write everything again using modular approach and oops approach

@@ -48,3 +48,9 @@ https://claude.ai/chat/b8d512fa-ad56-4134-9637-ad94a68a4bc6
 
 Link to the claude chat:
 https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
+
+# Continuing with the work 
+- mapping the graph 
+- saving only the frame after which the info content drops
+
+![alt text](image-1.png)

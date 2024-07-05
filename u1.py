@@ -143,16 +143,152 @@ def extract_text_from_video(video_path: str, tesseract_path: str, output_path: s
     if previous_frame is not None:
         save_frame(previous_frame, output_path, frame_number)
 
+
+import matplotlib.pyplot as plt
+
+
+def plot_word_count_vs_frame(frame_text_data: list, output_path: str) -> None:
+    """
+    Plot the number of words versus frame number and save as PNG.
+
+    Args:
+        frame_text_data (list): List of tuples containing (frame_number, text).
+        output_path (str): Path to save the plot PNG.
+    """
+    frame_numbers = [data[0] for data in frame_text_data]
+    word_counts = [len(data[1].split()) for data in frame_text_data]
+
+    plt.figure(figsize=(16, 8))
+    plt.plot(frame_numbers, word_counts, marker='o')
+    plt.title('Number of Words vs Frame Number')
+    plt.xlabel('Frame Number')
+    plt.ylabel('Number of Words')
+    
+    # Add vertical gridlines
+    plt.grid(True, axis='both', linestyle='--', alpha=0.7)
+    
+    # Ensure all frame numbers are visible on x-axis
+    plt.xticks(frame_numbers, rotation=45, ha='right')
+    
+    # Adjust layout to prevent cutting off x-axis labels
+    plt.tight_layout()
+    
+    plt.savefig(output_path, dpi=300)
+    plt.close()
+
+def extract_text_from_video_v2(video_path: str, tesseract_path: str, output_path: str, interval: float = 0.0, diff_threshold: float = 0.1) -> None:
+    set_tesseract_path(tesseract_path)
+    previous_text = ""
+    previous_frame = None
+    frame_number = 0
+    frame_text_data = []
+
+    for frame, frame_idx in read_frames(video_path, interval):
+        if previous_frame is not None and not calculate_frame_difference(frame, previous_frame, diff_threshold):
+            continue
+
+        text = process_frame(frame)
+        text_difference = calculate_text_difference(text, previous_text)
+
+        if text_difference < 0.9:  # Adjust the threshold as needed
+            if previous_frame is not None:
+                save_frame(previous_frame, output_path, frame_number)
+                frame_text_data.append((frame_number, previous_text))
+                frame_number += 1
+            previous_text = text
+            previous_frame = frame.copy()
+
+    # Save the last frame if it wasn't saved
+    if previous_frame is not None:
+        save_frame(previous_frame, output_path, frame_number)
+        frame_text_data.append((frame_number, previous_text))
+
+    # Plot word count vs frame number
+    plot_output_path = os.path.join(os.path.dirname(output_path), "word_count_vs_frame.png")
+    plot_word_count_vs_frame(frame_text_data, plot_output_path)
+    
+    
+import numpy as np
+
+def find_peaks(arr):
+    arr = np.array(arr)
+    peaks = np.zeros(len(arr), dtype=bool)
+    
+    if arr[0] > arr[1]:
+        peaks[0] = True
+    if arr[-1] > arr[-2]:
+        peaks[-1] = True
+    
+    for i in range(1, len(arr) - 1):
+        if arr[i] > arr[i-1] and arr[i] > arr[i+1]:
+            peaks[i] = True
+    
+    return peaks
+
+def extract_text_from_video_v3(video_path: str, tesseract_path: str, output_path: str, interval: float = 0.0, diff_threshold: float = 0.1) -> None:
+    set_tesseract_path(tesseract_path)
+    previous_text = ""
+    previous_frame = None
+    frame_number = 0
+    frame_text_data = []
+    frames = []
+
+    for frame, frame_idx in read_frames(video_path, interval):
+        if previous_frame is not None and not calculate_frame_difference(frame, previous_frame, diff_threshold):
+            continue
+
+        text = process_frame(frame)
+        text_difference = calculate_text_difference(text, previous_text)
+
+        if text_difference < 0.9:  # Adjust the threshold as needed
+            if previous_frame is not None:
+                save_frame(previous_frame, output_path, frame_number)
+                frame_text_data.append((frame_number, previous_text))
+                frames.append(previous_frame)
+                frame_number += 1
+            previous_text = text
+            previous_frame = frame.copy()
+
+    # Save the last frame if it wasn't saved
+    if previous_frame is not None:
+        save_frame(previous_frame, output_path, frame_number)
+        frame_text_data.append((frame_number, previous_text))
+        frames.append(previous_frame)
+
+    # Plot word count vs frame number
+    plot_output_path = os.path.join(os.path.dirname(output_path), "word_count_vs_frame.png")
+    peak_output_path = os.path.join(os.path.dirname(output_path), "peak_frames") 
+    
+
+    
+    
+    return frame_text_data, frames
+
+def save_max_info_frames(frame_text_data, peak_output_path, frames):
+# Find and save local maxima frames
+    frame_numbers, texts = zip(*frame_text_data)
+    word_counts = [len(text.split()) for text in texts]
+    peaks = find_peaks(word_counts)
+
+    os.makedirs(peak_output_path, exist_ok=True)
+    for i, is_peak in enumerate(peaks):
+        if is_peak:
+            peak_frame_path = os.path.join(peak_output_path, f"peak_frame_{frame_numbers[i]}.jpg")
+            cv2.imwrite(peak_frame_path, frames[i])
+
+    print(f"Saved {sum(peaks)} peak frames to {peak_output_path}")
+
+    
 if __name__ == "__main__":
     # Path to the video file
-    video_path = "data/v1_t5.mp4"
+    video_path = "data/ajyowi/v1.mp4"
 
     # Path to the Tesseract OCR executable
     tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Windows
     # tesseract_path = r"/usr/bin/tesseract"  # Linux/macOS
 
     # Path to save the improved frame
-    output_path = "frames3/frame.jpg" 
+    output_path = "data/frames3/frame.jpg" 
 
     # Extract text with a difference threshold of 0.05 (5%)
-    extract_text_from_video(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=1.0)
+    extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=3.0)

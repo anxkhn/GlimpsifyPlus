@@ -48,9 +48,9 @@ def main():
     download_youtube_video(video_url, output_directory)
 
     # get frames
-    frame_dir_1 = random_word + "_frames"
-    frame_dir = frame_dir_1  
-    create_directory(frame_dir_1)
+    output_path = random_word + "_frames"
+    # frame_dir = frame_dir_1  
+    create_directory(output_path)
     # video_path = "data/v1_t5.mp4"
     # rename the file in the random_word directory to v1.mp4
     os.rename(output_directory + "/" + os.listdir(output_directory)[0], output_directory + "/v1.mp4")
@@ -62,14 +62,19 @@ def main():
 
     # Path to save the improved frame
     # output_path = "frames3/frame.jpg" 
-    output_path = frame_dir
+    # output_path = frame_dir
 
     # Extract text with a difference threshold of 0.05 (5%)
-    extract_text_from_video(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=1.0)
-    random_10_frames(frame_dir)
-
-
-
+    # extract_text_from_video(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=1.0)
+    # plot_output_path = random_word + "_plot.png"
+    plot_output_path = os.path.join(os.path.dirname(output_path), "word_count_vs_frame.png")
+    
+    peak_output_path = random_word + "_peak_frames"
+    frame_text_data, frames = extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=3.0)
+    plot_word_count_vs_frame(frame_text_data, plot_output_path)
+    save_max_info_frames(frame_text_data, peak_output_path, frames)
+    
+    # random_10_frames(output_path)
 
 if __name__ == "__main__":
     main()

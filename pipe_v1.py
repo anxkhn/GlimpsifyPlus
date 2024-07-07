@@ -142,7 +142,48 @@ class YTVideoSummarizer:
 
     @staticmethod
     def plot_text_vs_frame(frame_text_data, plot_output_path):
-        plot_word_count_vs_frame(frame_text_data, plot_output_path)
+        # plot_word_count_vs_frame(frame_text_data, plot_output_path)
+        """
+        Plot the number of words versus frame number and save as PNG.
+
+        Args:
+            frame_text_data (list): List of tuples containing (frame_number, text).
+            output_path (str): Path to save the plot PNG.
+        """
+        frame_numbers = [data[0] for data in frame_text_data]
+        word_counts = [len(data[1].split()) for data in frame_text_data]
+
+        # plt.figure(figsize=(16, 8))
+        # larger figure so that all frame numbers are visible on x-axis
+        # plt.figure(figsize=(20, 8))
+        # find the size of the figure depending on the number of frames and the values of word_counts
+        weight_y = 10
+        weight_x = 7
+        plt.figure(figsize=(len(frame_numbers) / weight_x, max(word_counts) /weight_y))
+        plt.plot(frame_numbers, word_counts, marker='o')
+        plt.title('Number of Words vs Frame Number')
+        plt.xlabel('Frame Number')
+        plt.ylabel('Number of Words')
+
+        # Add both vertical and horizontal gridlines
+        plt.grid(True, axis='both', linestyle='--', alpha=0.7)
+
+        # Ensure all frame numbers are visible on x-axis
+        plt.xticks(frame_numbers, rotation=45, ha='right')
+
+        # Ensure all word counts are visible on y-axis
+        min_count = min(word_counts)
+        max_count = max(word_counts)
+        plt.ylim(max(0, min_count - 1), max_count + 1)
+        # plt.yticks(range(max(0, min_count - 1), max_count + 2))    # Set y-ticks to only show values present in the data
+        unique_word_counts = sorted(set(word_counts))
+        plt.yticks(unique_word_counts)
+
+        # Adjust layout to prevent cutting off axis labels
+        plt.tight_layout()
+
+        plt.savefig(plot_output_path, dpi=300)
+        plt.close()
     
     @staticmethod
     def delete_dir(dir_path):
@@ -179,8 +220,12 @@ class YTVideoSummarizer:
         create_directory(frames_dir)
         tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
         frame_text_data, frames = YTVideoSummarizer.run_text_extraction(video_path, tesseract_path, frames_dir)
-        frame_text_data_file = os.path.join(base_dir, dir_name, "frame_text_data.pkl")
-        frames_file = os.path.join(base_dir, dir_name, "frames.pkl")
+        frame_text_data_dir = os.path.join(base_dir, dir_name + "_frame_text_data")
+        YTVideoSummarizer.delete_dir(frame_text_data_dir)
+        create_directory(frame_text_data_dir)
+        
+        frame_text_data_file = os.path.join(frame_text_data_dir, "frame_text_data.pkl")
+        frames_file = os.path.join(frame_text_data_dir, "frames.pkl")
         YTVideoSummarizer.store_python_objects(frame_text_data, frame_text_data_file)
         YTVideoSummarizer.store_python_objects(frames, frames_file)
         

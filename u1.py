@@ -254,10 +254,6 @@ def extract_text_from_video_v3(video_path: str, tesseract_path: str, output_path
         save_frame(previous_frame, output_path, frame_number)
         frame_text_data.append((frame_number, previous_text))
         frames.append(previous_frame)
-
-    # Plot word count vs frame number
-    plot_output_path = os.path.join(os.path.dirname(output_path), "word_count_vs_frame.png")
-    peak_output_path = os.path.join(os.path.dirname(output_path), "peak_frames") 
     
 
     

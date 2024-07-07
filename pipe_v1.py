@@ -90,7 +90,7 @@ def main():
     # delete_directories_without_keyword("data", "_peak_frames")
     
     # random_10_frames(output_path)
-
+import pickle
 class YTVideoSummarizer:
     def __init__(self) -> None:
         pass
@@ -149,6 +149,17 @@ class YTVideoSummarizer:
         # delete only if exists
         if os.path.exists(dir_path): 
             shutil.rmtree(dir_path)
+    
+    @staticmethod
+    def store_python_objects(obj, file_path):
+        with open(file_path, "wb") as f:
+            pickle.dump(obj, f)
+    
+    @staticmethod
+    def load_python_objects(file_path):
+        with open(file_path, "rb") as f:
+            obj = pickle.load(f)
+        return obj
 
     @staticmethod
     def pipe():
@@ -168,6 +179,10 @@ class YTVideoSummarizer:
         create_directory(frames_dir)
         tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
         frame_text_data, frames = YTVideoSummarizer.run_text_extraction(video_path, tesseract_path, frames_dir)
+        frame_text_data_file = os.path.join(base_dir, dir_name, "frame_text_data.pkl")
+        frames_file = os.path.join(base_dir, dir_name, "frames.pkl")
+        YTVideoSummarizer.store_python_objects(frame_text_data, frame_text_data_file)
+        YTVideoSummarizer.store_python_objects(frames, frames_file)
         
         plot_path = os.path.join(base_dir, dir_name + "_plot")
         YTVideoSummarizer.delete_dir(plot_path)

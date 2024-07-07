@@ -65,3 +65,6 @@ https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 [v] Write everything again using modular approach and oops approach
 
 [] https://claude.ai/chat/80e72a8e-3db4-4900-b64c-b63b7c891bcc try this curve smoothening
+
+[] https://claude.ai/chat/5f0fb230-e2cf-4f13-b628-02b04c991b0e
+Try suggestions mentioned here

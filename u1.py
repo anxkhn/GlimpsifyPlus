@@ -264,7 +264,7 @@ def extract_text_from_video_v3(video_path: str, tesseract_path: str, output_path
     
     return frame_text_data, frames
 
-def save_max_info_frames(frame_text_data, peak_output_path, frames):
+def save_max_info_frames(frame_text_data, peak_output_path, frames, threshold = 0):
 # Find and save local maxima frames
     frame_numbers, texts = zip(*frame_text_data)
     word_counts = [len(text.split()) for text in texts]
@@ -272,7 +272,7 @@ def save_max_info_frames(frame_text_data, peak_output_path, frames):
 
     os.makedirs(peak_output_path, exist_ok=True)
     for i, is_peak in enumerate(peaks):
-        if is_peak:
+        if is_peak and word_counts[i] > threshold:
             peak_frame_path = os.path.join(peak_output_path, f"peak_frame_{frame_numbers[i]}.jpg")
             cv2.imwrite(peak_frame_path, frames[i])
 

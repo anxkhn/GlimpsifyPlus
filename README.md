@@ -1,4 +1,5 @@
 # Most Information Frame Extractor
+
 Pass a YouTube Video link and get the screenshots of the frame which has the most information content (like if someone is explaining with the help of a PPT, capture screenshot when all the text of one slide of PPT has animated in)
 
 Frame with most information it can possibly have
@@ -7,9 +8,8 @@ Frame with most information it can possibly have
 This frame can have more information and thus not the most information frame
 ![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/35eed63d-e490-441a-ab65-06ad336cb8aa)
 
-
-
 # How
+
 The approach I have taken in this code is to perform frame-by-frame analysis of a video to extract text using Optical Character Recognition (OCR) and save only the frames that contain significant changes or improvements in the text content.
 
 The main steps involved in this approach are:
@@ -22,7 +22,6 @@ The main steps involved in this approach are:
 6. Iteration: The process repeats for each frame, updating the previous frame and previous text with the current frame and text if the text difference is significant.
 
 This approach allows the script to analyze the video frame-by-frame, identify frames with significant visual and textual changes, and save only those frames that contain improved or new text information. By adjusting the thresholds for frame difference and text difference, the script can be fine-tuned to capture the desired level of changes in the video content.
-
 
 I used the concept of point processing on images to compare difference in image on pixel level and proceed to compare using text content of the current and previous frame only if the difference is significant on image pixel level.
 
@@ -49,11 +48,20 @@ https://claude.ai/chat/b8d512fa-ad56-4134-9637-ad94a68a4bc6
 Link to the claude chat:
 https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 
-# Continuing with the work 
-- mapping the graph 
+# Continuing with the work
+
+- mapping the graph
 - saving only the frame after which the info content drops
+
+# Update
+
+- Now using a peak word count approach
+- It has got even better accuracy with thresholding (currently manual, plan to make it automatic)
 
 ![alt text](image-1.png)
 
 # TODO
-[] Write everything again using modular approach and oops approach
+
+[v] Write everything again using modular approach and oops approach
+
+[] https://claude.ai/chat/80e72a8e-3db4-4900-b64c-b63b7c891bcc try this curve smoothening

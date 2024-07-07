@@ -68,3 +68,24 @@ https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 
 [] https://claude.ai/chat/5f0fb230-e2cf-4f13-b628-02b04c991b0e
 Try suggestions mentioned here
+
+# Obstacles
+
+### Obstacle 1
+Someone explaning on whiteboard:
+![alt text](image-2.png)
+
+vkkjvu_peak_frames: Message Passing Systems (Part 2).mp4
+
+possible solutions:
+- smooth something
+- dynamic thresholding or something like that
+
+### Obstacle 2
+In addition to text slides, footage of the person in between the video:
+![alt text](image-3.png)
+
+okhdwp_peak_frames: How I Mastered System Design Interviews.mp4
+
+possible solutions:
+- skip the frame where no text and only a person is present

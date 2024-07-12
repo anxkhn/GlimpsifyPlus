@@ -105,8 +105,8 @@ def save_frame(frame: cv2.Mat, output_path: str, frame_number: int) -> None:
     text_size, _ = cv2.getTextSize(text, font, 1, 2)
     text_x = 10
     text_y = frame.shape[0] - 10
-    cv2.rectangle(frame, (text_x, text_y - text_size[1] - 10), (text_x + text_size[0], text_y), (0, 0, 0), cv2.FILLED)
-    cv2.putText(frame, text, (text_x, text_y), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
+    # cv2.rectangle(frame, (text_x, text_y - text_size[1] - 10), (text_x + text_size[0], text_y), (0, 0, 0), cv2.FILLED)
+    # cv2.putText(frame, text, (text_x, text_y), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
     cv2.imwrite(output_path, frame)
 
 def extract_text_from_video(video_path: str, tesseract_path: str, output_path: str, interval: float = 0.0, diff_threshold: float = 0.1) -> None:

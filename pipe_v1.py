@@ -94,6 +94,44 @@ import pickle
 class YTVideoSummarizer:
     def __init__(self) -> None:
         pass
+    
+    @staticmethod
+    def get_frames_from_dir(dir_path):
+        list_of_files = list()
+        for (dirpath, dirnames, filenames) in os.walk(dir_path):
+            list_of_files += [file for file in filenames]
+        return list_of_files
+
+    @staticmethod
+    def add_text_to_frames_and_save(input_dir, list_of_files, output_dir):
+        n = len(list_of_files)
+        print(list_of_files)
+        for i, file in enumerate(list_of_files):
+            frame_path = os.path.join(input_dir, file)
+            frame = cv2.imread(frame_path)
+            text = f"Glimpsify {i+1}/{n}"
+            # frame = cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            text_size, _ = cv2.getTextSize(text, font, 0.51, 1)
+            text_x = 10
+            text_y = frame.shape[0] - 10
+            # cv2.rectangle(frame, (text_x, text_y - text_size[1] - 10), (text_x + text_size[0], text_y), (85, 26, 58), cv2.FILLED)
+            # cv2.putText(frame, text, (text_x, text_y - 5), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+            
+
+            overlay = frame.copy()
+            
+            # Draw the filled rectangle on the overlay image
+            cv2.rectangle(overlay, (text_x, text_y - text_size[1] - 10), (text_x + text_size[0], text_y), (85, 26, 58), cv2.FILLED)
+            cv2.putText(overlay, text, (text_x, text_y - 5), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+
+            # Blend the overlay with the original image using alpha blending
+            opacity = 0.6
+            cv2.addWeighted(overlay, opacity, frame, 1 - opacity, 0, frame)
+            
+            output_path = os.path.join(output_dir, file)
+            cv2.imwrite(output_path, frame)
 
     @staticmethod
     def generate_random_word(length):
@@ -136,8 +174,9 @@ class YTVideoSummarizer:
 
     
     @staticmethod
-    def run_text_extraction(video_path, tesseract_path, output_path):
-        frame_text_data, frames = extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=3.0)
+    def run_text_extraction(video_path, tesseract_path, output_path, interval=3.0):
+        # frame_text_data, frames = extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=3.0)
+        frame_text_data, frames = extract_text_from_video_v3(video_path, tesseract_path, output_path, diff_threshold=0.05, interval=interval)
         return frame_text_data, frames
 
     @staticmethod
@@ -218,8 +257,12 @@ class YTVideoSummarizer:
         frames_dir = os.path.join(base_dir, dir_name + "_frames")
         YTVideoSummarizer.delete_dir(frames_dir)
         create_directory(frames_dir)
+        
+        
         tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-        frame_text_data, frames = YTVideoSummarizer.run_text_extraction(video_path, tesseract_path, frames_dir)
+        frame_text_data, frames = YTVideoSummarizer.run_text_extraction(video_path, tesseract_path, frames_dir, interval=3)
+        
+        
         frame_text_data_dir = os.path.join(base_dir, dir_name + "_frame_text_data")
         YTVideoSummarizer.delete_dir(frame_text_data_dir)
         create_directory(frame_text_data_dir)
@@ -255,11 +298,20 @@ class YTVideoSummarizer:
         if should_clean_up.lower() == "y":
             YTVideoSummarizer.delete_dir(video_dir)
             YTVideoSummarizer.delete_dir(frames_dir)
-            # YTVideoSummarizer.delete_dir(plot_path)
+            YTVideoSummarizer.delete_dir(plot_path)
+            YTVideoSummarizer.delete_dir(frame_text_data_dir) 
+            
         
 
 if __name__ == "__main__":
-    # main()
     YTVideoSummarizer.pipe()
+    
+    # input_dir = "D:\DPythonProjects\yt_summarizer\data\limyws_peak_frames_96.5"
+    # lis_of_files = YTVideoSummarizer.get_frames_from_dir(input_dir)
+    # output_dir = "D:\DPythonProjects\yt_summarizer\data\limyws_peak_frames_96.5_with_text"
+    # YTVideoSummarizer.create_directory(output_dir)
+    # YTVideoSummarizer.add_text_to_frames_and_save(input_dir, lis_of_files, output_dir)
+    
+    
     # data/wjndjq
     # random_10_frames("data/vdcakt_frames")

@@ -89,3 +89,6 @@ okhdwp_peak_frames: How I Mastered System Design Interviews.mp4
 
 possible solutions:
 - skip the frame where no text and only a person is present
+
+### Obstacle 3
+Poor results with background on the screen

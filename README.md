@@ -92,3 +92,16 @@ possible solutions:
 
 ### Obstacle 3
 Poor results with background on the screen
+
+
+# Using Moving Averages to find the desired frames
+
+![alt text](image-4.png)
+
+Got even better results with the moving averages method
+What I did is plot the moving averages of the word count with small window size and large window size then found the intersection of the two curves and took the frame number at that point
+
+![alt text](image-6.png)
+
+Before: 295 frames (has non-max info frames too)
+After: 81 frames (has mostly max info frames, few non-max info frames still present)

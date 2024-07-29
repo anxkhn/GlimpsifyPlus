@@ -6,6 +6,12 @@ from u1 import *
 import shutil
 from file_utils import *
 
+import io
+import sys
+
+# Set the default encoding for sys.stdout
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 def generate_random_word(length):
     """Generates a random word of given length."""
     letters = string.ascii_lowercase
@@ -251,7 +257,7 @@ class YTVideoSummarizer:
         video_path = os.path.join(video_dir, video_name)
         
         index_path = os.path.join(base_dir, "index.txt")
-        with open(index_path, "a") as f:
+        with open(index_path, "a", encoding='utf-8') as f:
             f.write(f"{dir_name}_peak_frames: {video_name}\n") 
             
         frames_dir = os.path.join(base_dir, dir_name + "_frames")

@@ -72,27 +72,31 @@ Try suggestions mentioned here
 # Obstacles
 
 ### Obstacle 1
+
 Someone explaning on whiteboard:
 ![alt text](image-2.png)
 
 vkkjvu_peak_frames: Message Passing Systems (Part 2).mp4
 
 possible solutions:
+
 - smooth something
 - dynamic thresholding or something like that
 
 ### Obstacle 2
+
 In addition to text slides, footage of the person in between the video:
 ![alt text](image-3.png)
 
 okhdwp_peak_frames: How I Mastered System Design Interviews.mp4
 
 possible solutions:
+
 - skip the frame where no text and only a person is present
 
 ### Obstacle 3
-Poor results with background on the screen
 
+Poor results with background on the screen
 
 # Using Moving Averages to find the desired frames
 
@@ -105,3 +109,52 @@ What I did is plot the moving averages of the word count with small window size 
 
 Before: 295 frames (has non-max info frames too)
 After: 81 frames (has mostly max info frames, few non-max info frames still present)
+
+# Fixes
+
+class InnerTube:
+"""Object for interacting with the innertube API."""
+def **init**(self, client='ANDROID_CREATOR', use_oauth=False, allow_cache=True):
+
+Regex change in the get throtling function thing
+
+# Update (29/07/2024)
+
+https://claude.ai/chat/179f256d-6896-4158-a3bf-9903b9e92e4e
+
+Trying to use GPU for the processing
+
+```
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+xformers 0.0.25.post1 requires torch==2.2.2, but you have torch 2.0.1+cu117 which is incompatible.
+```
+
+might need to fix this
+
+ImportError: PyAV is not installed, and is necessary for the video operations in torchvision.
+pip install av
+
+Follow this to look for gpu ocr
+https://claude.ai/chat/478fef1c-5b8d-4001-89a7-780d07b4e60a
+
+# Resources for upgrading to GPU
+https://www.youtube.com/watch?v=oOIxHDwXY1s
+https://www.cse.cuhk.edu.hk/~byu/CMSC5743/2020Fall/slides/T02-OCR-TensorRT.pdf
+
+
+# Errors to Fix
+
+```
+(base) D:\DPythonProjects\yt_summarizer>C:/Users/Vedant/anaconda3/python.exe d:/DPythonProjects/yt_summarizer/gpu_v3.py
+Using device: cuda
+Enter the URL of the YouTube video (or folder path): pfhpem
+Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_frames' created successfully.
+C:\Users\Vedant\anaconda3\Lib\site-packages\torchvision\io\video.py:161: UserWarning: The pts_unit 'pts' gives wrong results. Please use pts_unit 'sec'.
+  warnings.warn("The pts_unit 'pts' gives wrong results. Please use pts_unit 'sec'.")
+C:\Users\Vedant\anaconda3\Lib\site-packages\torchvision\transforms\functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).    
+  warnings.warn(
+Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_frame_text_data' created successfully.
+Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_plot' created successfully.
+OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.
+OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
+```

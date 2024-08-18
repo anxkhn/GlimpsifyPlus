@@ -162,3 +162,11 @@ OMP: Hint This means that multiple copies of the OpenMP runtime have been linked
 
 # Leads
 https://claude.ai/chat/75126ab2-61fe-4da6-98ab-235af098df7c
+
+
+# 𝘔𝘢𝘹𝘪𝘮𝘪𝘻𝘦 𝘗𝘳𝘰𝘧𝘪𝘵 𝘣𝘺 𝘉𝘶𝘺𝘪𝘯𝘨 𝘢𝘯𝘥 𝘚𝘦𝘭𝘭𝘪𝘯𝘨 𝘢 𝘚𝘵𝘰𝘤𝘬 𝘢𝘵 𝘮𝘰𝘴𝘵 𝘒 𝘛𝘪𝘮𝘦𝘴
+
+![alt text](image-7.png)
+![alt text](image-8.png)
+
+Nice results

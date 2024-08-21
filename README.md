@@ -170,3 +170,12 @@ https://claude.ai/chat/75126ab2-61fe-4da6-98ab-235af098df7c
 ![alt text](image-8.png)
 
 Nice results
+
+# You need to take time as weight and scale the char count too
+![alt text](image-9.png)
+
+The OCR can make mistake and mistakenly score the next frame with more data as having less data than the previous frame. And this data when passed to the Maximise Profit function can give wrong results. So, we need to scale the char count with time as weight to get better results.
+
+![alt text](image-10.png)
+Popup in the video can also wrongly come in the OCR char count
+

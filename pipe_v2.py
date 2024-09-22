@@ -169,6 +169,70 @@ class VideoSummarizerFactory:
         ocr = OCRFactory.create_ocr(ocr_type)
         return VideoProcessor(ocr, **kwargs)
 
+import numpy as np
+import pandas as pd
+import re
+
+class DataFrameLoader:
+    def __init__(self, filepath):
+        self.filepath = filepath
+
+    def load_array(self):
+        array = np.load(self.filepath, allow_pickle=True)
+        array = np.array(array)
+        return array
+
+    def create_dataframe(self, array):
+        df = pd.DataFrame(array)
+        df.rename(columns={0: "frame_id", 1: "text"}, inplace=True)
+        self.add_cleaned_text_column(df)
+        self.add_char_count_column(df)
+        return df
+
+    def clean_text(self, text):
+        text = re.sub(r"[^a-zA-Z\s]", "", text)
+        text = " ".join(text.split())
+        text = text.lower()
+        return text
+
+    def char_count(self, text):
+        return len(text)
+
+    def add_char_count_column(self, df):
+        df["char_count"] = df["cleaned_text"].apply(self.char_count)
+        return df
+
+    def add_cleaned_text_column(self, df):
+        df["cleaned_text"] = df["text"].apply(self.clean_text)
+        return df
+
+def maxProfit(prices, n, k):
+    if n <= 1 or k == 0:
+        return 0, []
+
+    profit = [[0 for _ in range(k + 1)] for _ in range(n)]
+    transactions = [[[] for _ in range(k + 1)] for _ in range(n)]
+
+    for i in range(1, n):
+        for j in range(1, k + 1):
+            max_so_far = 0
+            best_transaction = []
+
+            for l in range(i):
+                current_profit = prices[i] - prices[l] + profit[l][j - 1]
+                if current_profit > max_so_far:
+                    max_so_far = current_profit
+                    best_transaction = transactions[l][j - 1] + [(l, i)]
+
+            if max_so_far > profit[i - 1][j]:
+                profit[i][j] = max_so_far
+                transactions[i][j] = best_transaction
+            else:
+                profit[i][j] = profit[i - 1][j]
+                transactions[i][j] = transactions[i - 1][j]
+
+    return profit[n - 1][k], transactions[n - 1][k]
+
 class YTVideoSummarizer:
     def __init__(self, downloader: VideoDownloader, processor: VideoProcessor):
         self.downloader = downloader
@@ -204,6 +268,10 @@ class YTVideoSummarizer:
         self._plot_data(base_dir, dir_name, frame_text_data)
         self._save_peak_frames(base_dir, dir_name, frame_text_data, frames)
 
+        # New addition: Calculate and save profit frames
+        self._calculate_and_save_profit_frames(base_dir, dir_name, frame_text_data, frames)
+
+
     def _save_data(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
         data_dir = os.path.join(base_dir, f"{dir_name}_frame_text_data")
         DirectoryManager.create_directory(data_dir)
@@ -216,6 +284,34 @@ class YTVideoSummarizer:
         DirectoryManager.create_directory(plot_dir)
 
         DataPlotter.plot_word_count_vs_frame(frame_text_data, os.path.join(plot_dir, "word_count_vs_frame.png"))
+
+
+    def _calculate_and_save_profit_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
+        # Create DataFrame
+        df = pd.DataFrame(frame_text_data, columns=['frame_id', 'text'])
+        df['char_count'] = df['text'].apply(len)
+
+        # Get input for k
+        k = int(input("Enter the number of transactions (k): "))
+
+        # Calculate max profit
+        prices = df['char_count'].values
+        n = len(prices)
+        max_profit, transactions = maxProfit(prices, n, k)
+
+        logger.info(f"Maximum profit: {max_profit}")
+        logger.info(f"Transactions: {transactions}")
+
+        # Save profit frames
+        profit_frames_dir = os.path.join(base_dir, f"{dir_name}_profits")
+        DirectoryManager.create_directory(profit_frames_dir)
+
+        for _, sell in transactions:
+            frame = frames[sell]
+            frame_path = os.path.join(profit_frames_dir, f"profit_frame_{sell}.jpg")
+            cv2.imwrite(frame_path, frame)
+
+        logger.info(f"Profit frames saved in {profit_frames_dir}") 
 
     def _save_peak_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
         peak_output_path = os.path.join(base_dir, f"{dir_name}_peak_frames")

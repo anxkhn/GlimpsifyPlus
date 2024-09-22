@@ -307,8 +307,9 @@ class YTVideoSummarizer:
         DirectoryManager.create_directory(profit_frames_dir)
 
         for _, sell in transactions:
+            frame_index = df.iloc[sell]['frame_id']  # Get the actual frame_id
             frame = frames[sell]
-            frame_path = os.path.join(profit_frames_dir, f"profit_frame_{sell}.jpg")
+            frame_path = os.path.join(profit_frames_dir, f"profit_frame_{frame_index}.jpg")
             cv2.imwrite(frame_path, frame)
 
         logger.info(f"Profit frames saved in {profit_frames_dir}") 
@@ -336,7 +337,8 @@ class YTVideoSummarizer:
 def main():
     base_dir = os.path.join(os.getcwd(), "data")
     video_url = input("Enter the URL of the YouTube video (or folder path): ")
-    ocr_type = input("Enter the OCR type (tesseract/easyocr): ")
+    # ocr_type = input("Enter the OCR type (tesseract/easyocr): ")
+    ocr_type = "tesseract" 
 
     factory = VideoSummarizerFactory()
     downloader = factory.create_downloader("youtube")

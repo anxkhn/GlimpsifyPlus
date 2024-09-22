@@ -1,7 +1,7 @@
 import os
 from typing import Optional
-from pytube import YouTube
-import pytube
+from pytubefix import YouTube
+import pytubefix
 
 def download_youtube_video(url: str, output_dir: str = ".") -> None:
     """
@@ -11,7 +11,7 @@ def download_youtube_video(url: str, output_dir: str = ".") -> None:
         url (str): The URL of the YouTube video.
         output_dir (str, optional): The directory to save the downloaded video. Defaults to the current directory.
     """
-    yt = YouTube(url) 
+    yt = YouTube(url)
 
     video = get_highest_resolution_mp4_stream(yt)
 
@@ -25,7 +25,7 @@ def download_youtube_video(url: str, output_dir: str = ".") -> None:
     else:
         print("No MP4 stream found.")
 
-def get_highest_resolution_mp4_stream(yt: YouTube) -> Optional[pytube.Stream]:
+def get_highest_resolution_mp4_stream(yt: YouTube) -> Optional[pytubefix.Stream]:
     """
     Get the highest resolution MP4 stream for the given YouTube object.
 
@@ -33,7 +33,7 @@ def get_highest_resolution_mp4_stream(yt: YouTube) -> Optional[pytube.Stream]:
         yt (YouTube): The YouTube object.
 
     Returns:
-        Optional[pytube.Stream]: The highest resolution MP4 stream, or None if not found.
+        Optional[pytubefix.Stream]: The highest resolution MP4 stream, or None if not found.
     """
     return yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
 

@@ -232,21 +232,24 @@ def maxProfit(prices, n, k):
                 transactions[i][j] = transactions[i - 1][j]
 
     return profit[n - 1][k], transactions[n - 1][k]
+ 
+
 
 class YTVideoSummarizer:
     def __init__(self, downloader: VideoDownloader, processor: VideoProcessor):
         self.downloader = downloader
         self.processor = processor
 
-    def summarize(self, video_url: str, base_dir: str):
+    def summarize(self, video_url: str, base_dir: str, k: int = 20, cleanup: bool = True):
         dir_name = self._setup_directories(video_url, base_dir)
         video_path = self._download_video(video_url, os.path.join(base_dir, dir_name))
         index_path = os.path.join(base_dir, "index.txt")
         with open(index_path, "a", encoding='utf-8') as f:
             f.write(f"{dir_name}_peak_frames: {video_path}\n") 
-        self._process_video(video_path, base_dir, dir_name)
-        self._cleanup(base_dir, dir_name)
-
+        self._process_video(video_path, base_dir, dir_name, k)
+        if cleanup:
+            self._cleanup(base_dir, dir_name)
+ 
     def _setup_directories(self, video_url: str, base_dir: str) -> str:
         if ":" in video_url:
             dir_name = DirectoryManager.generate_random_word(6)
@@ -338,18 +341,79 @@ class YTVideoSummarizer:
             DirectoryManager.delete_directory(os.path.join(base_dir, f"{dir_name}_plot"))
             DirectoryManager.delete_directory(os.path.join(base_dir, f"{dir_name}_frame_text_data"))
 
+    def _process_video(self, video_path: str, base_dir: str, dir_name: str, k: int):
+        frames_dir = os.path.join(base_dir, f"{dir_name}_frames")
+        DirectoryManager.create_directory(frames_dir)
+
+        frame_text_data, frames = self.processor.process(video_path, frames_dir)
+
+        self._save_data(base_dir, dir_name, frame_text_data, frames)
+        self._plot_data(base_dir, dir_name, frame_text_data)
+        self._save_peak_frames(base_dir, dir_name, frame_text_data, frames)
+        self._calculate_and_save_profit_frames(base_dir, dir_name, frame_text_data, frames, k)
+
+    def _calculate_and_save_profit_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat], k: int):
+        # Create DataFrame
+        df = pd.DataFrame(frame_text_data, columns=['frame_id', 'text'])
+        df['char_count'] = df['text'].apply(len)
+
+        # Calculate max profit
+        prices = df['char_count'].values
+        n = len(prices)
+        max_profit, transactions = maxProfit(prices, n, k)
+
+        logger.info(f"Maximum profit: {max_profit}")
+        logger.info(f"Transactions: {transactions}")
+
+        # Save profit frames
+        profit_frames_dir = os.path.join(base_dir, f"{dir_name}_profits")
+        DirectoryManager.create_directory(profit_frames_dir)
+
+        for _, sell in transactions:
+            frame_index = df.iloc[sell]['frame_id']  # Get the actual frame_id
+            frame = frames[sell]
+            frame_path = os.path.join(profit_frames_dir, f"profit_frame_{frame_index}.jpg")
+            cv2.imwrite(frame_path, frame)
+
+        logger.info(f"Profit frames saved in {profit_frames_dir}")
+
+    def _save_peak_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
+        peak_output_path = os.path.join(base_dir, f"{dir_name}_peak_frames")
+        DirectoryManager.create_directory(peak_output_path)
+        save_max_info_frames(frame_text_data, peak_output_path, frames)
+
+    def _cleanup(self, base_dir: str, dir_name: str):
+        DirectoryManager.delete_directory(os.path.join(base_dir, dir_name))
+        DirectoryManager.delete_directory(os.path.join(base_dir, f"{dir_name}_frames"))
+        DirectoryManager.delete_directory(os.path.join(base_dir, f"{dir_name}_plot"))
+        DirectoryManager.delete_directory(os.path.join(base_dir, f"{dir_name}_frame_text_data"))
+
+import time
 def main():
     base_dir = os.path.join(os.getcwd(), "data")
-    video_url = input("Enter the URL of the YouTube video (or folder path): ")
-    # ocr_type = input("Enter the OCR type (tesseract/easyocr): ")
-    ocr_type = "tesseract" 
+    
+    # Ask for multiple URLs
+    video_urls = input("Enter the URLs of the YouTube videos (comma-separated): ").split(',')
+    video_urls = [url.strip() for url in video_urls]
+    
+    # Ask for OCR type once
+    ocr_type = input("Enter the OCR type (tesseract/easyocr) [default: tesseract]: ").strip() or "tesseract"
+    
+    # Ask for k and cleanup preference once
+    k = int(input("Enter the number of transactions (k) [default: 20]: ") or 20)
+    cleanup = input("Do you want to clean up directories after processing? (y/n) [default: y]: ").lower() != 'n'
 
     factory = VideoSummarizerFactory()
     downloader = factory.create_downloader("youtube")
     processor = factory.create_processor(ocr_type, interval=3.0)
 
     summarizer = YTVideoSummarizer(downloader, processor)
-    summarizer.summarize(video_url, base_dir)
+    
+    for video_url in video_urls:
+        print(f"\nProcessing video: {video_url}")
+        summarizer.summarize(video_url, base_dir, k=k, cleanup=cleanup)
+        time.sleep(30) 
+        
 
 if __name__ == "__main__":
     main()

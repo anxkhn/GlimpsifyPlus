@@ -14,6 +14,11 @@ from yt_down import download_youtube_video
 from u1 import save_max_info_frames
 from text_utils import clean_text
 
+import pytesseract
+from PIL import Image
+
+import easyocr
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -37,15 +42,17 @@ class OCR(ABC):
         text = self.extract_text(img_fp)
         return clean_text(text)
 
+
+
+
+
 class Tesseract(OCR):
     def extract_text(self, img_fp: str) -> str:
-        import pytesseract
-        from PIL import Image
+
         return pytesseract.image_to_string(Image.open(img_fp))
 
 class EasyOCR(OCR):
     def __init__(self):
-        import easyocr
         self.reader = easyocr.Reader(['en'])
 
     def extract_text(self, img_fp: str) -> str:
@@ -100,7 +107,7 @@ class VideoProcessor:
 
 class DataPlotter:
     @staticmethod
-    def plot_word_count_vs_frame(frame_text_data: List[Tuple[int, str]], output_path: str):
+    def plot_word_count_vs_frame(frame_text_data, output_path, transactions=None):
         logger.info(f"Plotting word count vs frame to {output_path}")
         frame_numbers = [data[0] for data in frame_text_data]
         word_counts = [len(data[1].split()) for data in frame_text_data]
@@ -118,6 +125,15 @@ class DataPlotter:
         plt.ylim(max(0, min_count - 1), max_count + 1)
         unique_word_counts = sorted(set(word_counts))
         plt.yticks(unique_word_counts)
+
+        if transactions:
+            for buy, sell in transactions:
+                plt.annotate(f'Buy ({frame_numbers[buy]})', (frame_numbers[buy], word_counts[buy]), 
+                             xytext=(5, 5), textcoords='offset points', color='orange', fontweight='bold')
+                plt.annotate(f'Sell ({frame_numbers[sell]})', (frame_numbers[sell], word_counts[sell]), 
+                             xytext=(5, -5), textcoords='offset points', color='red', fontweight='bold')
+                plt.plot(frame_numbers[buy], word_counts[buy], 'o', color='orange', markersize=10)
+                plt.plot(frame_numbers[sell], word_counts[sell], 'o', color='red', markersize=10)
 
         plt.tight_layout()
         plt.savefig(output_path, dpi=300)
@@ -282,11 +298,11 @@ class YTVideoSummarizer:
         DataPersistence.store_object(frame_text_data, os.path.join(data_dir, "frame_text_data.pkl"))
         DataPersistence.store_object(frames, os.path.join(data_dir, "frames.pkl"))
 
-    def _plot_data(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]]):
+    def _plot_data(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], transactions=None):
         plot_dir = os.path.join(base_dir, f"{dir_name}_plot")
         DirectoryManager.create_directory(plot_dir)
 
-        DataPlotter.plot_word_count_vs_frame(frame_text_data, os.path.join(plot_dir, "word_count_vs_frame.png"))
+        DataPlotter.plot_word_count_vs_frame(frame_text_data, os.path.join(plot_dir, "word_count_vs_frame.png"), transactions) 
 
 
     def _calculate_and_save_profit_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
@@ -315,7 +331,10 @@ class YTVideoSummarizer:
             frame_path = os.path.join(profit_frames_dir, f"profit_frame_{frame_index}.jpg")
             cv2.imwrite(frame_path, frame)
 
-        logger.info(f"Profit frames saved in {profit_frames_dir}") 
+        logger.info(f"Profit frames saved in {profit_frames_dir}")
+
+        # Redraw the plot with annotations
+        self._plot_data(base_dir, dir_name, frame_text_data, transactions) 
 
     def _save_peak_frames(self, base_dir: str, dir_name: str, frame_text_data: List[Tuple[int, str]], frames: List[cv2.Mat]):
         peak_output_path = os.path.join(base_dir, f"{dir_name}_peak_frames")

@@ -1,6 +1,6 @@
 import os
 import cv2
-
+from PIL import Image
 from file_utils import *
 
 class Frame:
@@ -38,10 +38,46 @@ class PostProcessor:
             output_path = os.path.join(output_dir, frame.frame_path)
             cv2.imwrite(output_path, current_frame)
 
+    @staticmethod
+    def convert_images_to_pdf(input_dir, list_of_files, output_pdf_path):
+        frames = [Frame(file) for file in list_of_files]
+        frames.sort(key=lambda x: x.frame_id)
+        
+        images = []
+        first_image = None
+        
+        for frame in frames:
+            image_path = os.path.join(input_dir, frame.frame_path)
+            img = Image.open(image_path)
+            
+            if img.mode == 'RGBA':
+                img = img.convert('RGB')
+                
+            if first_image is None:
+                first_image = img
+            else:
+                images.append(img)
+        
+        if first_image:
+            first_image.save(output_pdf_path, save_all=True, append_images=images)
+            return True
+        return False
+
 if __name__ == "__main__":
     input_dir = "data/lrpdqi_profits"
     output_dir = "data/lrpdqi_profits_postprocessed"
+    pdf_output_path = "data/lrpdqi_profits.pdf"
+    
     create_directory(output_dir)   
     
     list_of_files = os.listdir(input_dir)
+    
+    # Process and save individual frames
     PostProcessor.add_text_to_frames_and_save(input_dir, list_of_files, output_dir)
+    
+    # Convert processed images to PDF
+    processed_files = os.listdir(output_dir)
+    if PostProcessor.convert_images_to_pdf(output_dir, processed_files, pdf_output_path):
+        print(f"PDF successfully created at {pdf_output_path}")
+    else:
+        print("Failed to create PDF - no images found") 

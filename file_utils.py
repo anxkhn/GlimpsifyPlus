@@ -24,6 +24,10 @@ def delete_directories_without_keyword(directory, keyword):
             if not keyword in dir:
                 shutil.rmtree(dir_path)
 
+def create_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory) 
+
 if __name__ == '__main__':
     # Example usage
     directory_path = 'data'

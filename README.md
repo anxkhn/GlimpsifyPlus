@@ -98,6 +98,13 @@ possible solutions:
 
 Poor results with background on the screen
 
+### Obstacle 4
+
+https://claude.ai/chat/c89dfb2b-2e96-4912-b484-8adb242b5771
+
+Use multiple images of same thing to remove the obstacle and get clean screenshots
+[] Go through the above research papers and try to adapt the techniques to this project
+
 # Using Moving Averages to find the desired frames
 
 ![alt text](image-4.png)
@@ -178,4 +185,6 @@ The OCR can make mistake and mistakenly score the next frame with more data as h
 
 ![alt text](image-10.png)
 Popup in the video can also wrongly come in the OCR char count
+
+
 

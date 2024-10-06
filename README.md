@@ -186,6 +186,14 @@ The OCR can make mistake and mistakenly score the next frame with more data as h
 ![alt text](image-10.png)
 Popup in the video can also wrongly come in the OCR char count
 
+## Using specialized software for person-free frames:
+
+Photoshop: Use the "Stack Mode" feature in the "Statistics" script.
+GIMP: Use the "Median Stack" plugin.
+ImageMagick: Use the command-line tool with the "median" option.
+
+https://claude.ai/chat/c2bc0976-d763-4056-97dc-431b22d8675b
+
 ## Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)

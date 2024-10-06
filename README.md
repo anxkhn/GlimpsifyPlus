@@ -145,9 +145,9 @@ Follow this to look for gpu ocr
 https://claude.ai/chat/478fef1c-5b8d-4001-89a7-780d07b4e60a
 
 # Resources for upgrading to GPU
+
 https://www.youtube.com/watch?v=oOIxHDwXY1s
 https://www.cse.cuhk.edu.hk/~byu/CMSC5743/2020Fall/slides/T02-OCR-TensorRT.pdf
-
 
 # Errors to Fix
 
@@ -158,7 +158,7 @@ Enter the URL of the YouTube video (or folder path): pfhpem
 Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_frames' created successfully.
 C:\Users\Vedant\anaconda3\Lib\site-packages\torchvision\io\video.py:161: UserWarning: The pts_unit 'pts' gives wrong results. Please use pts_unit 'sec'.
   warnings.warn("The pts_unit 'pts' gives wrong results. Please use pts_unit 'sec'.")
-C:\Users\Vedant\anaconda3\Lib\site-packages\torchvision\transforms\functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).    
+C:\Users\Vedant\anaconda3\Lib\site-packages\torchvision\transforms\functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).
   warnings.warn(
 Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_frame_text_data' created successfully.
 Directory 'D:\DPythonProjects\yt_summarizer\data\pfhpem_plot' created successfully.
@@ -166,19 +166,19 @@ OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already in
 OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
 ```
 
+## Leads
 
-# Leads
 https://claude.ai/chat/75126ab2-61fe-4da6-98ab-235af098df7c
 
-
-# 𝘔𝘢𝘹𝘪𝘮𝘪𝘻𝘦 𝘗𝘳𝘰𝘧𝘪𝘵 𝘣𝘺 𝘉𝘶𝘺𝘪𝘯𝘨 𝘢𝘯𝘥 𝘚𝘦𝘭𝘭𝘪𝘯𝘨 𝘢 𝘚𝘵𝘰𝘤𝘬 𝘢𝘵 𝘮𝘰𝘴𝘵 𝘒 𝘛𝘪𝘮𝘦𝘴
+### 𝘔𝘢𝘹𝘪𝘮𝘪𝘻𝘦 𝘗𝘳𝘰𝘧𝘪𝘵 𝘣𝘺 𝘉𝘶𝘺𝘪𝘯𝘨 𝘢𝘯𝘥 𝘚𝘦𝘭𝘭𝘪𝘯𝘨 𝘢 𝘚𝘵𝘰𝘤𝘬 𝘢𝘵 𝘮𝘰𝘴𝘵 𝘒 𝘛𝘪𝘮𝘦𝘴
 
 ![alt text](image-7.png)
 ![alt text](image-8.png)
 
 Nice results
 
-# You need to take time as weight and scale the char count too
+### You need to take time as weight and scale the char count too
+
 ![alt text](image-9.png)
 
 The OCR can make mistake and mistakenly score the next frame with more data as having less data than the previous frame. And this data when passed to the Maximise Profit function can give wrong results. So, we need to scale the char count with time as weight to get better results.
@@ -186,13 +186,36 @@ The OCR can make mistake and mistakenly score the next frame with more data as h
 ![alt text](image-10.png)
 Popup in the video can also wrongly come in the OCR char count
 
-## Using specialized software for person-free frames:
+### Using specialized software for person-free frames:
 
 Photoshop: Use the "Stack Mode" feature in the "Statistics" script.
 GIMP: Use the "Median Stack" plugin.
 ImageMagick: Use the command-line tool with the "median" option.
 
 https://claude.ai/chat/c2bc0976-d763-4056-97dc-431b22d8675b
+
+### How many slides there could be?
+
+```
+The number of slides in a 10-minute educational video can vary significantly depending on several factors:
+
+Presentation style: Some educators prefer to spend more time explaining each slide, while others may use more slides with less time on each.
+Subject matter: Complex topics might require fewer slides with more explanation, while simpler topics could allow for more rapid progression.
+Visual content: Slides with graphs, images, or diagrams may need more time for explanation compared to text-only slides.
+Audience level: Presentations for beginners might move slower than those for advanced students.
+Teaching objectives: Some lessons might focus on discussion, requiring fewer slides, while others might be more information-dense.
+
+Given these variables, a rough estimate for a 10-minute video could range from:
+
+Minimum: About 5-10 slides (spending 1-2 minutes per slide)
+Average: Around 15-20 slides (spending 30-40 seconds per slide)
+Maximum: Up to 30-40 slides (spending 15-20 seconds per slide)
+
+The average of 15-20 slides is often considered a good balance for maintaining audience engagement without overwhelming them with information. However, these numbers can vary based on the specific needs of the lesson and the educator's style.
+Would you like me to elaborate on any aspect of this estimate?
+```
+
+https://claude.ai/chat/30e10190-d4ba-47c8-9c75-38db02a8f090
 
 ## Update 22/09/2024
 
@@ -205,6 +228,3 @@ https://claude.ai/chat/c2bc0976-d763-4056-97dc-431b22d8675b
 - Before -> 19 frames | After -> 16 frames
 
   ![image](https://github.com/user-attachments/assets/7a06f82c-ec3c-4ff6-b6b2-61e02df7f3cd)
-
-
-

@@ -42,23 +42,26 @@ class OCR(ABC):
         text = self.extract_text(img_fp)
         return clean_text(text)
 
-
-
-
-
 class Tesseract(OCR):
-    def extract_text(self, img_fp: str) -> str:
-
-        return pytesseract.image_to_string(Image.open(img_fp))
+    def extract_text(self, img):
+        import pytesseract
+        if isinstance(img, str):
+            return pytesseract.image_to_string(Image.open(img))
+        elif isinstance(img, np.ndarray):
+            return pytesseract.image_to_string(Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)))
 
 class EasyOCR(OCR):
     def __init__(self):
+        import easyocr
         self.reader = easyocr.Reader(['en'])
 
-    def extract_text(self, img_fp: str) -> str:
-        results = self.reader.readtext(img_fp)
+    def extract_text(self, img):
+        if isinstance(img, str):
+            results = self.reader.readtext(img)
+        elif isinstance(img, np.ndarray):
+            results = self.reader.readtext(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
         text = [result[1] for result in results]
-        return " ".join(text)
+        return " ".join(text) 
 
 class OCRFactory:
     @staticmethod
@@ -94,11 +97,9 @@ class VideoProcessor:
                 break
 
             if frame_count % frame_interval == 0:
-                frame_path = os.path.join(output_dir, f"frame_{frame_count}.jpg")
-                cv2.imwrite(frame_path, frame)
-                text = self.ocr.extract_clean_text(frame_path)
+                text = self.ocr.extract_clean_text(frame)
                 frame_text_data.append((frame_count, text))
-                frames.append(frame)
+                frames.append(frame) 
 
             frame_count += 1
 

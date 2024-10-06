@@ -43,16 +43,14 @@ class OCR(ABC):
         return clean_text(text)
 
 class Tesseract(OCR):
-    def extract_text(self, img):
-        import pytesseract
+    def extract_text(self, img): 
         if isinstance(img, str):
             return pytesseract.image_to_string(Image.open(img))
         elif isinstance(img, np.ndarray):
             return pytesseract.image_to_string(Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)))
 
 class EasyOCR(OCR):
-    def __init__(self):
-        import easyocr
+    def __init__(self): 
         self.reader = easyocr.Reader(['en'])
 
     def extract_text(self, img):

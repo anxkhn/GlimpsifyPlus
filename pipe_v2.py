@@ -286,7 +286,10 @@ class YTVideoSummarizer:
 
         self._save_data(base_dir, dir_name, frame_text_data, frames)
         self._plot_data(base_dir, dir_name, frame_text_data)
-        self._save_peak_frames(base_dir, dir_name, frame_text_data, frames)
+
+        # Old addition: Save peak frames
+        # self._save_peak_frames(base_dir, dir_name, frame_text_data, frames)
+
 
         # New addition: Calculate and save profit frames
         self._calculate_and_save_profit_frames(base_dir, dir_name, frame_text_data, frames)

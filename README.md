@@ -186,5 +186,17 @@ The OCR can make mistake and mistakenly score the next frame with more data as h
 ![alt text](image-10.png)
 Popup in the video can also wrongly come in the OCR char count
 
+## Update 22/09/2024
+
+![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)
+
+- Created `pipe_v2.py` to modularize logic
+- The OCR part is now made swappable
+- Currently supporting `tesseract` and `easyocr`
+- Way better results that previous `peak_frames` method
+- Before -> 19 frames | After -> 16 frames
+
+  ![image](https://github.com/user-attachments/assets/7a06f82c-ec3c-4ff6-b6b2-61e02df7f3cd)
+
 
 

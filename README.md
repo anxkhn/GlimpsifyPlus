@@ -217,6 +217,12 @@ Would you like me to elaborate on any aspect of this estimate?
 
 https://claude.ai/chat/30e10190-d4ba-47c8-9c75-38db02a8f090
 
+### Strategy Design Pattern
+
+- As the input can be of different types, we can use the strategy design pattern to make the code more modular and scalable
+
+https://claude.ai/chat/9187f1d3-133a-4126-bc01-61238998ea51
+
 ## Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)

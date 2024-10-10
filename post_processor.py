@@ -2,17 +2,12 @@ import os
 import cv2
 from PIL import Image
 from file_utils import *
-
-class Frame:
-    def __init__(self, frame_path):
-        self.frame_id = int(frame_path.split('_')[-1].split('.')[0])
-        self.frame_path = frame_path
+from frame import Frame 
 
 class PostProcessor: 
     @staticmethod
     def add_text_to_frames_and_save(input_dir, list_of_files, output_dir):
-        frames = [Frame(file) for file in list_of_files]
-        frames.sort(key=lambda x: x.frame_id)
+        frames = Frame.get_sorted_frames(list_of_files) 
 
         n = len(frames) 
         for i, frame in enumerate(frames):

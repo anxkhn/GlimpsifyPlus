@@ -102,6 +102,51 @@ Poor results with background on the screen
 
 https://claude.ai/chat/c89dfb2b-2e96-4912-b484-8adb242b5771
 
+```
+# Key Research Papers on Removing Obstacles from Multiple Photos
+
+1. "Scene Completion Using Millions of Photographs" (Hays and Efros, 2007)
+   - Pioneering work in using large image databases to fill in missing regions
+   - Not specifically for obstacle removal, but laid groundwork for later research
+
+2. "Shift-Map Image Editing" (Pritch et al., 2009)
+   - Introduced a graph-cut based method for object removal and image retargeting
+   - Can handle multiple input images to fill in removed regions
+
+3. "PatchMatch: A Randomized Correspondence Algorithm for Structural Image Editing" (Barnes et al., 2009)
+   - Fast algorithm for finding approximate nearest neighbor matches between image patches
+   - Useful for image completion and object removal tasks
+
+4. "Image Completion with Structure Propagation" (Sun et al., 2005)
+   - Focuses on completing large missing regions in a single image
+   - Uses structure propagation to maintain visual consistency
+
+5. "Globally and Locally Consistent Image Completion" (Iizuka et al., 2017)
+   - Uses deep neural networks for image completion
+   - Can handle large missing regions and produce realistic results
+
+6. "Context Encoders: Feature Learning by Inpainting" (Pathak et al., 2016)
+   - Trains deep neural networks to predict missing content in images
+   - Can be applied to obstacle removal tasks
+
+7. "Deep Image Prior" (Ulyanov et al., 2018)
+   - Shows that the structure of a neural network can be used as a prior for various image restoration tasks
+   - Applicable to image inpainting and obstacle removal
+
+8. "Generative Image Inpainting with Contextual Attention" (Yu et al., 2018)
+   - Uses a two-stage network with contextual attention for image inpainting
+   - Particularly effective for removing complex obstacles
+
+9. "EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning" (Nazeri et al., 2019)
+   - Focuses on preserving edge structure when removing objects or filling in missing regions
+
+10. "Multi-View Image Completion" (Thonat et al., 2016)
+    - Specifically addresses the problem of completing missing regions using multiple input views
+    - Useful for removing obstacles that appear in some, but not all, input images
+
+These papers cover a range of approaches, from traditional computer vision techniques to modern deep learning methods. They address various aspects of the obstacle removal problem, including handling multiple input images, preserving structure and consistency, and generating realistic completions for removed regions.
+```
+
 Use multiple images of same thing to remove the obstacle and get clean screenshots
 [] Go through the above research papers and try to adapt the techniques to this project
 

@@ -75,7 +75,7 @@ class Helper:
 
     @staticmethod
     def index_results(directory, video_file_path):
-        formatted_text = f"{directory} -> {video_file_path}"
+        formatted_text = f"\n{directory} -> {video_file_path}"
         result_file_path = os.path.join(BASE_DIR, "results.txt")
         Helper.append_text(formatted_text, result_file_path)
 

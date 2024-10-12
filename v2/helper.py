@@ -3,11 +3,13 @@ import yt_down
 from random_generator import RandomGenerator
 from directory_manager import DirectoryManager
 import os
-from pytubefix import Playlist
+from pytubefix import Playlist, YouTube
 import cv2
 import pickle
 
 from constants import BASE_DIR
+
+from math import ceil
 
 
 class Helper:
@@ -21,11 +23,6 @@ class Helper:
         yt_down.download_youtube_video(video_url, directory)
         video_file_name = DirectoryManager.get_video_path(directory)
         return os.path.join(directory, video_file_name)
-
-    @staticmethod
-    def get_youtube_playlist_urls(playlist_url: str) -> list:
-        playlist = Playlist(playlist_url)
-        return playlist.video_urls
 
     @staticmethod
     def save_image(frame_output_path, frame_number, video_path):
@@ -91,6 +88,43 @@ class Helper:
     def load_text(text_file_path):
         with open(text_file_path, "r") as f:
             return f.read()
+
+    @staticmethod
+    def get_video_urls_from_playlist(playlist_url: str) -> list:
+        playlist = Playlist(playlist_url)
+        return playlist.video_urls
+
+    @staticmethod
+    def get_video_duration(video_url: str) -> int:
+        """
+        Get the duration of a video.
+
+        Args:
+            video_url (str): The URL of the video.
+
+        Returns:
+            int: The duration of the video in seconds.
+        """
+
+        # TODO: Call the YouTube API to get the duration of the video
+        video = YouTube(video_url)
+
+        return video.length
+
+    @staticmethod
+    def get_number_of_slides(video_duration: int, seconds_per_slide: int = 30) -> int:
+        """
+        Get the number of slides in a video.
+
+        Args:
+            video_duration (int): The duration of the video in seconds.
+            seconds_per_slide (int): The number of seconds per slide. Defaults to 10.
+
+        Returns:
+            int: The number of slides in the video.
+        """
+
+        return ceil(video_duration / seconds_per_slide)
 
 
 if __name__ == "__main__":

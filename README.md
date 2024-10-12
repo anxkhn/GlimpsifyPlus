@@ -268,6 +268,13 @@ https://claude.ai/chat/30e10190-d4ba-47c8-9c75-38db02a8f090
 
 https://claude.ai/chat/9187f1d3-133a-4126-bc01-61238998ea51
 
+### Post Processing to Remove Redundant Frames
+
+![alt text](image-11.png)
+
+- create a swappable post processor
+- the post processor does pixel wise or some other kind of comparison to remove redundant frames
+
 ## Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)

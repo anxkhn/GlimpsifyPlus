@@ -26,12 +26,17 @@ class LocalVideoInputStrategy(InputStrategy):
     def proceed(self):
         suffix = RandomGenerator.generate_random_word(3)
         new_directory = self.directory + "_" + suffix
-
         DirectoryManager.create_directory(new_directory)
+
+        Helper.log(f"Created {new_directory}")
 
         video_path = DirectoryManager.get_video_path(self.directory)
 
+        Helper.index_results(new_directory, video_path)
+
         processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
+
+        Helper.log(f"Processed {len(processed_frames)} frames")
 
         Helper.save_objects(video_path, processed_frames, new_directory)
 
@@ -69,6 +74,8 @@ class LocalVideoInputStrategy(InputStrategy):
             extracted_frames, video_path, extracted_frames_directory
         )
 
+        Helper.log(f"Extracted frames to {extracted_frames_directory}")
+
         list_of_files = os.listdir(extracted_frames_directory)
 
         PostProcessor.add_text_to_frames_and_save(
@@ -79,4 +86,5 @@ class LocalVideoInputStrategy(InputStrategy):
         PostProcessor.convert_images_to_pdf(
             extracted_frames_directory, list_of_files, output_pdf_path
         )
-        Helper.index_results(new_directory, video_path)
+
+        Helper.save_log(video_path)

@@ -33,19 +33,7 @@ class LocalVideoInputStrategy(InputStrategy):
 
         processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
 
-        python_object_directory = new_directory + "_python_object"
-        DirectoryManager.create_directory(python_object_directory)
-
-        python_object_path = os.path.join(
-            python_object_directory, "processed_frames.pkl"
-        )
-
-        video_path_text_file_path = os.path.join(
-            python_object_directory, "video_path.txt"
-        )
-        Helper.save_text(video_path, video_path_text_file_path)
-
-        Helper.save_python_objects(processed_frames, python_object_path)
+        Helper.save_objects(video_path, processed_frames, new_directory)
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
 

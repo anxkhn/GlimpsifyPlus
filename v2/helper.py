@@ -172,6 +172,14 @@ class Helper:
         video_name = Helper.get_video_name(video_path)
         Helper.log(f"Saved PDF to {output_pdf_path} for {video_name}")
 
+    @staticmethod
+    def get_frame_rate(video_path):
+        cap = cv2.VideoCapture(video_path)
+        frame_rate = cap.get(cv2.CAP_PROP_FPS)
+        cap.release()
+        cv2.destroyAllWindows()
+        return frame_rate
+
 
 if __name__ == "__main__":
     print(Helper.get_digits("frame_234.jpg"))

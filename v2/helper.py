@@ -130,20 +130,38 @@ class Helper:
     def get_key_moments(video_url: str) -> list:
         video = YouTube(video_url)
         key_moments = video.key_moments
-        key_moment_start_seconds = [key_moment.start_seconds for key_moment in key_moments]
+        key_moment_start_seconds = [
+            key_moment.start_seconds for key_moment in key_moments
+        ]
         return key_moment_start_seconds
 
     @staticmethod
     def get_frame_number_from_seconds(seconds: int, frame_rate: int) -> int:
         return seconds * frame_rate
-    
+
     @staticmethod
     def get_key_moments_from_seconds(key_moments, frame_rate):
-        return [Helper.get_frame_number_from_seconds(key_moment, frame_rate) for key_moment in key_moments]
+        return [
+            Helper.get_frame_number_from_seconds(key_moment, frame_rate)
+            for key_moment in key_moments
+        ]
 
     @staticmethod
     def log(message: str):
         print(message)
+
+    def save_objects(video_path, processed_frames, directory):
+        python_object_directory = directory + "_python_object"
+        DirectoryManager.create_directory(python_object_directory)
+        python_object_path = os.path.join(
+            python_object_directory, "processed_frames.pkl"
+        )
+        video_path_text_file_path = os.path.join(
+            python_object_directory, "video_path.txt"
+        )
+        Helper.save_text(video_path, video_path_text_file_path)
+        Helper.save_python_objects(processed_frames, python_object_path)
+
 
 if __name__ == "__main__":
     print(Helper.get_digits("frame_234.jpg"))

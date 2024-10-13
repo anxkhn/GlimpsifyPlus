@@ -28,14 +28,17 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         directory = os.path.join(BASE_DIR, directory)
         DirectoryManager.create_directory(directory)
 
-        # processed_frames = ProcessedFrame.from_youtube_video(
-        #     self.video_url, directory, self.ocr_strategy, self.video_processor
-        # )
-
         Helper.download_youtube_video(self.video_url, directory)
+
+        Helper.log(f"Downloaded video to {directory}")
+
         video_path = DirectoryManager.get_video_path(directory)
 
+        Helper.index_results(directory, video_path)
+
         processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
+
+        Helper.log(f"Processed {len(processed_frames)} frames")
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
 
@@ -71,6 +74,8 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             extracted_frames, video_path, extracted_frames_directory
         )
 
+        Helper.log(f"Extracted frames to {extracted_frames_directory}")
+
         list_of_files = os.listdir(extracted_frames_directory)
 
         PostProcessor.add_text_to_frames_and_save(
@@ -81,4 +86,5 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         PostProcessor.convert_images_to_pdf(
             extracted_frames_directory, list_of_files, output_pdf_path
         )
-        Helper.index_results(directory, video_path)
+
+        Helper.log(f"Saved PDF to {output_pdf_path}")

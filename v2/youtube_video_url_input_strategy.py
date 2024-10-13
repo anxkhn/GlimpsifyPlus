@@ -11,6 +11,8 @@ from post_processor import PostProcessor
 
 from constants import BASE_DIR
 
+from key_moments_extraction_strategy import KeyMomentsExtractionStrategy
+
 
 class YouTubeVideoURLInputStrategy(InputStrategy):
     def __init__(
@@ -38,6 +40,8 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
 
         processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
 
+        Helper.save_objects(video_path, processed_frames, directory)
+
         Helper.log(f"Processed {len(processed_frames)} frames")
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
@@ -54,6 +58,11 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             "Number of Characters in OCR Text",
             plot_output_path,
         )
+
+
+        if isinstance(self.extraction_strategy, KeyMomentsExtractionStrategy):
+            self.extraction_strategy.video_url = self.video_url
+            self.extraction_strategy.frame_rate = Helper.get_frame_rate(video_path)
 
         extracted_frames = self.extraction_strategy.extract_frames(processed_frames)
 
@@ -87,4 +96,4 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             extracted_frames_directory, list_of_files, output_pdf_path
         )
 
-        Helper.log(f"Saved PDF to {output_pdf_path}")
+        Helper.save_log(video_path, output_pdf_path)

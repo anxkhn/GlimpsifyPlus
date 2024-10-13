@@ -286,3 +286,18 @@ https://claude.ai/chat/9187f1d3-133a-4126-bc01-61238998ea51
 - Before -> 19 frames | After -> 16 frames
 
   ![image](https://github.com/user-attachments/assets/7a06f82c-ec3c-4ff6-b6b2-61e02df7f3cd)
+
+
+## Updates
+
+### Update: Key Moments Strategy Added (13/10/2024)
+
+- We all know that YouTube provides the key moments in the video. So, I thought why not use that to get the key moments in the video and then extract the frames from those key moments.
+- Issues with this approach:
+  - The key moments are not always accurate
+  - The key moments are not always present
+  - The key moments are not always present at the most informative frames
+
+-  ![alt text](image-12.png)
+   (left: key moments strategy, right: transactions strategy) \
+   You can see here that the left one misses the most informative frames that the right one captures

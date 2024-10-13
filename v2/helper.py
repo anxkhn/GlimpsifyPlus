@@ -126,6 +126,24 @@ class Helper:
 
         return ceil(video_duration / seconds_per_slide)
 
+    @staticmethod
+    def get_key_moments(video_url: str) -> list:
+        video = YouTube(video_url)
+        key_moments = video.key_moments
+        key_moment_start_seconds = [key_moment.start_seconds for key_moment in key_moments]
+        return key_moment_start_seconds
+
+    @staticmethod
+    def get_frame_number_from_seconds(seconds: int, frame_rate: int) -> int:
+        return seconds * frame_rate
+    
+    @staticmethod
+    def get_key_moments_from_seconds(key_moments, frame_rate):
+        return [Helper.get_frame_number_from_seconds(key_moment, frame_rate) for key_moment in key_moments]
+
+    @staticmethod
+    def log(message: str):
+        print(message)
 
 if __name__ == "__main__":
     print(Helper.get_digits("frame_234.jpg"))

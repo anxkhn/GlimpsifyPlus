@@ -162,6 +162,16 @@ class Helper:
         Helper.save_text(video_path, video_path_text_file_path)
         Helper.save_python_objects(processed_frames, python_object_path)
 
+    @staticmethod
+    def get_video_name(video_path):
+        video_name = os.path.basename(video_path)
+        return video_name
+
+    @staticmethod
+    def save_log(video_path, output_pdf_path):
+        video_name = Helper.get_video_name(video_path)
+        Helper.log(f"Saved PDF to {output_pdf_path} for {video_name}")
+
 
 if __name__ == "__main__":
     print(Helper.get_digits("frame_234.jpg"))

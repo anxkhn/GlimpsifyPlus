@@ -20,6 +20,7 @@ class InputStrategyFactory:
             directory = input("Enter directory path: ")
             return LocalVideoInputStrategy(directory, ocr_strategy, extraction_strategy)
         elif input_type == "object":
+            """The directory path should be like this `xxxxxx_python_object`"""
             directory = input("Enter directory path: ")
             return PythonObjectInputStrategy(
                 directory, ocr_strategy, extraction_strategy

@@ -31,8 +31,12 @@ class PythonObjectInputStrategy(InputStrategy):
         video_path_file_path = os.path.join(self.directory, "video_path.txt")
         video_path = Helper.load_text(video_path_file_path)
 
+        Helper.index_results(new_directory, video_path)
+
         python_object_path = os.path.join(self.directory, "processed_frames.pkl")
         processed_frames = Helper.load_python_object(python_object_path)
+
+        Helper.log(f"Loaded {len(processed_frames)} frames")
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
 
@@ -48,6 +52,8 @@ class PythonObjectInputStrategy(InputStrategy):
             "Number of Characters in OCR Text",
             plot_output_path,
         )
+
+        Helper.log(f"Plotted data to {plot_output_path}")
 
         extracted_frames = self.extraction_strategy.extract_frames(processed_frames)
 
@@ -68,6 +74,8 @@ class PythonObjectInputStrategy(InputStrategy):
             extracted_frames, video_path, extracted_frames_directory
         )
 
+        Helper.log(f"Extracted frames to {extracted_frames_directory}")
+
         list_of_files = os.listdir(extracted_frames_directory)
 
         PostProcessor.add_text_to_frames_and_save(
@@ -79,4 +87,4 @@ class PythonObjectInputStrategy(InputStrategy):
             extracted_frames_directory, list_of_files, output_pdf_path
         )
 
-        Helper.index_results(new_directory, video_path)
+        Helper.save_log(video_path, output_pdf_path)

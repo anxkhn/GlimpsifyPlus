@@ -24,3 +24,12 @@ class VideoProcessor:
                 frame_number += 1
         finally:
             cap.release()
+
+    
+    @staticmethod
+    def get_timestamp_from_frame_number(video_path: str, frame_number: int) -> float:
+        cap = cv2.VideoCapture(video_path)
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        timestamp = frame_number / fps
+        cap.release()
+        return timestamp

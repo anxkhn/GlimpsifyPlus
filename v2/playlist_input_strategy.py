@@ -8,7 +8,7 @@ from helper import Helper
 from constants import BASE_DIR
 from youtube_video_url_input_strategy import YouTubeVideoURLInputStrategy
 from k_transactions_extraction_strategy import KTransactionsExtractionStrategy
-
+from ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 
 class PlaylistInputStrategy(InputStrategy):
     def __init__(
@@ -16,10 +16,12 @@ class PlaylistInputStrategy(InputStrategy):
         playlist_url: str,
         ocr_strategy: OCRStrategy,
         extraction_strategy: ExtractionStrategy,
+        ocr_approval_strategy: OCRApprovalStrategy,
     ):
         self.playlist_url = playlist_url
         self.ocr_strategy = ocr_strategy
         self.extraction_strategy = extraction_strategy
+        self.ocr_approval_strategy = ocr_approval_strategy
 
     def proceed(self):
         directory = RandomGenerator.generate_random_word(6)
@@ -36,7 +38,7 @@ class PlaylistInputStrategy(InputStrategy):
                 self.extraction_strategy.k = number_of_slides
 
             video_input_strategy = YouTubeVideoURLInputStrategy(
-                video_url, self.ocr_strategy, self.extraction_strategy
+                video_url, self.ocr_strategy, self.extraction_strategy, self.ocr_approval_strategy
             )
 
             video_input_strategy.proceed()

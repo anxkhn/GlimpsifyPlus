@@ -13,6 +13,8 @@ from constants import BASE_DIR
 
 from key_moments_extraction_strategy import KeyMomentsExtractionStrategy
 
+from ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
+
 
 class YouTubeVideoURLInputStrategy(InputStrategy):
     def __init__(
@@ -20,10 +22,12 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         video_url: str,
         ocr_strategy: OCRStrategy,
         extraction_strategy: ExtractionStrategy,
+        ocr_approval_strategy: OCRApprovalStrategy,
     ):
         self.video_url = video_url
         self.ocr_strategy = ocr_strategy
         self.extraction_strategy = extraction_strategy
+        self.ocr_approval_strategy = ocr_approval_strategy
 
     def proceed(self):
         directory = RandomGenerator.generate_random_word(6)
@@ -38,7 +42,7 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
 
         Helper.index_results(directory, video_path)
 
-        processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
+        processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy, self.ocr_approval_strategy)
 
         Helper.save_objects(video_path, processed_frames, directory)
 

@@ -3,6 +3,7 @@ from helper import Helper
 from ocr_strategy import OCRStrategy
 from video_processor import VideoProcessor
 from directory_manager import DirectoryManager
+from ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 
 
 class ProcessedFrame:
@@ -23,9 +24,15 @@ class ProcessedFrame:
                 processed_frames.append(frame)
 
     @staticmethod
-    def from_video(video_path, ocr_strategy: OCRStrategy):
+    def from_video(video_path, ocr_strategy: OCRStrategy, ocr_approval_strategy: OCRApprovalStrategy):
         processed_frames = []
+        old_frame = None
         for frame in VideoProcessor.get_frames(video_path, 3):
+            
+            if not ocr_approval_strategy.permit_ocr(frame.frame, old_frame):
+                continue
+            old_frame = frame.frame
+
             processed_frame = ProcessedFrame()
             processed_frame.frame_number = frame.frame_number
             processed_frame.ocr_text = ocr_strategy.extract_clean_text(frame.frame)

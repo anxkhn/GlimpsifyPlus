@@ -11,6 +11,8 @@ from post_processor import PostProcessor
 
 from constants import BASE_DIR
 
+from ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
+
 
 class LocalVideoInputStrategy(InputStrategy):
     def __init__(
@@ -18,10 +20,12 @@ class LocalVideoInputStrategy(InputStrategy):
         directory: str,
         ocr_strategy: OCRStrategy,
         extraction_strategy: ExtractionStrategy,
+        ocr_approval_strategy: OCRApprovalStrategy,
     ):
         self.directory = os.path.join(BASE_DIR, directory)
         self.ocr_strategy = ocr_strategy
         self.extraction_strategy = extraction_strategy
+        self.ocr_approval_strategy = ocr_approval_strategy
 
     def proceed(self):
         suffix = RandomGenerator.generate_random_word(3)
@@ -34,7 +38,9 @@ class LocalVideoInputStrategy(InputStrategy):
 
         Helper.index_results(new_directory, video_path)
 
-        processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy)
+        processed_frames = ProcessedFrame.from_video(
+            video_path, self.ocr_strategy, self.ocr_approval_strategy
+        )
 
         Helper.log(f"Processed {len(processed_frames)} frames")
 
@@ -87,4 +93,4 @@ class LocalVideoInputStrategy(InputStrategy):
             extracted_frames_directory, list_of_files, output_pdf_path
         )
 
-        Helper.save_log(video_path)
+        Helper.save_log(video_path, output_pdf_path)

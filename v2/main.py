@@ -6,8 +6,8 @@ from ocr_approval.ocr_approval_strategy_factory import OCRApprovalStrategyFactor
 
 
 def main():
-    # ocr_approval_type = "pixel_comparison"
-    ocr_approval_type = "approve_all"
+    ocr_approval_type = "pixel_comparison"
+    # ocr_approval_type = "approve_all"
     ocr_approval_strategy = OCRApprovalStrategyFactory.create_strategy(
         ocr_approval_type
     )

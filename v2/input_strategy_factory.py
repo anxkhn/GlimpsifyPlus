@@ -29,8 +29,14 @@ class InputStrategyFactory:
             )
         elif input_type == "playlist":
             playlist_url = input("Enter YouTube playlist URL: ")
+            start_from = int(input("Enter start from: "))
+
             return PlaylistInputStrategy(
-                playlist_url, ocr_strategy, extraction_strategy, ocr_approval_strategy
+                playlist_url,
+                start_from,
+                ocr_strategy,
+                extraction_strategy,
+                ocr_approval_strategy,
             )
         else:
             raise ValueError("Invalid input type")

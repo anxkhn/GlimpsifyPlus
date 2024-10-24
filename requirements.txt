@@ -1,4 +1,5 @@
 opencv-python
 pytesseract
+easyocr
 matplotlib
-pytube
+pytubefix

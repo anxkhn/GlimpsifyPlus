@@ -23,8 +23,8 @@ def main():
     )
 
     # input_type = input("Enter input type: ")
-    input_type = "youtube"
-    # input_type = "playlist"
+    # input_type = "youtube"
+    input_type = "playlist"
     # input_type = "local"
     # input_type = "object"
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(

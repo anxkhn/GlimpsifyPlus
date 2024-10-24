@@ -8,6 +8,16 @@ Frame with most information it can possibly have
 This frame can have more information and thus not the most information frame
 ![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/35eed63d-e490-441a-ab65-06ad336cb8aa)
 
+> NOTE: The latest code can be found in the `v2` folder
+
+## Running the code
+
+- Clone the repository
+- Install the requirements using `pip install -r requirements.txt`
+- Create a folder named `data` in the `v2` folder
+- `cd` into the `v2` folder
+- Run the `main.py` file using `python main.py`
+
 # How
 
 The approach I have taken in this code is to perform frame-by-frame analysis of a video to extract text using Optical Character Recognition (OCR) and save only the frames that contain significant changes or improvements in the text content.
@@ -287,17 +297,17 @@ https://claude.ai/chat/9187f1d3-133a-4126-bc01-61238998ea51
 
   ![image](https://github.com/user-attachments/assets/7a06f82c-ec3c-4ff6-b6b2-61e02df7f3cd)
 
-
 ## Updates
 
 ### Update: Key Moments Strategy Added (13/10/2024)
 
 - We all know that YouTube provides the key moments in the video. So, I thought why not use that to get the key moments in the video and then extract the frames from those key moments.
 - Issues with this approach:
+
   - The key moments are not always accurate
   - The key moments are not always present
   - The key moments are not always present at the most informative frames
 
--  ![alt text](image-12.png)
-   (left: key moments strategy, right: transactions strategy) \
-   You can see here that the left one misses the most informative frames that the right one captures
+- ![alt text](image-12.png)
+  (left: key moments strategy, right: transactions strategy) \
+  You can see here that the left one misses the most informative frames that the right one captures

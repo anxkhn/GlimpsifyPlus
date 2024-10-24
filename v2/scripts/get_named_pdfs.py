@@ -4,6 +4,8 @@ import shutil
 from directory_manager import DirectoryManager
 from random_generator import RandomGenerator
 
+
+# TODO: Create a module for processing the input
 def get_named_pdfs(input, new_directory):
     print(input)
     input = input.split(" -> ")

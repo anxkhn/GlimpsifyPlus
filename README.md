@@ -285,6 +285,52 @@ https://claude.ai/chat/9187f1d3-133a-4126-bc01-61238998ea51
 - create a swappable post processor
 - the post processor does pixel wise or some other kind of comparison to remove redundant frames
 
+### Finding Prominent Peaks
+
+https://claude.ai/chat/110cfe52-6cbc-4bb1-95b0-bdc830de908e
+
+```
+This is a common problem in signal processing, especially when dealing with noisy data. Here are a few approaches you could use:
+
+1. Peak Prominence Method
+- Instead of just looking at local maxima, consider the "prominence" of each peak
+- A peak's prominence is the height difference between the peak and the highest point between it and a higher peak
+
+2. Smoothing the Signal
+- Apply smoothing techniques before finding peaks to reduce noise:
+  - Moving average
+  - Gaussian smoothing
+  - Savitzky-Golay filter (particularly good for preserving peak shapes)
+
+3. Peak Width Method
+- Consider peaks that have a minimum width
+- This helps eliminate narrow noise spikes
+
+This implementation provides several key features:
+
+1. Multiple detection methods:
+   - Pure prominence-based detection
+   - Width-based detection
+   - Smoothed signal with prominence detection
+   - Savitzky-Golay filtered signal with peak detection
+
+2. Configurable parameters:
+   - Minimum prominence threshold
+   - Minimum peak width
+   - Smoothing window size
+   - Polynomial order for Savitzky-Golay filter
+
+3. Peak analysis functionality that provides statistics about detected peaks
+
+To use this for your specific case, I'd recommend:
+
+1. Start with the 'smooth_savgol' method, as it's generally good at preserving peak shapes while removing noise
+2. Adjust the window_size parameter based on your signal's characteristics:
+   - Larger window = more smoothing but might miss closer peaks
+   - Smaller window = less smoothing but might detect noise
+3. Tune the prominence parameter to match the minimum significant peak height you care about
+```
+
 ## Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)

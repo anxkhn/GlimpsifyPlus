@@ -6,7 +6,7 @@ from random_generator import RandomGenerator
 
 
 # TODO: Create a module for processing the input
-def get_named_pdfs(input, new_directory):
+def get_named_pdfs(index, input, new_directory):
     print(input)
     input = input.split(" -> ")
     print(input)
@@ -24,7 +24,7 @@ def get_named_pdfs(input, new_directory):
 
 
 
-    output_path = f"{new_directory}/{video_name}.pdf"
+    output_path = f"{new_directory}/{index + 1} {video_name}.pdf"
 
     shutil.copy(pdf_path, output_path)
 
@@ -41,9 +41,9 @@ if __name__ == "__main__":
 
     print(inputs)
     
-    for input in inputs:
+    for index, input in enumerate(inputs):
         try:
-            get_named_pdfs(input, new_directory)
+            get_named_pdfs(index, input, new_directory)
         except Exception as e:
             print(input)
             print(e)

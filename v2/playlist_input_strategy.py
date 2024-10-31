@@ -39,7 +39,8 @@ class PlaylistInputStrategy(InputStrategy):
             counter += 1
             if counter < self.start_from:
                 continue
-
+            
+            # TODO: Ideally, this should not be here. Check if there is a better way to do this.
             if isinstance(self.extraction_strategy, KTransactionsExtractionStrategy):
                 video_duration = Helper.get_video_duration(video_url)
                 number_of_slides = Helper.get_number_of_slides(video_duration)

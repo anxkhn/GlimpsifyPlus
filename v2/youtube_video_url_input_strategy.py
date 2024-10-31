@@ -63,7 +63,7 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             plot_output_path,
         )
 
-
+        # TODO: Ideally, this should not be here. Check if there is a better way to do this.
         if isinstance(self.extraction_strategy, KeyMomentsExtractionStrategy):
             self.extraction_strategy.video_url = self.video_url
             self.extraction_strategy.frame_rate = Helper.get_frame_rate(video_path)

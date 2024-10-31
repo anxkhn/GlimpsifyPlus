@@ -331,6 +331,10 @@ To use this for your specific case, I'd recommend:
 3. Tune the prominence parameter to match the minimum significant peak height you care about
 ```
 
+### Scipy Module
+
+Explore the `scipy` module for peak detection and signal processing
+
 ## Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)
@@ -357,3 +361,4 @@ To use this for your specific case, I'd recommend:
 - ![alt text](image-12.png)
   (left: key moments strategy, right: transactions strategy) \
   You can see here that the left one misses the most informative frames that the right one captures
+Leads

@@ -3,31 +3,19 @@ import shutil
 
 from directory_manager import DirectoryManager
 from random_generator import RandomGenerator
+from utils.text_util import TextUtil
+from utils.file_util import FileUtil
 
 
-# TODO: Create a module for processing the input
 def get_named_pdfs(index, input, new_directory):
-    print(input)
-    input = input.split(" -> ")
-    print(input)
 
-    directory = input[0]
-    directory = directory.split("/")[1]
-    print(directory)
-
-    video_name = input[1]
-    video_name = video_name.split("/")[-1]
-    video_name = video_name.split(".")[0]
-    print(video_name)
+    directory, video_name = TextUtil.get_directory_and_video_name(input)
 
     pdf_path = f"data/{directory}.pdf"
-
-
 
     output_path = f"{new_directory}/{index + 1} {video_name}.pdf"
 
     shutil.copy(pdf_path, output_path)
-
 
 
 if __name__ == "__main__":
@@ -35,12 +23,10 @@ if __name__ == "__main__":
     new_directory = f"scripts/data/{new_directory}"
     DirectoryManager.create_directory(new_directory)
 
-    inputs = []
-    with open("scripts/data/results.txt", "r") as file:
-        inputs = file.readlines()
+    inputs = FileUtil.get_inputs("scripts/data/results.txt")
 
     print(inputs)
-    
+
     for index, input in enumerate(inputs):
         try:
             get_named_pdfs(index, input, new_directory)

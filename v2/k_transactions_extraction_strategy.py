@@ -1,11 +1,50 @@
 from extraction_strategy import ExtractionStrategy
 import pandas as pd
 from processed_frame import ProcessedFrame
+from scipy import signal
+import numpy as np
+from scipy.ndimage import gaussian_filter1d
+
+from typing import List
 
 
 class KTransactionsExtractionStrategy(ExtractionStrategy):
     def __init__(self):
         self.k = None
+
+    def calculate_k(self, x, y, window_size=5, prominence=0.1, width=None):
+        """
+        Calculate k by analyzing the signal peaks after smoothing.
+
+        Parameters:
+        x: array-like, x coordinates of the signal
+        y: array-like, y coordinates of the signal
+        window_size: int, size of the moving average window
+        prominence: float, required prominence of peaks
+        width: float or None, required width of peaks
+        """
+        # Convert inputs to numpy arrays
+        x = np.array(x)
+        y = np.array(y)
+
+        # Apply Gaussian smoothing to reduce noise
+        y_smoothed = gaussian_filter1d(y, sigma=window_size / 3)
+
+        # Apply moving average
+        kernel = np.ones(window_size) / window_size
+        y_smoothed = np.convolve(y_smoothed, kernel, mode="same")
+
+        # Find peaks in the smoothed signal
+        peaks, properties = signal.find_peaks(
+            y_smoothed,
+            prominence=prominence * (np.max(y_smoothed) - np.min(y_smoothed)),
+            width=width,
+        )
+
+        # Set k as the number of detected peaks
+        self.k = len(peaks)
+
+        return peaks, y_smoothed
 
     @staticmethod
     def maxProfit(prices, n, k):
@@ -35,14 +74,26 @@ class KTransactionsExtractionStrategy(ExtractionStrategy):
 
         return profit[n - 1][k], transactions[n - 1][k]
 
-    def extract_frames(self, frames):
-        if self.k is None:
-            k = input("Enter the number of transactions (k): ")
-            self.k = int(k)
+    def extract_frames(self, frames: List[ProcessedFrame]) -> List[ProcessedFrame]:
+        # Create the signal from frames
         data = [(frame.frame_number, frame.ocr_text) for frame in frames]
         df = pd.DataFrame(data, columns=["frame_id", "text"])
         df["char_count"] = df["text"].apply(len)
 
+        # Generate x and y coordinates for signal processing
+        x = df.index.values
+        y = df["char_count"].values
+
+        # Calculate k using signal processing if not already set
+        if self.k is None:
+            should_auto_calculate_or_k = input("Enter 'auto' to auto-calculate k or enter k: ")
+            if should_auto_calculate_or_k == "auto":
+                peaks, _ = self.calculate_k(x, y)
+                print(f"Detected {self.k} significant transitions in the signal")
+            else:
+                self.k = int(should_auto_calculate_or_k)
+
+        # Proceed with the original maxProfit calculation
         prices = df["char_count"].values
         n = len(prices)
         max_profit, transactions = self.maxProfit(prices, n, self.k)

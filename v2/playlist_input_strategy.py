@@ -42,9 +42,11 @@ class PlaylistInputStrategy(InputStrategy):
             
             # TODO: Ideally, this should not be here. Check if there is a better way to do this.
             if isinstance(self.extraction_strategy, KTransactionsExtractionStrategy):
-                video_duration = Helper.get_video_duration(video_url)
-                number_of_slides = Helper.get_number_of_slides(video_duration)
-                self.extraction_strategy.k = number_of_slides
+                # TODO: This is a hack. Fix this.
+                # video_duration = Helper.get_video_duration(video_url)
+                # number_of_slides = Helper.get_number_of_slides(video_duration)
+                # self.extraction_strategy.k = number_of_slides
+                self.extraction_strategy.auto_calculate_k = True 
 
             video_input_strategy = YouTubeVideoURLInputStrategy(
                 video_url,

@@ -160,6 +160,12 @@ These papers cover a range of approaches, from traditional computer vision techn
 Use multiple images of same thing to remove the obstacle and get clean screenshots
 [] Go through the above research papers and try to adapt the techniques to this project
 
+### Obstacle 5 - Diagrams
+
+https://www.youtube.com/watch?v=9rp1pzYn3hY
+Taking this video as an example, the diagrams are not being captured properly
+
+
 # Using Moving Averages to find the desired frames
 
 ![alt text](image-4.png)
@@ -335,7 +341,53 @@ To use this for your specific case, I'd recommend:
 
 Explore the `scipy` module for peak detection and signal processing
 
-## Update 22/09/2024
+## Similar Research Papers
+
+- Lecture Presentations Multimodal Dataset:
+Towards Understanding Multimodality in Educational Videos - https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_Lecture_Presentations_Multimodal_Dataset_Towards_Understanding_Multimodality_in_Educational_Videos_ICCV_2023_paper.pdf
+- Automated analysis and indexing of lecture videos - https://dr.lib.iastate.edu/server/api/core/bitstreams/d970b9dd-4b3a-4ca8-b75b-645aa693413e/content
+- SliTraNet: Automatic Detection of Slide Transitions in Lecture Videos
+using Convolutional Neural Networks - https://openlib.tugraz.at/download.php?id=621f329186973&location=browse
+- Content Based Lecture Video Retrieval Using
+Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
+- Content Based Lecture Video Retrieval Using
+Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
+- Investigating Correlations of Automatically Extracted
+Multimodal Features and Lecture Video Quality - https://arxiv.org/pdf/2005.13876
+-Lecture2Notes: Summarizing Lecture Videos by Classifying
+Slides and Analyzing Text - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
+
+
+## Duplicate Removal
+
+- https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
+
+3.2.3 Duplicate Image Removal
+The system uses a variety of methods to remove duplicate slides and obtain a set of unique frames containing
+the best representation of each slide in the presentation. One method that is applied at various steps of the procedure
+(during black border removal, perspective crop, and clustering) is image hashing. Standard hashing algorithms will
+output completely different hashes on images that differ by one-byte but still depict the same content. Image hashing
+algorithms produce similar output hashes given similar inputs. The system supports 4 hashing methods: average,
+perception (the default), difference, and wavelet hashing. These algorithms analyze the image structure based on
+luminance (without color information). This process will only remove extremely similar images and thus can safely be
+applied without any false-positives. However, since the presenter moving slightly will cause the algorithm to detect two
+unique images even though they contain the same slide, we employ clustering (see Section 3.2.4) and feature matching
+(see Section 3.4.1) algorithms.
+
+## Text Detection Algorithms
+- EAST (Efficient and Accurate Scene Text Detector) [94] text
+detection algorithm.
+- You can use this to deny ocr on frames where there is no text
+
+## Correction of the OCR Results
+- All Tesseract outputs are spell checked with SymSpell [26], a symmetric delete
+spelling correction algorithm
+- https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
+
+
+## Updates
+
+### Update 22/09/2024
 
 ![image](https://github.com/user-attachments/assets/36aaa0f5-b690-48c2-8d78-7e86e5688b66)
 
@@ -346,8 +398,6 @@ Explore the `scipy` module for peak detection and signal processing
 - Before -> 19 frames | After -> 16 frames
 
   ![image](https://github.com/user-attachments/assets/7a06f82c-ec3c-4ff6-b6b2-61e02df7f3cd)
-
-## Updates
 
 ### Update: Key Moments Strategy Added (13/10/2024)
 
@@ -361,4 +411,3 @@ Explore the `scipy` module for peak detection and signal processing
 - ![alt text](image-12.png)
   (left: key moments strategy, right: transactions strategy) \
   You can see here that the left one misses the most informative frames that the right one captures
-Leads

@@ -6,8 +6,8 @@ from ocr_approval.ocr_approval_strategy_factory import OCRApprovalStrategyFactor
 
 
 def main():
-    # ocr_approval_type = "pixel_comparison"
-    ocr_approval_type = "approve_all"
+    ocr_approval_type = "pixel_comparison"
+    # ocr_approval_type = "approve_all"
     ocr_approval_strategy = OCRApprovalStrategyFactory.create_strategy(
         ocr_approval_type
     )
@@ -23,10 +23,10 @@ def main():
     )
 
     # input_type = input("Enter input type: ")
-    # input_type = "youtube"
+    input_type = "youtube"
     # input_type = "playlist"
     # input_type = "local"
-    input_type = "object"
+    # input_type = "object"
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(
         input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy
     )

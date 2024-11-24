@@ -11,6 +11,7 @@ from typing import List
 class KTransactionsExtractionStrategy(ExtractionStrategy):
     def __init__(self):
         self.k = None
+        self.auto_calculate_k = False
 
     def calculate_peaks(self, x, y, window_size=5, prominence=0.1, width=None):
         """
@@ -81,18 +82,26 @@ class KTransactionsExtractionStrategy(ExtractionStrategy):
         x = df.index.values
         y = df["char_count"].values
 
-        # Calculate k using signal processing if not already set
-        if self.k is None:
-            should_auto_calculate_or_k = input(
-                "Enter 'auto' to auto-calculate k or enter k: "
-            )
-            if should_auto_calculate_or_k == "auto":
-                peaks, _ = self.calculate_peaks(x, y)
-                # Set k as the number of detected peaks
-                self.k = len(peaks)
-                print(f"Detected {self.k} significant transitions in the signal")
-            else:
-                self.k = int(should_auto_calculate_or_k)
+        if self.auto_calculate_k:
+            # Calculate k using signal processing
+            peaks, _ = self.calculate_peaks(x, y)
+            # Set k as the number of detected peaks
+            self.k = len(peaks)
+            print(f"Detected {self.k} significant transitions in the signal")
+        
+        else:
+            # Calculate k using signal processing if not already set
+            if self.k is None:
+                should_auto_calculate_or_k = input(
+                    "Enter 'auto' to auto-calculate k or enter k: "
+                )
+                if should_auto_calculate_or_k == "auto":
+                    peaks, _ = self.calculate_peaks(x, y)
+                    # Set k as the number of detected peaks
+                    self.k = len(peaks)
+                    print(f"Detected {self.k} significant transitions in the signal")
+                else:
+                    self.k = int(should_auto_calculate_or_k)
 
         # Proceed with the original maxProfit calculation
         prices = df["char_count"].values

@@ -30,6 +30,11 @@ class ProcessedFrame:
         for frame in VideoProcessor.get_frames(video_path, 3):
             
             if not ocr_approval_strategy.permit_ocr(frame.frame, old_frame):
+                # result should be same as previous frame
+                processed_frame = ProcessedFrame()
+                processed_frame.frame_number = frame.frame_number
+                processed_frame.ocr_text = processed_frames[-1].ocr_text
+                processed_frames.append(processed_frame)
                 continue
             old_frame = frame.frame
 

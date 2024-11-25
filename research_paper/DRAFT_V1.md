@@ -100,15 +100,10 @@
        - This method gave high quality results deterministically
        - But it does fail to give all of the key frames from a video
     4. ## Peak Prominence
-       -
-  - Explain all methods tested:
-    1.  Simple peak detection.
-    2.  Moving average.
-    3.  Profit maximization.
-    4.  Peak prominence.
-  - Mathematical formulations for each.
-
----
+       - The prominence of a peak is the least drop in height necessary in order to get from the summit to any higher terrain. 
+       - With proper fine tuning this method is a great way to find out the important peaks.
+       - The obstacles in this method is that the prominence level is highly sensitive to the nature of the video and thus needs to be adjusted accordingly.
+ 
 
 #### **5. Experimental Setup**
 
@@ -167,14 +162,4 @@
 
 - Include all cited papers and tools.
 - Follow IEEE citation style.
-
----
-
-### Writing Guidelines
-
-- **Clarity and Precision**: Use concise and formal language.
-- **Figures and Tables**: Include diagrams for the pipeline, algorithms, and results.
-- **Consistent Terminology**: Define terms like "key frame" and "text-length signal" early.
-- **Proofreading**: Ensure adherence to IEEE guidelines and check grammar.
-
-Would you like detailed content for any specific section or assistance with citations?
+ 

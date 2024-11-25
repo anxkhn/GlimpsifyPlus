@@ -402,6 +402,9 @@ spelling correction algorithm
 - Prominence is the answer
 - https://github.com/MonsieurV/py-findpeaks gives comparison of different peak detection algorithms
 
+### A Clustering Algorithm for Key Frame Extraction Based on Density Peak
+- https://www.scirp.org/journal/paperinformation?paperid=89449
+
 ## Updates
 
 ### Update 22/09/2024

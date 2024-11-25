@@ -39,8 +39,6 @@
   - And none have tried signal processing methods, specifically peak detection methods to approach this problem.
   - We present a novel approach which uses peak detection algorithms and we've also added a comparative study of the different peak detection algorithms we used in this approach
 
- 
-
 ---
 
 #### **4. Methodology**
@@ -48,12 +46,61 @@
 - **4.1 Video Processing Pipeline**:
   - open cv is used for ingesting video in the intervals of 3 seconds
 - **4.2 Frame Comparison Algorithm**:
-  - Detailed explanation of `are_images_almost_equal` algorithm.
-  - A 0.5 percent threshold is found to work empirically. We ran a qualitative experiment to check which threshold works the best. And the type of educational videos we worked with, 0.5 percent threshold works empirically well.
+
+```
+    @staticmethod
+    def are_images_almost_equal(image1: np.ndarray, image2: np.ndarray) -> bool:
+        # Convert frames to grayscale
+        image1_gray = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
+        image2_gray = cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
+
+        # Compute the absolute difference between the two frames
+        diff = cv2.absdiff(image1_gray, image2_gray)
+
+        # Threshold the difference to get a binary image
+        _, thresh = cv2.threshold(diff, 30, 255, cv2.THRESH_BINARY)
+
+        # Calculate the percentage of different pixels
+        non_zero_count = cv2.countNonZero(thresh)
+        total_pixels = image1_gray.size
+        diff_percentage = (non_zero_count / total_pixels) * 100
+
+        # If the difference is less than a certain threshold, consider the frames almost the same
+        return diff_percentage < 0.5
+```
+
+- A 0.5 percent threshold is found to work empirically. We ran a qualitative experiment to check which threshold works the best. And the type of educational videos we worked with, 0.5 percent threshold works empirically well.
+- Example of images equal or not equal
+- ![alt text](image.png)
 - **4.3 Text Extraction and Signal Generation**:
-  - OCR process and text-length signal computation.
-  - Handling skipped frames (propagating OCR results).
+  - OCR is performed for each of the ingested frames
+  - The character count of the extracted text from the OCR is saved frame by frame thus generating a temporal signal of variation in character count
+  - For the frames that were found almost equal, the OCR result of previously processed frames were used, thus saving time and computational resources required to perform OCR
 - **4.4 Key Frame Selection Methods**:
+  - Following methods were explored for key frame selection
+    1. Simple Peak Detection
+       - This involved comparing a point with neighboring points to decide whether it is a peak or not.
+       - If the frame was found to be peak, it was considered as key frame
+       - Following were the obstacles of this method
+         - This method was not robust enough to handle noisy data
+         - The algorithm was not able to differentiate between peaks and noise
+         - The algorithm was not able to handle multiple peaks in the data
+         - The algorithm was not able to handle the case where the most informative frame was not the peak
+    2. Moving Average Convergence Divergence (MACD)
+       - We made a analogy with stock market and re thought about key extraction problem as maximize profit given temporal stock price signal
+       - The advantage of this approach is that it can I identify key frames from a stream of data (that is it doesn't rely on future data only on past data)
+       - It also requires less number of parameters namely longer-term EMA period and shorter-term EMA period only
+       - But MACD is good for stock market but not in our case as objective of stock trading is not only to generate profit but also to minimize loss. So sometimes "sell" is marked for points that are not local maximas like shown in the image below
+       - ![alt text](image-1.png)
+    3. Profit maximization algorithm
+       - We rethought the problem as a profit maximization problem but chose to consider future data as well as current and past data as the future data is valuable.
+       - Then we used an optimized version of a back tracking algorithm to maximize profit under the the constraint that you can make only K trades
+       - From the interest of our original problem statement, we can think of K as a parameter which could give the K of the most information frames
+       - The obstacle here is that manual intervention is needed to specify the value of K after looking at the vizualization of the temporal signal of character count. We observed that we could approximate 1 slide per uptrend in the signal. After plotting the signal, we could visually count how many uptrends are present and decided that to be the value of K.
+       - This method gave high quality results deterministically
+       - But it does fail to give all of the key frames from a video
+    4. ## Peak Prominence
+       -
   - Explain all methods tested:
     1.  Simple peak detection.
     2.  Moving average.

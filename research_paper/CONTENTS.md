@@ -1,4 +1,4 @@
-## Flow of the project
+## Flow of the project "Key Frame Extraction from Educational Videos"
 
 User enters youtube video link
 The video is downloaded
@@ -34,25 +34,3 @@ Various methods have been tried to detect the most informative frame:
 2. Moving average methods [1]
 3. Profit maximization methods (similar to stock trading)
 4. Peak prominence methods
-
-## Obstacles faced
-
-1. Simple peak detection algorithm:
-   - This method was not robust enough to handle noisy data
-   - The algorithm was not able to differentiate between peaks and noise
-   - The algorithm was not able to handle multiple peaks in the data
-   - The algorithm was not able to handle the case where the most informative frame was not the peak
-2. Moving average methods:
-   - When the moving average window was small, the peaks that were close to each other were not detected
-   - When the moving average window was large, the peaks were smoothed out and the most informative frame was not detected
-   - Moving average method also shifted the peaks in the data, which made it difficult to detect the most informative frame
-3. Profit maximization methods:
-   - 
-
-
-## References
-
-[1] A Study On The Effectiveness Of Moving Average
-Convergence And Divergence (MACD)
-Porselvi R1*
-, Dr. Meenakshi A2

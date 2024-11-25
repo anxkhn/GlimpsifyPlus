@@ -166,7 +166,7 @@ https://www.youtube.com/watch?v=9rp1pzYn3hY
 Taking this video as an example, the diagrams are not being captured properly
 
 
-# Using Moving Averages to find the desired frames
+### Updates - Using Moving Averages to find the desired frames
 
 ![alt text](image-4.png)
 
@@ -186,7 +186,7 @@ def **init**(self, client='ANDROID_CREATOR', use_oauth=False, allow_cache=True):
 
 Regex change in the get throtling function thing
 
-# Update (29/07/2024)
+### Update (29/07/2024)
 
 https://claude.ai/chat/179f256d-6896-4158-a3bf-9903b9e92e4e
 
@@ -205,12 +205,12 @@ pip install av
 Follow this to look for gpu ocr
 https://claude.ai/chat/478fef1c-5b8d-4001-89a7-780d07b4e60a
 
-# Resources for upgrading to GPU
+## Resources for upgrading to GPU
 
 https://www.youtube.com/watch?v=oOIxHDwXY1s
 https://www.cse.cuhk.edu.hk/~byu/CMSC5743/2020Fall/slides/T02-OCR-TensorRT.pdf
 
-# Errors to Fix
+## Errors to Fix
 
 ```
 (base) D:\DPythonProjects\yt_summarizer>C:/Users/Vedant/anaconda3/python.exe d:/DPythonProjects/yt_summarizer/gpu_v3.py
@@ -341,7 +341,7 @@ To use this for your specific case, I'd recommend:
 
 Explore the `scipy` module for peak detection and signal processing
 
-## Similar Research Papers
+### Similar Research Papers
 
 - Lecture Presentations Multimodal Dataset:
 Towards Understanding Multimodality in Educational Videos - https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_Lecture_Presentations_Multimodal_Dataset_Towards_Understanding_Multimodality_in_Educational_Videos_ICCV_2023_paper.pdf
@@ -358,7 +358,7 @@ Multimodal Features and Lecture Video Quality - https://arxiv.org/pdf/2005.13876
 Slides and Analyzing Text - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
 
-## Duplicate Removal
+### Duplicate Removal
 
 - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
@@ -374,16 +374,19 @@ applied without any false-positives. However, since the presenter moving slightl
 unique images even though they contain the same slide, we employ clustering (see Section 3.2.4) and feature matching
 (see Section 3.4.1) algorithms.
 
-## Text Detection Algorithms
+### Text Detection Algorithms
 - EAST (Efficient and Accurate Scene Text Detector) [94] text
 detection algorithm.
 - You can use this to deny ocr on frames where there is no text
 
-## Correction of the OCR Results
+### Correction of the OCR Results
 - All Tesseract outputs are spell checked with SymSpell [26], a symmetric delete
 spelling correction algorithm
 - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
+### Peak Detection Algorithms
+- Prominence is the answer
+- https://github.com/MonsieurV/py-findpeaks gives comparison of different peak detection algorithms
 
 ## Updates
 

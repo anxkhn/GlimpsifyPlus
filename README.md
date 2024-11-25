@@ -79,7 +79,7 @@ https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 [] https://claude.ai/chat/5f0fb230-e2cf-4f13-b628-02b04c991b0e
 Try suggestions mentioned here
 
-# Obstacles
+## Obstacles
 
 ### Obstacle 1
 
@@ -165,8 +165,22 @@ Use multiple images of same thing to remove the obstacle and get clean screensho
 https://www.youtube.com/watch?v=9rp1pzYn3hY
 Taking this video as an example, the diagrams are not being captured properly
 
+### Peak prominence method is not working
 
-### Updates - Using Moving Averages to find the desired frames
+Enter YouTube video URL: https://www.youtube.com/watch?v=_8xHh1tk7jY
+Downloading video: Oral Pathology  Salivary Gland Benign Diseases  INBDE, ADAT
+Download completed successfully!
+Downloaded video to data/ikgmbd
+Processed 84 frames
+Enter 'auto' to auto-calculate k or enter k: auto
+Detected 1 significant transitions in the signal
+Extracted frames to data/ikgmbd_extracted_frames
+Saved PDF to data/ikgmbd.pdf for Oral Pathology  Salivary Gland Benign Diseases  INBDE ADAT.mp4
+
+
+
+
+## Updates - Using Moving Averages to find the desired frames
 
 ![alt text](image-4.png)
 

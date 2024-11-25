@@ -1,13 +1,27 @@
+## Locked
+
+-Keyframe Extraction and Shot Boundary Detection Using Eigen Values
+https://www.researchgate.net/publication/267395353_Keyframe_Extraction_and_Shot_Boundary_Detection_Using_Eigen_Values
+
+- A Study on Keyframe Extraction Methods for Video Summary
+-  https://www.researchgate.net/publication/254016385_A_Study_on_Keyframe_Extraction_Methods_for_Video_Summary
 
 ## Similar Research Papers
+
+- https://arxiv.org/abs/2401.04962
+- Large Model based Sequential Keyframe Extraction for Video Summarization
+- Keyframe extraction aims to sum up a video's semantics with the minimum number of its frames. This paper puts forward a Large Model based Sequential Keyframe Extraction for video summarization, dubbed LMSKE, which contains three stages as below. First, we use the large model "TransNetV21" to cut the video into consecutive shots, and employ the large model "CLIP2" to generate each frame's visual feature within each shot; Second, we develop an adaptive clustering algorithm to yield candidate keyframes for each shot, with each candidate keyframe locating nearest to a cluster center; Third, we further reduce the above candidate keyframes via redundancy elimination within each shot, and finally concatenate them in accordance with the sequence of shots as the final sequential keyframes. To evaluate LMSKE, we curate a benchmark dataset and conduct rich experiments, whose results exhibit that LMSKE performs much better than quite a few SOTA competitors with average F1 of 0.5311, average fidelity of 0.8141, and average compression ratio of 0.9922.
+  [we can calculate such scores possibly]
 
 Let me suggest some similar research projects that deal with content extraction from video, temporal analysis, and information density detection:
 
 1. "Automatic Lecture Slide Extraction from Educational Videos Using Multi-Modal Analysis and Temporal Signal Processing" (2019, University of Michigan)
+
    - This project analyzed educational videos to automatically extract key slides/frames using both visual and temporal features
    - Similar to your project in using temporal signals to identify important content
 
 2. "VideoScan: Content-Aware Frame Extraction in Instructional Videos Using Signal Processing and OCR" (2021, Stanford University)
+
    - Used signal processing to identify meaningful frames in video content
    - Employed OCR and frame differencing techniques
    - Focused on educational content extraction
@@ -18,13 +32,13 @@ Let me suggest some similar research projects that deal with content extraction 
    - Used multiple signal processing techniques to identify key moments
 
 Your project seems to be uniquely positioned at the intersection of:
+
 - Video frame analysis
 - OCR-based information extraction
 - Signal processing for content density measurement
 - Peak detection algorithms
 
 This makes it distinct from pure video summarization or slide extraction projects, as you're specifically using text length as a signal for information density. Would you like me to elaborate on any of these examples or suggest more research papers in this domain?
-
 
 <details>
 <summary> Hello </summary>

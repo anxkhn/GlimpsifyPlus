@@ -86,7 +86,7 @@ class KTransactionsExtractionStrategy(ExtractionStrategy):
             # Calculate k using signal processing
             peaks, _ = self.calculate_peaks(x, y)
             # Set k as the number of detected peaks
-            self.k = len(peaks)
+            self.k = len(peaks) + 5
             print(f"Detected {self.k} significant transitions in the signal")
         
         else:

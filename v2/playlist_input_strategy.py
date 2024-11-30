@@ -36,6 +36,9 @@ class PlaylistInputStrategy(InputStrategy):
         video_urls = Helper.get_video_urls_from_playlist(self.playlist_url)
         counter = 0
         for video_url in video_urls:
+            print("\n\n\n=====================================")
+            print(f"#{self.start_from + counter} Processing video: {video_url}")
+            print("=====================================")
             counter += 1
             if counter < self.start_from:
                 continue

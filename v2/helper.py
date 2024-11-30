@@ -44,7 +44,6 @@ class Helper:
             ret, frame = cap.read()
             cv2.imwrite(frame_output_path, frame)
         cap.release()
-        cv2.destroyAllWindows()
 
     @staticmethod
     def clean_text(text: str) -> str:

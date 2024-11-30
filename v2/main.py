@@ -13,7 +13,8 @@ def main():
     )
 
     # ocr_type = input("Enter OCR type: ")
-    ocr_type = "tesseract"
+    # ocr_type = "tesseract"
+    ocr_type = "easy"
     ocr_strategy = OCRStrategyFactory.create_ocr_strategy(ocr_type)
 
     extraction_type = "k_transactions"
@@ -23,10 +24,10 @@ def main():
     )
 
     # input_type = input("Enter input type: ")
-    # input_type = "youtube"
+    input_type = "youtube"
     # input_type = "playlist"
     # input_type = "local"
-    input_type = "object"
+    # input_type = "object"
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(
         input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy
     )

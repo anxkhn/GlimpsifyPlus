@@ -33,3 +33,9 @@ class VideoProcessor:
         timestamp = frame_number / fps
         cap.release()
         return timestamp
+    
+    @staticmethod
+    def get_formatted_time(seconds: int) -> str:
+        minutes, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
+        return f"{hours:02.0f}:{minutes:02.0f}:{seconds:02.0f}"

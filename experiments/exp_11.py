@@ -12,6 +12,8 @@ def download_video_and_get_chapters(url):
         
         # Print video title
         print(f"Video Title: {yt.title}\n")
+
+        start_times = []
         
         # Get and print chapters
         if yt.chapters:
@@ -19,6 +21,7 @@ def download_video_and_get_chapters(url):
             print("-" * 50)
             for i, chapter in enumerate(yt.chapters, 1):
                 start_time = format_time(chapter.start_seconds)
+                
                 
                 # Calculate end time
                 if i < len(yt.chapters):
@@ -33,6 +36,9 @@ def download_video_and_get_chapters(url):
         else:
             print("No chapters found in this video")
         
+    
+        print(", ".join(start_times))
+        return
         # Download the video
         print("\nStarting video download...")
         stream = yt.streams.get_highest_resolution()

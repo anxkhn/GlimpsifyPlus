@@ -14,6 +14,11 @@ from math import ceil
 
 class Helper:
     @staticmethod
+    def setup():
+        output_directory = "data"
+        DirectoryManager.create_directory(output_directory)
+        
+    @staticmethod
     def get_digits(text: str) -> int:
         return int(re.sub(r"\D", "", text))
 

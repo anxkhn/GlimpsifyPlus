@@ -3,9 +3,11 @@ from ocr_strategy_factory import OCRStrategyFactory
 from extraction_strategy_factory import ExtractionStrategyFactory
 from input_strategy import InputStrategy
 from ocr_approval.ocr_approval_strategy_factory import OCRApprovalStrategyFactory
-
+from helper import Helper 
 
 def main():
+    Helper.setup()
+    
     ocr_approval_type = "pixel_comparison"
     # ocr_approval_type = "approve_all"
     ocr_approval_strategy = OCRApprovalStrategyFactory.create_strategy(

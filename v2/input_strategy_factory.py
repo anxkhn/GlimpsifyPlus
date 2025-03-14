@@ -3,7 +3,7 @@ from input_strategy import InputStrategy
 from local_video_input_strategy import LocalVideoInputStrategy
 from python_object_input_strategy import PythonObjectInputStrategy
 from playlist_input_strategy import PlaylistInputStrategy
-
+import sys
 
 class InputStrategyFactory:
 
@@ -12,7 +12,10 @@ class InputStrategyFactory:
         input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy
     ) -> InputStrategy:
         if input_type == "youtube":
-            video_url = input("Enter YouTube video URL: ")
+            if (len(sys.argv) > 1):
+                video_url = sys.argv[1]
+            else:
+                video_url = input("Enter YouTube video URL: ")
             return YouTubeVideoURLInputStrategy(
                 video_url, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )

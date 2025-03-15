@@ -9,33 +9,24 @@ class InputStrategyFactory:
 
     @staticmethod
     def create_input_strategy(
-        input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy
+        input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy, url=None, directory=None, start_from=None
     ) -> InputStrategy:
         if input_type == "youtube":
-            if (len(sys.argv) > 1):
-                video_url = sys.argv[1]
-            else:
-                video_url = input("Enter YouTube video URL: ")
             return YouTubeVideoURLInputStrategy(
-                video_url, ocr_strategy, extraction_strategy, ocr_approval_strategy
+                url, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
         elif input_type == "local":
-            directory = input("Enter directory path: ")
             return LocalVideoInputStrategy(
                 directory, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
         elif input_type == "object":
             """The directory path should be like this `xxxxxx_python_object`"""
-            directory = input("Enter directory path: ")
             return PythonObjectInputStrategy(
                 directory, ocr_strategy, extraction_strategy
             )
-        elif input_type == "playlist":
-            playlist_url = input("Enter YouTube playlist URL: ")
-            start_from = int(input("Enter start from: "))
-
+        elif input_type == "playlist": 
             return PlaylistInputStrategy(
-                playlist_url,
+                url,
                 start_from,
                 ocr_strategy,
                 extraction_strategy,

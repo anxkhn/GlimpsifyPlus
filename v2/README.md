@@ -16,7 +16,7 @@ Examples:
 
 ### Video is on youtube and you want to extract key moments
 
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=PmvLB5dIEp8&list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4&index=3" --cleanup`
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=PmvLB5dIEp8&list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4&index=3" --cleanup --k=15`
 
 >NOTE: The `url` is in double quotes as it contains special characters
 

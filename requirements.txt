@@ -3,3 +3,4 @@ pytesseract
 easyocr
 matplotlib
 pytubefix
+tqdm

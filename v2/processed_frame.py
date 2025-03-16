@@ -24,11 +24,19 @@ class ProcessedFrame:
                 processed_frames.append(frame)
 
     @staticmethod
-    def from_video(video_path, ocr_strategy: OCRStrategy, ocr_approval_strategy: OCRApprovalStrategy):
+    def from_video(
+        video_path,
+        ocr_strategy: OCRStrategy,
+        ocr_approval_strategy: OCRApprovalStrategy,
+    ):
         processed_frames = []
         old_frame = None
-        for frame in VideoProcessor.get_frames(video_path, 3):
-            
+        from tqdm import tqdm
+
+        for frame in tqdm(
+            VideoProcessor.get_frames(video_path, 3), desc="Processing Frames"
+        ):
+
             if not ocr_approval_strategy.permit_ocr(frame.frame, old_frame):
                 # result should be same as previous frame
                 processed_frame = ProcessedFrame()
@@ -56,17 +64,3 @@ class ProcessedFrame:
         x_data = [frame.frame_number for frame in processed_frames]
         y_data = [len(frame.ocr_text) for frame in processed_frames]
         return x_data, y_data
-
-
-# This section will come in input strategy or something maybe
-# @staticmethod
-# def from_youtube_playlist(
-#     playlist_url, ocr_strategy: OCRStrategy, video_processor: VideoProcessor
-# ):
-#     directory = RandomGenerator.generate_random_word(6)
-#     DirectoryManager.create_directory(directory)
-#     video_urls = Helper.get_youtube_playlist_urls(playlist_url)
-#     for video_url in video_urls:
-#         processed_frames = ProcessedFrame.from_youtube_video(
-#             video_url, ocr_strategy, video_processor
-#         )

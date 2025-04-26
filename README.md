@@ -10,6 +10,11 @@ This frame can have more information and thus not the most information frame
 
 > NOTE: The latest code can be found in the `v2` folder
 
+## TODOs:
+- [] Accuracy metrics
+     - [] Jaccard's similarity
+     - [] Compare with https://drive.google.com/file/d/1yoilKif2bBb8Z9j8D5yqQKmjzG0uS7IB/view
+
 ## Running the code
 
 - Clone the repository

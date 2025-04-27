@@ -1,4 +1,13 @@
-# Most Information Frame Extractor
+# Glimpsify: Extract PPT Slides from any Educational Video
+
+❌ Watch an entire 34 minutes long lecture video on YouTube? Naah 👎 \
+✅ Get PDF notes of screenshots of important parts of the video instead? Hell yessss! 👌
+
+That's what Glimpsify does! 💻
+
+You pass it YouTube link 🔗 of the lecture video 🎥 and it gives you the PDF notes 📑 of the key parts of the video.
+
+## Extracting Most Information Frame
 
 Pass a YouTube Video link and get the screenshots of the frame which has the most information content (like if someone is explaining with the help of a PPT, capture screenshot when all the text of one slide of PPT has animated in)
 
@@ -9,11 +18,6 @@ This frame can have more information and thus not the most information frame
 ![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/35eed63d-e490-441a-ab65-06ad336cb8aa)
 
 > NOTE: The latest code can be found in the `v2` folder
-
-## TODOs:
-- [] Accuracy metrics
-     - [] Jaccard's similarity
-     - [] Compare with https://drive.google.com/file/d/1yoilKif2bBb8Z9j8D5yqQKmjzG0uS7IB/view
 
 ## Running the code
 
@@ -48,32 +52,10 @@ There is a huge scope of improvement in this project and I would love to work on
 
 If you would like to contribute/collaborate on this project, kindly ping me at vedantpanchal1345@gmail.com
 
-# Made in 3hrs with Claude.ai
-
-Start Time:
-‎04 ‎May ‎2024, ‏‎14:07:39
-![alt text](image.png)
-
-End Time:
-Sat May 4 17:11:13 2024 +0530
-![image](https://github.com/DeveloperDowny/most_info_frame_extractor/assets/60831483/8e491cf1-10a9-405a-9f40-19986c69ffe9)
-
-https://claude.ai/chat/b8d512fa-ad56-4134-9637-ad94a68a4bc6
-
-Link to the claude chat:
-https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
-
 # Continuing with the work
 
-- mapping the graph
-- saving only the frame after which the info content drops
-
-# Update
-
-- Now using a peak word count approach
-- It has got even better accuracy with thresholding (currently manual, plan to make it automatic)
-
-![alt text](images_for_readme/image-1.png)
+- mapping the graph [done]
+- saving only the frame after which the info content drops [done]
 
 # TODO
 
@@ -83,6 +65,10 @@ https://aiarchives.org/id/2tB6EgjI2Y6GAxvJgqT0
 
 [] https://claude.ai/chat/5f0fb230-e2cf-4f13-b628-02b04c991b0e
 Try suggestions mentioned here
+
+- [] Accuracy metrics
+  - [] Jaccard's similarity
+  - [] Compare with https://drive.google.com/file/d/1yoilKif2bBb8Z9j8D5yqQKmjzG0uS7IB/view
 
 ## Obstacles
 
@@ -173,17 +159,14 @@ Taking this video as an example, the diagrams are not being captured properly
 ### Peak prominence method is not working
 
 Enter YouTube video URL: https://www.youtube.com/watch?v=_8xHh1tk7jY
-Downloading video: Oral Pathology  Salivary Gland Benign Diseases  INBDE, ADAT
+Downloading video: Oral Pathology Salivary Gland Benign Diseases INBDE, ADAT
 Download completed successfully!
 Downloaded video to data/ikgmbd
 Processed 84 frames
 Enter 'auto' to auto-calculate k or enter k: auto
 Detected 1 significant transitions in the signal
 Extracted frames to data/ikgmbd_extracted_frames
-Saved PDF to data/ikgmbd.pdf for Oral Pathology  Salivary Gland Benign Diseases  INBDE ADAT.mp4
-
-
-
+Saved PDF to data/ikgmbd.pdf for Oral Pathology Salivary Gland Benign Diseases INBDE ADAT.mp4
 
 ## Updates - Using Moving Averages to find the desired frames
 
@@ -363,54 +346,64 @@ Explore the `scipy` module for peak detection and signal processing
 ### Similar Research Papers
 
 - Lecture Presentations Multimodal Dataset:
-Towards Understanding Multimodality in Educational Videos - https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_Lecture_Presentations_Multimodal_Dataset_Towards_Understanding_Multimodality_in_Educational_Videos_ICCV_2023_paper.pdf
+  Towards Understanding Multimodality in Educational Videos - https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_Lecture_Presentations_Multimodal_Dataset_Towards_Understanding_Multimodality_in_Educational_Videos_ICCV_2023_paper.pdf
 - Automated analysis and indexing of lecture videos - https://dr.lib.iastate.edu/server/api/core/bitstreams/d970b9dd-4b3a-4ca8-b75b-645aa693413e/content
 - SliTraNet: Automatic Detection of Slide Transitions in Lecture Videos
-using Convolutional Neural Networks - https://openlib.tugraz.at/download.php?id=621f329186973&location=browse
+  using Convolutional Neural Networks - https://openlib.tugraz.at/download.php?id=621f329186973&location=browse
 - Content Based Lecture Video Retrieval Using
-Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
+  Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
 - Content Based Lecture Video Retrieval Using
-Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
+  Speech and Video Text Information - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6750040
 - Investigating Correlations of Automatically Extracted
-Multimodal Features and Lecture Video Quality - https://arxiv.org/pdf/2005.13876
--Lecture2Notes: Summarizing Lecture Videos by Classifying
-Slides and Analyzing Text - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
-
+  Multimodal Features and Lecture Video Quality - https://arxiv.org/pdf/2005.13876
+  -Lecture2Notes: Summarizing Lecture Videos by Classifying
+  Slides and Analyzing Text - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
 ### Duplicate Removal
 
 - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
-3.2.3 Duplicate Image Removal
-The system uses a variety of methods to remove duplicate slides and obtain a set of unique frames containing
-the best representation of each slide in the presentation. One method that is applied at various steps of the procedure
-(during black border removal, perspective crop, and clustering) is image hashing. Standard hashing algorithms will
-output completely different hashes on images that differ by one-byte but still depict the same content. Image hashing
-algorithms produce similar output hashes given similar inputs. The system supports 4 hashing methods: average,
-perception (the default), difference, and wavelet hashing. These algorithms analyze the image structure based on
-luminance (without color information). This process will only remove extremely similar images and thus can safely be
-applied without any false-positives. However, since the presenter moving slightly will cause the algorithm to detect two
-unique images even though they contain the same slide, we employ clustering (see Section 3.2.4) and feature matching
-(see Section 3.4.1) algorithms.
+  3.2.3 Duplicate Image Removal
+  The system uses a variety of methods to remove duplicate slides and obtain a set of unique frames containing
+  the best representation of each slide in the presentation. One method that is applied at various steps of the procedure
+  (during black border removal, perspective crop, and clustering) is image hashing. Standard hashing algorithms will
+  output completely different hashes on images that differ by one-byte but still depict the same content. Image hashing
+  algorithms produce similar output hashes given similar inputs. The system supports 4 hashing methods: average,
+  perception (the default), difference, and wavelet hashing. These algorithms analyze the image structure based on
+  luminance (without color information). This process will only remove extremely similar images and thus can safely be
+  applied without any false-positives. However, since the presenter moving slightly will cause the algorithm to detect two
+  unique images even though they contain the same slide, we employ clustering (see Section 3.2.4) and feature matching
+  (see Section 3.4.1) algorithms.
 
 ### Text Detection Algorithms
+
 - EAST (Efficient and Accurate Scene Text Detector) [94] text
-detection algorithm.
+  detection algorithm.
 - You can use this to deny ocr on frames where there is no text
 
 ### Correction of the OCR Results
+
 - All Tesseract outputs are spell checked with SymSpell [26], a symmetric delete
-spelling correction algorithm
+  spelling correction algorithm
 - https://haydenhousen.com/media/lecture2notes-paper-v1.pdf
 
 ### Peak Detection Algorithms
+
 - Prominence is the answer
 - https://github.com/MonsieurV/py-findpeaks gives comparison of different peak detection algorithms
 
 ### A Clustering Algorithm for Key Frame Extraction Based on Density Peak
+
 - https://www.scirp.org/journal/paperinformation?paperid=89449
 
 ## Updates
+
+### Update
+
+- Now using a peak word count approach
+- It has got even better accuracy with thresholding (currently manual, plan to make it automatic)
+
+![alt text](images_for_readme/image-1.png)
 
 ### Update 22/09/2024
 

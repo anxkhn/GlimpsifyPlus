@@ -101,3 +101,5 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         )
 
         Helper.save_log(video_path, output_pdf_path)
+        
+        return directory

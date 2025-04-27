@@ -1,11 +1,12 @@
 import re
-import yt_down
 from random_generator import RandomGenerator
 from directory_manager import DirectoryManager
 import os
 from pytubefix import Playlist, YouTube
 import cv2
 import pickle
+from pytubefix.cli import on_progress
+from pytubefix import YouTube
 
 from constants import BASE_DIR
 
@@ -14,13 +15,26 @@ from math import ceil
 
 class Helper:
     @staticmethod
+    def setup():
+        output_directory = "data"
+        DirectoryManager.create_directory(output_directory)
+
+    @staticmethod
     def get_digits(text: str) -> int:
         return int(re.sub(r"\D", "", text))
 
     @staticmethod
-    def download_youtube_video(video_url: str, directory: str) -> str:
-
-        yt_down.download_youtube_video(video_url, directory)
+    def download_youtube_video(
+        video_url: str, directory: str, RES: str = "720p"
+    ) -> str:
+        yt = YouTube(video_url, on_progress_callback=on_progress)
+        for idx, i in enumerate(yt.streams):
+            if i.resolution == RES:
+                print(idx)
+                print(i.resolution)
+                break
+        print(yt.streams[idx])
+        yt.streams[idx].download(directory)
         video_file_name = DirectoryManager.get_video_path(directory)
         return os.path.join(directory, video_file_name)
 

@@ -7,6 +7,16 @@ That's what Glimpsify does! 💻
 
 You pass it YouTube link 🔗 of the lecture video 🎥 and it gives you the PDF notes 📑 of the key parts of the video.
 
+See sample output: \
+https://drive.google.com/drive/folders/1XOIjQs7dnYCBK1dg3ZzK8PPhx09H58-f?usp=drive_link
+
+## Relevant LinkedIn Posts
+
+I actively post on LinkedIn about my project. You can find link to the posts here:
+
+- https://www.linkedin.com/posts/vedantpanchal_neso-academy-never-provides-their-ppts-activity-7254912964451811328-0a7H
+- https://www.linkedin.com/posts/vedantpanchal_edtech-youtubesummarization-glimpsify-activity-7301972904718528512-LGoy
+
 ## Extracting Most Information Frame
 
 Pass a YouTube Video link and get the screenshots of the frame which has the most information content (like if someone is explaining with the help of a PPT, capture screenshot when all the text of one slide of PPT has animated in)

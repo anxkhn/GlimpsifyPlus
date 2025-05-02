@@ -28,12 +28,17 @@ class Helper:
         video_url: str, directory: str, RES: str = "720p"
     ) -> str:
         yt = YouTube(video_url, on_progress_callback=on_progress)
-        for idx, i in enumerate(yt.streams):
+        streams = yt.streams.filter(file_extension="mp4")
+
+        if not streams:
+            raise Exception("No streams found for the video.")
+
+        for idx, i in enumerate(streams):
             if i.resolution == RES:
                 print(idx)
                 print(i.resolution)
                 break
-        print(yt.streams[idx])
+        print(streams[idx])
         yt.streams[idx].download(directory)
         video_file_name = DirectoryManager.get_video_path(directory)
         return os.path.join(directory, video_file_name)

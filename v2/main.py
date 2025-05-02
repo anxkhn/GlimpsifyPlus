@@ -49,7 +49,10 @@ def parse_arguments():
         help="Specify the extraction strategy.",
     )
     parser.add_argument(
-        "--k", type=int, help="Specify the number of key frames to extract."
+        "--k",
+        type=str,
+        help="Specify the number of key frames to extract.",
+        default=None,
     )
     parser.add_argument(
         "--cleanup",
@@ -78,7 +81,9 @@ def main():
     )
 
     if args.k:
-        extraction_strategy.k = args.k
+        extraction_strategy.k = int(args.k)
+    else:
+        extraction_strategy.auto_calculate_k = True
 
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(
         args.input,

@@ -1,3 +1,4 @@
+from pathlib import Path
 from input_strategy import InputStrategy
 from processed_frame import ProcessedFrame
 from ocr_strategy import OCRStrategy
@@ -40,9 +41,15 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
 
         video_path = DirectoryManager.get_video_path(directory)
 
+        if Path(video_path).suffix != ".mp4":
+            Helper.log(f"Video file not found in {directory}")
+            return directory
+
         Helper.index_results(directory, video_path)
 
-        processed_frames = ProcessedFrame.from_video(video_path, self.ocr_strategy, self.ocr_approval_strategy)
+        processed_frames = ProcessedFrame.from_video(
+            video_path, self.ocr_strategy, self.ocr_approval_strategy
+        )
 
         Helper.save_objects(video_path, processed_frames, directory)
 
@@ -101,5 +108,5 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         )
 
         Helper.save_log(video_path, output_pdf_path)
-        
+
         return directory

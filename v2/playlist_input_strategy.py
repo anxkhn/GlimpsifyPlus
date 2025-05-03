@@ -53,6 +53,7 @@ class PlaylistInputStrategy(InputStrategy):
                     # number_of_slides = Helper.get_number_of_slides(video_duration)
                     # self.extraction_strategy.k = number_of_slides
                     self.extraction_strategy.auto_calculate_k = True
+                    self.extraction_strategy.k = None
 
                 video_input_strategy = YouTubeVideoURLInputStrategy(
                     video_url,
@@ -62,11 +63,12 @@ class PlaylistInputStrategy(InputStrategy):
                 )
 
                 video_input_strategy.proceed()
-            except Exception:
+            except Exception as e:
                 print("Error processing video:", video_url)
                 print("Counter:", counter)
                 with open("error_log.txt", "a") as error_log:
                     error_log.write(f"Error processing video: {video_url}\n")
+                    error_log.write(f"Error: {str(e)}\n")
                     error_log.write(f"Counter: {counter}\n")
                     error_log.write("=====================================\n")
                 continue

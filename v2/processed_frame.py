@@ -6,7 +6,6 @@ from video_processor import VideoProcessor
 from directory_manager import DirectoryManager
 from ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from tqdm import tqdm
-from processed_frame import ProcessedFrame
 
 
 class ProcessedFrame:
@@ -62,7 +61,7 @@ class ProcessedFrame:
         return ProcessedFrame.from_video(video_path, ocr_strategy)
 
     @staticmethod
-    def get_data_for_plotting(processed_frames: List[ProcessedFrame]):
+    def get_data_for_plotting(processed_frames: List["ProcessedFrame"]):
         x_data = [frame.frame_number for frame in processed_frames]
         y_data = [frame.char_count for frame in processed_frames]
         return x_data, y_data

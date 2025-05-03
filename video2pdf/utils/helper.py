@@ -9,8 +9,8 @@ from pytubefix import Playlist
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 
-from video2pdf.constants import BASE_DIR
-from video2pdf.directory_manager import DirectoryManager
+from video2pdf.utils.constants import BASE_DIR
+from video2pdf.utils.directory_manager import DirectoryManager
 
 
 class Helper:

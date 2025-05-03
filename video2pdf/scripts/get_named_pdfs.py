@@ -1,14 +1,12 @@
-import os
 import shutil
 
 from directory_manager import DirectoryManager
 from random_generator import RandomGenerator
-from utils.text_util import TextUtil
 from utils.file_util import FileUtil
+from utils.text_util import TextUtil
 
 
 def get_named_pdfs(index, input, new_directory):
-
     directory, video_name = TextUtil.get_directory_and_video_name(input)
 
     pdf_path = f"data/{directory}.pdf"

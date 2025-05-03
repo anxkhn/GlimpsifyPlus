@@ -1,8 +1,8 @@
 from typing import List
 
 from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
-from video2pdf.helper import Helper
-from video2pdf.processed_frame import ProcessedFrame
+from video2pdf.utils.helper import Helper
+from video2pdf.utils.processed_frame import ProcessedFrame
 
 
 class KeyMomentsExtractionStrategy(ExtractionStrategy):

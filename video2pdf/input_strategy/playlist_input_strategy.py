@@ -1,15 +1,15 @@
 import os
 
-from video2pdf.constants import BASE_DIR
-from video2pdf.directory_manager import DirectoryManager
 from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
 from video2pdf.extraction_strategy.k_transactions_extraction_strategy import KTransactionsExtractionStrategy
-from video2pdf.helper import Helper
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.input_strategy.youtube_video_url_input_strategy import YouTubeVideoURLInputStrategy
 from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
-from video2pdf.random_generator import RandomGenerator
+from video2pdf.utils.constants import BASE_DIR
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.helper import Helper
+from video2pdf.utils.random_generator import RandomGenerator
 
 
 class PlaylistInputStrategy(InputStrategy):

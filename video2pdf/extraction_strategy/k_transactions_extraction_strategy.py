@@ -6,7 +6,7 @@ from scipy import signal
 from scipy.ndimage import gaussian_filter1d
 
 from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
-from video2pdf.processed_frame import ProcessedFrame
+from video2pdf.utils.processed_frame import ProcessedFrame
 
 
 class KTransactionsExtractionStrategy(ExtractionStrategy):

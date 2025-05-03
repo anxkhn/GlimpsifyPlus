@@ -1,16 +1,16 @@
 import os
 
-from video2pdf.constants import BASE_DIR
-from video2pdf.data_plotter import DataPlotter
-from video2pdf.directory_manager import DirectoryManager
 from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
-from video2pdf.helper import Helper
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
-from video2pdf.post_processor import PostProcessor
-from video2pdf.processed_frame import ProcessedFrame
-from video2pdf.random_generator import RandomGenerator
+from video2pdf.utils.constants import BASE_DIR
+from video2pdf.utils.data_plotter import DataPlotter
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.helper import Helper
+from video2pdf.utils.post_processor import PostProcessor
+from video2pdf.utils.processed_frame import ProcessedFrame
+from video2pdf.utils.random_generator import RandomGenerator
 
 
 class LocalVideoInputStrategy(InputStrategy):

@@ -1,4 +1,4 @@
-from video2pdf.helper import Helper
+from video2pdf.utils.helper import Helper
 
 
 class OCRStrategy:

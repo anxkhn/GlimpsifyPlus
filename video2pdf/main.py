@@ -1,13 +1,13 @@
 import argparse
 import os
 
-from video2pdf.directory_manager import DirectoryManager
 from video2pdf.extraction_strategy.extraction_strategy_factory import ExtractionStrategyFactory
-from video2pdf.helper import Helper
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.input_strategy.input_strategy_factory import InputStrategyFactory
 from video2pdf.ocr_approval.ocr_approval_strategy_factory import OCRApprovalStrategyFactory
 from video2pdf.ocr_strategy.ocr_strategy_factory import OCRStrategyFactory
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.helper import Helper
 
 
 def parse_arguments():

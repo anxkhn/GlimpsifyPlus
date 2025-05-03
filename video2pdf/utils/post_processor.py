@@ -3,8 +3,8 @@ import os
 import cv2
 from PIL import Image
 
-from video2pdf.directory_manager import DirectoryManager
-from video2pdf.file_frame import FileFrame as Frame
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.file_frame import FileFrame as Frame
 
 
 class PostProcessor:

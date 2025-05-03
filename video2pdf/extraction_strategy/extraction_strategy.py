@@ -1,6 +1,6 @@
 from typing import List
 
-from video2pdf.processed_frame import ProcessedFrame
+from video2pdf.utils.processed_frame import ProcessedFrame
 
 
 class ExtractionStrategy:

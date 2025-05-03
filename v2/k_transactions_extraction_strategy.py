@@ -74,9 +74,8 @@ class KTransactionsExtractionStrategy(ExtractionStrategy):
 
     def extract_frames(self, frames: List[ProcessedFrame]) -> List[ProcessedFrame]:
         # Create the signal from frames
-        data = [(frame.frame_number, frame.ocr_text) for frame in frames]
-        df = pd.DataFrame(data, columns=["frame_id", "text"])
-        df["char_count"] = df["text"].apply(len)
+        data = [(frame.frame_number, frame.char_count) for frame in frames]
+        df = pd.DataFrame(data, columns=["frame_id", "char_count"])
 
         # Generate x and y coordinates for signal processing
         x = df.index.values
@@ -89,7 +88,7 @@ class KTransactionsExtractionStrategy(ExtractionStrategy):
             # self.k = len(peaks) #+ 10
             self.k = len(peaks) + 5
             print(f"Detected {self.k} significant transitions in the signal")
-        
+
         else:
             # Calculate k using signal processing if not already set
             if self.k is None:

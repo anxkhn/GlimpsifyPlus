@@ -45,7 +45,7 @@ class DataPlotter:
             for frame in extracted_frames:
                 plt.annotate(
                     f"Extracted Frame ({frame.frame_number})",
-                    (frame.frame_number, len(frame.ocr_text)),
+                    (frame.frame_number, frame.char_count),
                     xytext=(5, 5),
                     textcoords="offset points",
                     color="green",
@@ -53,7 +53,7 @@ class DataPlotter:
                 )
                 plt.plot(
                     frame.frame_number,
-                    len(frame.ocr_text),
+                    frame.char_count,
                     "o",
                     color="green",
                     markersize=10,

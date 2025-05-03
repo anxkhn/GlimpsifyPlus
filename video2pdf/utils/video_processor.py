@@ -2,7 +2,7 @@ from typing import Iterator
 
 import cv2
 
-from frame import Frame
+from video2pdf.utils.frame import Frame
 
 
 class VideoProcessor:

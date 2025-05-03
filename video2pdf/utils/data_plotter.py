@@ -2,7 +2,7 @@ from typing import List
 
 import matplotlib.pyplot as plt
 
-from processed_frame import ProcessedFrame
+from video2pdf.utils.processed_frame import ProcessedFrame
 
 
 class DataPlotter:

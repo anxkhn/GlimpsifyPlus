@@ -80,10 +80,11 @@ def main():
         args.extraction
     )
 
-    if args.k:
-        extraction_strategy.k = int(args.k)
-    else:
+    if args.k == "auto":
         extraction_strategy.auto_calculate_k = True
+    else:
+        if args.k:
+            extraction_strategy.k = int(args.k)
 
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(
         args.input,

@@ -1,4 +1,5 @@
 import re
+from typing import List
 from random_generator import RandomGenerator
 from directory_manager import DirectoryManager
 import os
@@ -25,21 +26,23 @@ class Helper:
 
     @staticmethod
     def download_youtube_video(
-        video_url: str, directory: str, RES: str = "720p"
+        video_url: str,
+        directory: str,
+        res_priority: List[str] = ["480p", "360p", "720p"],
     ) -> str:
+
         yt = YouTube(video_url, on_progress_callback=on_progress)
-        streams = yt.streams.filter(file_extension="mp4")
+
+        streams = None
+        for res in res_priority:
+            streams = yt.streams.filter(mime_type="video/mp4", res=res)
+            if streams:
+                break
 
         if not streams:
             raise Exception("No streams found for the video.")
 
-        for idx, i in enumerate(streams):
-            if i.resolution == RES:
-                print(idx)
-                print(i.resolution)
-                break
-        print(streams[idx])
-        yt.streams[idx].download(directory)
+        streams[0].download(directory)
         video_file_name = DirectoryManager.get_video_path(directory)
         return os.path.join(directory, video_file_name)
 

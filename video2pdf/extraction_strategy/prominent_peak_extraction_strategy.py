@@ -19,7 +19,7 @@ class ProminentPeakExtractionStrategy(BaseExtractionStrategy):
     the chosen parameters.
     """
 
-    def __init__(self, prominence: float = 0.1, distance: int = 3, **kwargs: Any):
+    def __init__(self, prominence: float = 1, distance: int = 6, **kwargs: Any):
         """
         Initializes the ProminentPeakExtractionStrategy.
 

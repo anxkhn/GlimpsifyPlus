@@ -1,0 +1,1346 @@
+/home/vedant/miniconda3/bin/python /home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/scripts/process_all_dirs.py
+Processing Frames: 0it [00:00, ?it/s]Created ../data/ckkajy_xsx
+Processing Frames: 1605it [03:43,  7.19it/s]
+Processed 1605 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 68785x8370 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/oxratx_uld
+Processing Frames: 145it [00:03, 40.68it/s]
+Processed 145 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/oxratx_uld_extracted_frames
+Saved PDF to ../data/oxratx_uld.pdf for Head & Neck Anatomy | Foramina of the Skull | INBDE.mp4
+Created ../data/yrhkqu_xga
+Processing Frames: 238it [00:05, 47.16it/s]
+Processed 238 frames
+Detected 6 significant transitions in the signal
+Extracted frames to ../data/yrhkqu_xga_extracted_frames
+Saved PDF to ../data/yrhkqu_xga.pdf for Prosthodontics | Metal-Ceramic & All-Ceramic Crowns | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/sktpkr_cft
+Processing Frames: 173it [00:03, 45.90it/s]
+Processed 173 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/sktpkr_cft_extracted_frames
+Saved PDF to ../data/sktpkr_cft.pdf for STATIC OCCLUSION - Occlusal Contacts & Picket Fence.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/qhisdm_kan
+Processing Frames: 1483it [00:56, 26.10it/s]
+Processed 1483 frames
+Created ../data/mbgcel_uik
+Processing Frames: 1680it [00:35, 47.04it/s]
+Processed 1680 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 72000x27990 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/fcxvmr_pve
+Processing Frames: 607it [00:12, 49.07it/s]
+Processed 607 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/fcxvmr_pve_extracted_frames
+Saved PDF to ../data/fcxvmr_pve.pdf for Pediatric Dentistry | Tooth Development and Eruption | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/srmqde_xcp
+Processing Frames: 220it [00:04, 47.66it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/srmqde_xcp_extracted_frames
+Saved PDF to ../data/srmqde_xcp.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/gddyar_kkj
+Processing Frames: 1001it [00:23, 42.13it/s]
+Processed 1001 frames
+Detected 22 significant transitions in the signal
+Extracted frames to ../data/gddyar_kkj_extracted_frames
+Saved PDF to ../data/gddyar_kkj.pdf for CurrentTopicsLecture5Ch5.mp4
+Created ../data/pidfog_hrc
+Processing Frames: 273it [00:05, 47.04it/s]
+Processed 273 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/pidfog_hrc_extracted_frames
+Saved PDF to ../data/pidfog_hrc.pdf for Oral Surgery | Biopsy Techniques | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/vvjvxf_ufj
+Processing Frames: 1377it [05:54,  3.89it/s]
+Processed 1377 frames
+Created ../data/bsjwsj_lde
+Processing Frames: 650it [00:12, 50.05it/s]
+Processed 650 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/bsjwsj_lde_extracted_frames
+Saved PDF to ../data/bsjwsj_lde.pdf for Operative Dentistry | Cavity Preparation | INBDE, ADAT.mp4
+Created ../data/yrazjn_kgc
+Processing Frames: 1346it [06:20,  3.54it/s]
+Processed 1346 frames
+Created ../data/jslpij_kbo
+Processing Frames: 1240it [00:27, 44.54it/s]
+Processed 1240 frames
+Detected 27 significant transitions in the signal
+Extracted frames to ../data/jslpij_kbo_extracted_frames
+Saved PDF to ../data/jslpij_kbo.pdf for CurrentTopicsLecture7Ch7.mp4
+Created ../data/adwxvg_xke
+Processing Frames: 336it [00:06, 52.51it/s]
+Processed 336 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/adwxvg_xke_extracted_frames
+Saved PDF to ../data/adwxvg_xke.pdf for Endodontics | Pulp Biology and Tooth Pain | INBDE, ADAT.mp4
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 36, in proceed
+    video_path = DirectoryManager.get_video_path(self.directory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 23, in get_video_path
+    return os.path.join(directory, DirectoryManager.get_file_name(directory))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 19, in get_file_name
+    return os.listdir(directory)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Created ../data/udxrgy_jar
+Created ../data/ubqley_ity
+Processing Frames: 458it [00:08, 50.91it/s]
+Processed 458 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/ubqley_ity_extracted_frames
+Saved PDF to ../data/ubqley_ity.pdf for Pediatric Dentistry | Primary Tooth Treatment | INBDE, ADAT.mp4
+Created ../data/pldnrz_ufj
+Processing Frames: 220it [00:05, 39.59it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/pldnrz_ufj_extracted_frames
+Saved PDF to ../data/pldnrz_ufj.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/olaqxj_wvt
+Processing Frames: 144it [00:04, 34.36it/s]
+Processed 144 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/olaqxj_wvt_extracted_frames
+Saved PDF to ../data/olaqxj_wvt.pdf for Head & Neck Anatomy | Pharynx & Larynx Muscles | INBDE.mp4
+Created ../data/eqcnrd_vib
+Processing Frames: 644it [00:11, 55.21it/s]
+Processed 644 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/eqcnrd_vib_extracted_frames
+Saved PDF to ../data/eqcnrd_vib.pdf for Orthodontics | Growth & Development | INBDE, ADAT.mp4
+Created ../data/yhiddy_zqv
+Processing Frames: 278it [00:06, 40.48it/s]
+Processed 278 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/yhiddy_zqv_extracted_frames
+Saved PDF to ../data/yhiddy_zqv.pdf for Orthodontic Treatment Pt.  1.mp4
+Created ../data/djwahz_fst
+Processing Frames: 294it [00:06, 48.73it/s]
+Processed 294 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/djwahz_fst_extracted_frames
+Saved PDF to ../data/djwahz_fst.pdf for Prosthodontics | Maxillary Edentulous Anatomy | INBDE, ADAT.mp4
+Created ../data/jtkszw_edp
+Processing Frames: 1258it [00:33, 37.37it/s]
+Processed 1258 frames
+Detected 23 significant transitions in the signal
+Extracted frames to ../data/jtkszw_edp_extracted_frames
+Saved PDF to ../data/jtkszw_edp.pdf for Anatomy and Physiology Chapter 22 Part C lecture: Respiratory System.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/kuekvo_lay
+Processing Frames: 1316it [00:29, 45.13it/s]
+Processed 1316 frames
+Created ../data/vhghaj_cce
+Processing Frames: 640it [00:15, 41.96it/s]
+Processed 640 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/vhghaj_cce_extracted_frames
+Saved PDF to ../data/vhghaj_cce.pdf for Oral Medicine | INR & Bleeding | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/ihdpjv_jwj
+Processing Frames: 277it [00:06, 43.17it/s]
+Processed 277 frames
+Detected 9 significant transitions in the signal
+[h264 @ 0x5a72f7394a80] mmco: unref short failure
+Extracted frames to ../data/ihdpjv_jwj_extracted_frames
+Saved PDF to ../data/ihdpjv_jwj.pdf for Prosthodontics | Gypsum Materials | INBDE, ADAT.mp4
+Created ../data/ulgywi_qok
+Processing Frames: 308it [00:06, 44.96it/s]
+Processed 308 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/ulgywi_qok_extracted_frames
+Saved PDF to ../data/ulgywi_qok.pdf for Prosthodontics | Mechanical Properties | INBDE, ADAT.mp4
+Created ../data/uhrpei_pbc
+Processing Frames: 642it [00:26, 23.80it/s]
+Processed 642 frames
+Detected 20 significant transitions in the signal
+Extracted frames to ../data/uhrpei_pbc_extracted_frames
+Saved PDF to ../data/uhrpei_pbc.pdf for Human Biology Lecture: Ch 9- Molecular Biology, DNA and Gene Expression.mp4
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 36, in proceed
+    video_path = DirectoryManager.get_video_path(self.directory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 23, in get_video_path
+    return os.path.join(directory, DirectoryManager.get_file_name(directory))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 19, in get_file_name
+    return os.listdir(directory)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Created ../data/fmslti_diw
+Created ../data/mfewuh_chm
+Processing Frames: 633it [00:24, 26.04it/s]
+Processed 633 frames
+Detected 19 significant transitions in the signal
+Extracted frames to ../data/mfewuh_chm_extracted_frames
+Saved PDF to ../data/mfewuh_chm.pdf for Human Biology Lecture: Chapter 7- Cellular Basis of Inheritance (Meiosis).mp4
+Created ../data/vqesbr_tdz
+Processing Frames: 220it [00:05, 43.86it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/vqesbr_tdz_extracted_frames
+Saved PDF to ../data/vqesbr_tdz.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/rjgctw_emz
+Processing Frames: 324it [00:05, 60.52it/s]
+Processed 324 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/rjgctw_emz_extracted_frames
+Saved PDF to ../data/rjgctw_emz.pdf for Orthodontic Tooth Movement- Mechanics.mp4
+Created ../data/xxmbxs_ewj
+Processing Frames: 1190it [01:39, 11.97it/s]
+Processed 1190 frames
+Detected 22 significant transitions in the signal
+Extracted frames to ../data/xxmbxs_ewj_extracted_frames
+Saved PDF to ../data/xxmbxs_ewj.pdf for Chapter 38   Nervous System.mp4
+Created ../data/trlhdz_mxg
+Processing Frames: 292it [00:05, 50.77it/s]
+Processed 292 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/trlhdz_mxg_extracted_frames
+Saved PDF to ../data/trlhdz_mxg.pdf for Oral Pathology | Hereditary Conditions | INBDE, ADAT.mp4
+Created ../data/ybokqs_toc
+Processing Frames: 753it [00:15, 47.53it/s]
+Processed 753 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/ybokqs_toc_extracted_frames
+Saved PDF to ../data/ybokqs_toc.pdf for Operative Dentistry | Dental Caries | INBDE, ADAT.mp4
+Created ../data/jgywnx_jyu
+Processing Frames: 1464it [00:29, 49.97it/s]
+Processed 1464 frames
+Created ../data/meatkb_ifi
+Processing Frames: 1139it [04:20,  4.38it/s]
+Processed 1139 frames
+Detected 14 significant transitions in the signal
+Extracted frames to ../data/meatkb_ifi_extracted_frames
+Saved PDF to ../data/meatkb_ifi.pdf for Three Stages of the Writing Process|Essay Writing and Presentation skills in Hindi Urdu ENG406 4.mp4
+Created ../data/yecmvl_ybt
+Processing Frames: 716it [00:16, 44.12it/s]
+Processed 716 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/yecmvl_ybt_extracted_frames
+Saved PDF to ../data/yecmvl_ybt.pdf for Orthodontics | Comprehensive Treatment & Appliances | INBDE, ADAT.mp4
+Created ../data/wdvnza_hgs
+Processing Frames: 976it [02:38,  6.14it/s]
+Processed 976 frames
+Detected 27 significant transitions in the signal
+Extracted frames to ../data/wdvnza_hgs_extracted_frames
+Saved PDF to ../data/wdvnza_hgs.pdf for Lecture 2.2: Basic Concepts - Optimization (Multimodal Machine Learning, Carnegie Mellon University).mp4
+Created ../data/qfsezy_fhq
+Processing Frames: 1140it [00:26, 42.62it/s]
+Processed 1140 frames
+Created ../data/euwetu_vfg
+Processing Frames: 464it [00:08, 55.67it/s]
+Processed 464 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/euwetu_vfg_extracted_frames
+Saved PDF to ../data/euwetu_vfg.pdf for Orthodontics | Orthodontic Wires & Brackets | INBDE, ADAT.mp4
+Created ../data/npurai_nal
+Processing Frames: 902it [01:18, 11.52it/s]
+Processed 902 frames
+Detected 15 significant transitions in the signal
+Extracted frames to ../data/npurai_nal_extracted_frames
+Saved PDF to ../data/npurai_nal.pdf for Chapter 36   Animal Development.mp4
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 36, in proceed
+    video_path = DirectoryManager.get_video_path(self.directory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 23, in get_video_path
+    return os.path.join(directory, DirectoryManager.get_file_name(directory))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 19, in get_file_name
+    return os.listdir(directory)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Created ../data/ugsghi_oef
+Processing Frames: 0it [00:00, ?it/s]Created ../data/rzcsvv_egu
+Processing Frames: 1084it [00:21, 50.13it/s]
+Processed 1084 frames
+Detected 18 significant transitions in the signal
+Extracted frames to ../data/rzcsvv_egu_extracted_frames
+Saved PDF to ../data/rzcsvv_egu.pdf for CurrentTopicsLecture2Ch2.mp4
+Created ../data/tgqxfv_tqe
+Processing Frames: 1602it [00:41, 38.47it/s]
+Processed 1602 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 68657x15390 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/xpetji_qce
+Processing Frames: 522it [00:10, 48.01it/s]
+Processed 522 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/xpetji_qce_extracted_frames
+Saved PDF to ../data/xpetji_qce.pdf for Endodontics | Adjunctive Treatment | INBDE, ADAT.mp4
+Created ../data/jkpjwe_qmj
+Processing Frames: 1383it [00:26, 52.29it/s]
+Processed 1383 frames
+Created ../data/iqntxc_qzr
+Processing Frames: 578it [00:16, 35.95it/s]
+Processed 578 frames
+Detected 14 significant transitions in the signal
+Extracted frames to ../data/iqntxc_qzr_extracted_frames
+Saved PDF to ../data/iqntxc_qzr.pdf for Chapter 3 Part B Cells Anatomy & Physiology Lecture.mp4
+Created ../data/yaldqc_ygx
+Processing Frames: 554it [00:12, 45.39it/s]
+Processed 554 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/yaldqc_ygx_extracted_frames
+Saved PDF to ../data/yaldqc_ygx.pdf for Pediatric Dentistry | Developmental Disturbances of Teeth | INBDE, ADAT.mp4
+Created ../data/zlervx_dhi
+Processing Frames: 203it [00:04, 43.13it/s]
+Processed 203 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/zlervx_dhi_extracted_frames
+Saved PDF to ../data/zlervx_dhi.pdf for Human Anatomy Lecture  Ch 17 Endocrine System Pt 2.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/hrpnxe_sqp
+Processing Frames: 619it [00:23, 26.30it/s]
+Processed 619 frames
+Detected 18 significant transitions in the signal
+Extracted frames to ../data/hrpnxe_sqp_extracted_frames
+Saved PDF to ../data/hrpnxe_sqp.pdf for Human Biology Lecture: Ch 6- Reproduction at the Cellular Level Part 1.mp4
+Created ../data/fxddqo_xrh
+Processing Frames: 287it [00:05, 55.67it/s]
+Processed 287 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/fxddqo_xrh_extracted_frames
+Saved PDF to ../data/fxddqo_xrh.pdf for Oral Surgery | Trauma & Orthognathic Surgery | INBDE, ADAT.mp4
+Created ../data/hydixc_wsu
+Processing Frames: 150it [00:03, 48.12it/s]
+Processed 150 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/hydixc_wsu_extracted_frames
+Saved PDF to ../data/hydixc_wsu.pdf for Periodontics | Prevention & Maintenance | INBDE, ADAT.mp4
+Created ../data/shngtp_vse
+Processing Frames: 384it [00:07, 48.40it/s]
+Processed 384 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/shngtp_vse_extracted_frames
+Saved PDF to ../data/shngtp_vse.pdf for Periodontics | Adjunctive Therapy | INBDE, ADAT.mp4
+Created ../data/yirczy_amk
+Processing Frames: 204it [00:04, 42.87it/s]
+Processed 204 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/yirczy_amk_extracted_frames
+Saved PDF to ../data/yirczy_amk.pdf for Head & Neck Anatomy | Muscles of Mastication | INBDE.mp4
+Created ../data/aqeiwr_hht
+Processing Frames: 78it [00:02, 33.54it/s]
+Processed 78 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/aqeiwr_hht_extracted_frames
+Saved PDF to ../data/aqeiwr_hht.pdf for Oral Pathology | Connective Tissue Malignant Tumors | INBDE, ADAT.mp4
+Created ../data/bqzprh_rli
+Processing Frames: 1211it [00:25, 46.86it/s]
+Processed 1211 frames
+Detected 19 significant transitions in the signal
+Extracted frames to ../data/bqzprh_rli_extracted_frames
+Saved PDF to ../data/bqzprh_rli.pdf for Anatomy and Physiology Chapter 13 Part D  lecture: Peripheral Nervous System.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/erhbqn_qft
+Processing Frames: 560it [00:13, 41.21it/s]
+Processed 560 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/erhbqn_qft_extracted_frames
+Saved PDF to ../data/erhbqn_qft.pdf for Pediatric Dentistry | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Created ../data/rskdzi_qis
+Processing Frames: 570it [00:11, 48.22it/s]
+Processed 570 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/rskdzi_qis_extracted_frames
+Saved PDF to ../data/rskdzi_qis.pdf for Pediatric Dentistry | Child Behavior | INBDE, ADAT.mp4
+Created ../data/zirldl_cwu
+Processing Frames: 2358it [02:11, 17.90it/s]
+Processed 2358 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 101057x33180 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/rgqydw_key
+Processing Frames: 327it [00:07, 46.67it/s]
+Processed 327 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/rgqydw_key_extracted_frames
+Saved PDF to ../data/rgqydw_key.pdf for Perceptual Ability Test | Angle Ranking | DAT.mp4
+Created ../data/qzxibg_cmu
+Processing Frames: 216it [00:03, 55.33it/s]
+Processed 216 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/qzxibg_cmu_extracted_frames
+Saved PDF to ../data/qzxibg_cmu.pdf for Prosthodontics | Provisional Crowns | INBDE, ADAT.mp4
+Created ../data/asycxh_rpi
+Processing Frames: 559it [00:10, 55.10it/s]
+Processed 559 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/asycxh_rpi_extracted_frames
+Saved PDF to ../data/asycxh_rpi.pdf for Oral Surgery | Instrumentation for Extraction | INBDE, ADAT.mp4
+Created ../data/mnoado_lyb
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 36, in proceed
+    video_path = DirectoryManager.get_video_path(self.directory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 23, in get_video_path
+    return os.path.join(directory, DirectoryManager.get_file_name(directory))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 19, in get_file_name
+    return os.listdir(directory)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Created ../data/sosjvp_btu
+Processing Frames: 1152it [00:34, 33.54it/s]
+Processed 1152 frames
+Detected 34 significant transitions in the signal
+Extracted frames to ../data/sosjvp_btu_extracted_frames
+Saved PDF to ../data/sosjvp_btu.pdf for Human Anatomy Lecture  Ch 9 Joints Pt 1.mp4
+Created ../data/lhwemu_zzw
+Processing Frames: 1006it [00:21, 46.23it/s]
+Processed 1006 frames
+Detected 25 significant transitions in the signal
+Extracted frames to ../data/lhwemu_zzw_extracted_frames
+Saved PDF to ../data/lhwemu_zzw.pdf for Human Anatomy Lecture  Ch 6 Bones.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/zrkmxn_kkn
+Processing Frames: 371it [00:10, 35.08it/s]
+Processed 371 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/zrkmxn_kkn_extracted_frames
+Saved PDF to ../data/zrkmxn_kkn.pdf for Developmental Psychology - Middle Adulthood - Biosychosocial - CH13.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/bmqioa_agz
+Processing Frames: 117it [00:03, 38.09it/s]
+Processed 117 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/bmqioa_agz_extracted_frames
+Saved PDF to ../data/bmqioa_agz.pdf for Prosthodontics | Metal Alloys | INBDE, ADAT.mp4
+Created ../data/wnhdmj_vhu
+Processing Frames: 211it [00:07, 28.60it/s]
+Processed 211 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/wnhdmj_vhu_extracted_frames
+Saved PDF to ../data/wnhdmj_vhu.pdf for Head & Neck Anatomy | Muscles of Facial Expression | INBDE.mp4
+Created ../data/xiietr_bob
+Processing Frames: 514it [00:11, 44.92it/s]
+Processed 514 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/xiietr_bob_extracted_frames
+Saved PDF to ../data/xiietr_bob.pdf for Patient Management | Infection Control | INBDE, ADAT.mp4
+Created ../data/iyyoht_xsp
+Processing Frames: 308it [00:07, 42.28it/s]
+Processed 308 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/iyyoht_xsp_extracted_frames
+Saved PDF to ../data/iyyoht_xsp.pdf for Oral Medicine | CPR | INBDE.mp4
+Created ../data/pssllz_amt
+Processing Frames: 1144it [02:39,  7.17it/s]
+Processed 1144 frames
+Detected 22 significant transitions in the signal
+Extracted frames to ../data/pssllz_amt_extracted_frames
+Saved PDF to ../data/pssllz_amt.pdf for Chapter 27   The Rise of the Invertebrate Animals.mp4
+Created ../data/wzxlvf_hqn
+Processing Frames: 698it [00:16, 42.32it/s]
+Processed 698 frames
+Detected 14 significant transitions in the signal
+Extracted frames to ../data/wzxlvf_hqn_extracted_frames
+Saved PDF to ../data/wzxlvf_hqn.pdf for Periodontics | New Classification System | INBDE, ADAT.mp4
+Created ../data/tpfibt_fmj
+Processing Frames: 239it [00:05, 42.34it/s]
+Processed 239 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/tpfibt_fmj_extracted_frames
+Saved PDF to ../data/tpfibt_fmj.pdf for Prosthodontics | Denture Processing & Materials | INBDE, ADAT.mp4
+Created ../data/hripxz_wms
+Processing Frames: 478it [00:08, 53.24it/s]
+Processed 478 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/hripxz_wms_extracted_frames
+Saved PDF to ../data/hripxz_wms.pdf for Human Biology Lecture- Chapter 1: What is Life?.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/uszriv_jjn
+Processing Frames: 190it [00:05, 34.39it/s]
+Processed 190 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/uszriv_jjn_extracted_frames
+Saved PDF to ../data/uszriv_jjn.pdf for Orthodontic Treatment Pt. 2.mp4
+Created ../data/ijifjf_vas
+Processing Frames: 511it [00:11, 45.52it/s]
+Processed 511 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/ijifjf_vas_extracted_frames
+Saved PDF to ../data/ijifjf_vas.pdf for Prosthodontics | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/qrxowj_wxw
+Processing Frames: 220it [00:05, 40.71it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/qrxowj_wxw_extracted_frames
+Saved PDF to ../data/qrxowj_wxw.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/mowrkl_xdh
+Processing Frames: 1404it [02:41,  8.71it/s]
+Processed 1404 frames
+Detected 28 significant transitions in the signal
+Extracted frames to ../data/mowrkl_xdh_extracted_frames
+Saved PDF to ../data/mowrkl_xdh.pdf for Lecture 5.2: Alignment and Representation (Multimodal Machine Learning, Carnegie Mellon University).mp4
+Created ../data/aryrsb_klj
+Processing Frames: 220it [00:05, 40.96it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/aryrsb_klj_extracted_frames
+Saved PDF to ../data/aryrsb_klj.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/msskhv_uzf
+Processing Frames: 291it [00:06, 44.10it/s]
+Processed 291 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/msskhv_uzf_extracted_frames
+Saved PDF to ../data/msskhv_uzf.pdf for Pediatric Dentistry | Primary Tooth Anatomy | INBDE, ADAT.mp4
+Created ../data/mhhqzg_gxh
+Processing Frames: 763it [00:27, 27.90it/s]
+Processed 763 frames
+Detected 23 significant transitions in the signal
+Extracted frames to ../data/mhhqzg_gxh_extracted_frames
+Saved PDF to ../data/mhhqzg_gxh.pdf for Human Biology Lecture: Chapter 18- Reproduction and Development.mp4
+Created ../data/xdrrpx_iaf
+Processing Frames: 438it [00:07, 59.71it/s]
+Processed 438 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/xdrrpx_iaf_extracted_frames
+Saved PDF to ../data/xdrrpx_iaf.pdf for Oral Surgery | Simple Extraction | INBDE, ADAT.mp4
+Created ../data/hjsbwd_pbj
+Processing Frames: 64it [00:02, 26.87it/s]
+Processed 64 frames
+Detected 6 significant transitions in the signal
+Extracted frames to ../data/hjsbwd_pbj_extracted_frames
+Saved PDF to ../data/hjsbwd_pbj.pdf for Oral Pathology | Salivary Gland Malignant Diseases | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/nysxop_fvi
+Processing Frames: 1596it [00:38, 41.28it/s]
+Processed 1596 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 68400x23820 pixels is too large. It must be less than 2^16 in each direction.
+Processing Frames: 0it [00:00, ?it/s]Created ../data/xgsetv_ezs
+Processing Frames: 286it [00:05, 53.04it/s]
+Processed 286 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/xgsetv_ezs_extracted_frames
+Saved PDF to ../data/xgsetv_ezs.pdf for Intro to Muscular system part 2.mp4
+Created ../data/oogxef_mhq
+Processing Frames: 589it [00:13, 44.95it/s]
+Processed 589 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/oogxef_mhq_extracted_frames
+Saved PDF to ../data/oogxef_mhq.pdf for Prosthodontics | Tooth Preparation | INBDE, ADAT.mp4
+Created ../data/wzwvzv_nvf
+Processing Frames: 1502it [00:28, 52.94it/s]
+Processed 1502 frames
+Created ../data/jlsjyc_qfn
+Processing Frames: 431it [00:10, 40.54it/s]
+Processed 431 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/jlsjyc_qfn_extracted_frames
+Saved PDF to ../data/jlsjyc_qfn.pdf for Prosthodontics | Clasp Design & Selection | INBDE, ADAT.mp4
+Created ../data/cruilc_quf
+Processing Frames: 347it [00:07, 44.45it/s]
+Processed 347 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/cruilc_quf_extracted_frames
+Saved PDF to ../data/cruilc_quf.pdf for Patient Management | Anxiety & Pain Control | INBDE, ADAT.mp4
+Created ../data/jrixdt_lhr
+Processing Frames: 1629it [04:43,  5.75it/s]
+Processed 1629 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 69814x12480 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/xtlxph_bty
+Processing Frames: 257it [00:09, 25.88it/s]
+Processed 257 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/xtlxph_bty_extracted_frames
+Saved PDF to ../data/xtlxph_bty.pdf for Head & Neck Anatomy | Triangles of the Neck & Neck Muscles | INBDE.mp4
+Created ../data/zgpqgn_spa
+Processing Frames: 529it [00:11, 46.04it/s]
+Processed 529 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/zgpqgn_spa_extracted_frames
+Saved PDF to ../data/zgpqgn_spa.pdf for Developmental Psychology - Cognitive - Young Adulthood - CH10.mp4
+Created ../data/aqqzpy_uca
+Processing Frames: 364it [00:07, 50.95it/s]
+Processed 364 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/aqqzpy_uca_extracted_frames
+Saved PDF to ../data/aqqzpy_uca.pdf for Prosthodontics | Mandibular Edentulous Anatomy | INBDE, ADAT.mp4
+Created ../data/dlfoyw_svd
+Processing Frames: 884it [00:14, 59.57it/s]
+Processed 884 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/dlfoyw_svd_extracted_frames
+Saved PDF to ../data/dlfoyw_svd.pdf for Orthodontics | Diagnosis & Treatment Planning | INBDE, ADAT.mp4
+Created ../data/hgkxep_dyg
+Processing Frames: 306it [00:08, 34.54it/s]
+Processed 306 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/hgkxep_dyg_extracted_frames
+Saved PDF to ../data/hgkxep_dyg.pdf for Head & Neck Anatomy | TMJ Anatomy | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/pwlueg_hwb
+Processing Frames: 1425it [00:39, 35.80it/s]
+Processed 1425 frames
+Created ../data/cxqeox_qoi
+Processing Frames: 220it [00:05, 41.54it/s]
+Processed 220 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/cxqeox_qoi_extracted_frames
+Saved PDF to ../data/cxqeox_qoi.pdf for Evidence-Based Dentistry Part 2.mp4
+Created ../data/uxwbeg_qsm
+Processing Frames: 876it [00:19, 44.11it/s]
+Processed 876 frames
+Detected 18 significant transitions in the signal
+Extracted frames to ../data/uxwbeg_qsm_extracted_frames
+Saved PDF to ../data/uxwbeg_qsm.pdf for CurrentTopicsLecture9Ch9.mp4
+Created ../data/ejftjw_gzg
+Processing Frames: 298it [00:06, 48.80it/s]
+Processed 298 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/ejftjw_gzg_extracted_frames
+Saved PDF to ../data/ejftjw_gzg.pdf for Prosthodontics | Dental Cements | INBDE, ADAT.mp4
+Created ../data/mlvdvr_krz
+Processing Frames: 774it [00:25, 30.68it/s]
+Processed 774 frames
+Detected 20 significant transitions in the signal
+Extracted frames to ../data/mlvdvr_krz_extracted_frames
+Saved PDF to ../data/mlvdvr_krz.pdf for Human Biology: Ch 16.3- Cardiovascular System Part 1.mp4
+Created ../data/hkyigj_gbj
+Processing Frames: 244it [00:04, 56.15it/s]
+Processed 244 frames
+Detected 6 significant transitions in the signal
+Extracted frames to ../data/hkyigj_gbj_extracted_frames
+Saved PDF to ../data/hkyigj_gbj.pdf for Endodontics | Procedural Complications | INBDE, ADAT.mp4
+Created ../data/wayvbl_ini
+Processing Frames: 1351it [03:26,  6.54it/s]
+Processed 1351 frames
+Detected 31 significant transitions in the signal
+Extracted frames to ../data/wayvbl_ini_extracted_frames
+Saved PDF to ../data/wayvbl_ini.pdf for Lecture 5.1: Multimodal Alignment (Multimodal Machine Learning, Carnegie Mellon University).mp4
+Created ../data/ruweka_ukl
+Processing Frames: 348it [00:07, 44.96it/s]
+Processed 348 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/ruweka_ukl_extracted_frames
+Saved PDF to ../data/ruweka_ukl.pdf for Oral Radiology | Radiation Dose | INBDE, ADAT.mp4
+Created ../data/nhwrqw_xcx
+Processing Frames: 2049it [00:45, 44.94it/s]
+Processed 2049 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 87814x22440 pixels is too large. It must be less than 2^16 in each direction.
+Processing Frames: 0it [00:00, ?it/s][mov,mp4,m4a,3gp,3g2,mj2 @ 0x622e66fe6180] moov atom not found
+Created ../data/dvpret_gna
+Processing Frames: 0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 36, in plot_data
+    min_y, max_y = min(y_data), max(y_data)
+                   ^^^^^^^^^^^
+ValueError: min() iterable argument is empty
+Processed 0 frames
+Processing Frames: 0it [00:00, ?it/s]Created ../data/icquet_pru
+Processing Frames: 1094it [02:20,  7.79it/s]
+Processed 1094 frames
+Detected 25 significant transitions in the signal
+Extracted frames to ../data/icquet_pru_extracted_frames
+Saved PDF to ../data/icquet_pru.pdf for Chapter 38   The Senses.mp4
+Created ../data/pdddxw_hhx
+Processing Frames: 614it [00:15, 40.39it/s]
+Processed 614 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/pdddxw_hhx_extracted_frames
+Saved PDF to ../data/pdddxw_hhx.pdf for Orthodontics | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Created ../data/yysaqx_zke
+Processing Frames: 590it [00:13, 44.87it/s]
+Processed 590 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/yysaqx_zke_extracted_frames
+Saved PDF to ../data/yysaqx_zke.pdf for Oral Surgery | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Created ../data/ozygri_xwr
+Processing Frames: 812it [00:17, 45.40it/s]
+Processed 812 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/ozygri_xwr_extracted_frames
+Saved PDF to ../data/ozygri_xwr.pdf for Patient Management | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Created ../data/txxahm_zdc
+Processing Frames: 1023it [02:04,  8.21it/s]
+Processed 1023 frames
+Detected 17 significant transitions in the signal
+Extracted frames to ../data/txxahm_zdc_extracted_frames
+Saved PDF to ../data/txxahm_zdc.pdf for Chapter 34   Respiratory System.mp4
+Created ../data/cyqohz_hjd
+Processing Frames: 365it [00:09, 38.47it/s]
+Processed 365 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/cyqohz_hjd_extracted_frames
+Saved PDF to ../data/cyqohz_hjd.pdf for Head & Neck Anatomy | Bones of the Skull | INBDE.mp4
+Created ../data/dhlvnv_qpv
+Processing Frames: 1188it [05:38,  3.51it/s]
+Processed 1188 frames
+Created ../data/hhboxg_arm
+Processing Frames: 622it [00:12, 48.09it/s]
+Processed 622 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/hhboxg_arm_extracted_frames
+Saved PDF to ../data/hhboxg_arm.pdf for Oral Medicine | Diabetes | INBDE.mp4
+Created ../data/dlxdzc_bbf
+Processing Frames: 1133it [02:07,  8.91it/s]
+Processed 1133 frames
+Detected 16 significant transitions in the signal
+Extracted frames to ../data/dlxdzc_bbf_extracted_frames
+Saved PDF to ../data/dlxdzc_bbf.pdf for Chapter 32   Tissues and Endocrine System.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/czeswe_oca
+Processing Frames: 198it [00:04, 44.69it/s]
+Processed 198 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/czeswe_oca_extracted_frames
+Saved PDF to ../data/czeswe_oca.pdf for Saliva and the Stephan Curve.mp4
+Created ../data/gkoxol_fet
+Processing Frames: 1572it [00:41, 38.04it/s]
+Processed 1572 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 67371x21870 pixels is too large. It must be less than 2^16 in each direction.
+Processing Frames: 0it [00:00, ?it/s]Created ../data/jautph_zkp
+Processing Frames: 86it [00:03, 22.84it/s]
+Processed 86 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/jautph_zkp_extracted_frames
+Saved PDF to ../data/jautph_zkp.pdf for Head & Neck Anatomy | Tongue Muscles | INBDE.mp4
+Created ../data/obwxrn_atn
+Processing Frames: 123it [00:03, 39.36it/s]
+Processed 123 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/obwxrn_atn_extracted_frames
+Saved PDF to ../data/obwxrn_atn.pdf for Oral Pathology | Mucosal Malignant Lesions | INBDE, ADAT.mp4
+Created ../data/ruquuc_ege
+Processing Frames: 252it [00:05, 47.04it/s]
+Processed 252 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/ruquuc_ege_extracted_frames
+Saved PDF to ../data/ruquuc_ege.pdf for Head & Neck Anatomy | Salivary Glands | INBDE.mp4
+Created ../data/cftulg_nax
+Processing Frames: 596it [00:12, 48.41it/s]
+Processed 596 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/cftulg_nax_extracted_frames
+Saved PDF to ../data/cftulg_nax.pdf for Operative Dentistry | PRACTICE QUESTIONS | INBDE, ADAT.mp4
+Created ../data/jqvgor_deg
+Processing Frames: 1307it [05:18,  4.10it/s]
+Processed 1307 frames
+Created ../data/vvywdg_zmj
+Processing Frames: 591it [01:30,  6.56it/s]
+Processed 591 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/vvywdg_zmj_extracted_frames
+Saved PDF to ../data/vvywdg_zmj.pdf for Chapter 35   Innate Immunity.mp4
+Created ../data/afsikc_fwf
+Processing Frames: 289it [00:06, 47.66it/s]
+Processed 289 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/afsikc_fwf_extracted_frames
+Saved PDF to ../data/afsikc_fwf.pdf for Oral Surgery | Orofacial Pain | INBDE, ADAT.mp4
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 36, in proceed
+    video_path = DirectoryManager.get_video_path(self.directory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 23, in get_video_path
+    return os.path.join(directory, DirectoryManager.get_file_name(directory))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/directory_manager.py", line 19, in get_file_name
+    return os.listdir(directory)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Created ../data/qhevof_zlp
+Created ../data/znavfo_lic
+Processing Frames: 570it [00:12, 44.61it/s]
+Processed 570 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/znavfo_lic_extracted_frames
+Saved PDF to ../data/znavfo_lic.pdf for Head & Neck Anatomy | Cranial Nerves | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/lhopxd_mtg
+Processing Frames: 232it [00:05, 39.55it/s]
+Processed 232 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/lhopxd_mtg_extracted_frames
+Saved PDF to ../data/lhopxd_mtg.pdf for Prosthodontics | Support, Stability, & Retention | INBDE, ADAT.mp4
+Created ../data/lxwqhv_ufy
+Processing Frames: 298it [00:06, 49.61it/s]
+Processed 298 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/lxwqhv_ufy_extracted_frames
+Saved PDF to ../data/lxwqhv_ufy.pdf for Orthodontic Tooth Movement- Biomechanics- Types of Movement.mp4
+Created ../data/vxcarn_igx
+Processing Frames: 1250it [00:22, 56.16it/s]
+Processed 1250 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/vxcarn_igx_extracted_frames
+Saved PDF to ../data/vxcarn_igx.pdf for Developmental Psychology - Cognitive & Physical Development Childhood - CH6.mp4
+Created ../data/cakavo_aze
+Processing Frames: 654it [00:20, 31.23it/s]
+Processed 654 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/cakavo_aze_extracted_frames
+Saved PDF to ../data/cakavo_aze.pdf for Histology slides review.mp4
+Created ../data/kaitxy_yxq
+Processing Frames: 747it [00:15, 47.28it/s]
+Processed 747 frames
+Detected 21 significant transitions in the signal
+Extracted frames to ../data/kaitxy_yxq_extracted_frames
+Saved PDF to ../data/kaitxy_yxq.pdf for Human Anatomy Lecture  Ch 18 Blood.mp4
+Created ../data/gmyvcu_btf
+Processing Frames: 288it [00:05, 56.25it/s]
+Processed 288 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/gmyvcu_btf_extracted_frames
+Saved PDF to ../data/gmyvcu_btf.pdf for Orthodontics | Early Treatment | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/htvpfe_jbp
+Processing Frames: 121it [00:02, 46.04it/s]
+Processed 121 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/htvpfe_jbp_extracted_frames
+Saved PDF to ../data/htvpfe_jbp.pdf for Orthodontic Tooth Movement- Biomechanics- Duration.mp4
+Created ../data/uktblu_ckb
+Processing Frames: 601it [00:11, 53.89it/s]
+Processed 601 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/uktblu_ckb_extracted_frames
+Saved PDF to ../data/uktblu_ckb.pdf for Oral Medicine | COPD & Asthma | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/dxeqwb_yos
+Processing Frames: 876it [00:39, 21.91it/s]
+Processed 876 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/dxeqwb_yos_extracted_frames
+Saved PDF to ../data/dxeqwb_yos.pdf for Endocrine System - Pituitary Gland THE MASTER GLAND.mp4
+Created ../data/cncwmr_hus
+Processing Frames: 1590it [04:01,  6.59it/s]
+Processed 1590 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 68142x13890 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/xfzngr_lfc
+Processing Frames: 192it [00:04, 41.54it/s]
+Processed 192 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/xfzngr_lfc_extracted_frames
+Saved PDF to ../data/xfzngr_lfc.pdf for Patient Management | Public Health & Epidemiology | INBDE, ADAT.mp4
+Created ../data/apivsf_man
+Processing Frames: 521it [00:12, 40.74it/s]
+Processed 521 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/apivsf_man_extracted_frames
+Saved PDF to ../data/apivsf_man.pdf for Oral Radiology | Types of Radiographs | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/kjajup_pjn
+Processing Frames: 415it [00:07, 53.04it/s]
+Processed 415 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/kjajup_pjn_extracted_frames
+Saved PDF to ../data/kjajup_pjn.pdf for Oral Pathology | Mucosal Infections | INBDE, ADAT.mp4
+Created ../data/menozr_xkv
+Processing Frames: 1224it [00:41, 29.43it/s]
+Processed 1224 frames
+Detected 25 significant transitions in the signal
+Extracted frames to ../data/menozr_xkv_extracted_frames
+Saved PDF to ../data/menozr_xkv.pdf for Anatomy & Physiology Chapter 11 Part B: Nervous System and Nervous Tissue Lecture.mp4
+Created ../data/dtwoem_efa
+Processing Frames: 190it [00:05, 36.62it/s]
+Processed 190 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/dtwoem_efa_extracted_frames
+Saved PDF to ../data/dtwoem_efa.pdf for Head & Neck Anatomy | Craniofacial Veins | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/pmafru_fdg
+Processing Frames: 1409it [06:35,  3.56it/s]
+Processed 1409 frames
+Created ../data/hpmwkt_vag
+Processing Frames: 1953it [04:02,  8.07it/s]
+Processed 1953 frames
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 65, in plot_data
+    plt.savefig(output_path, dpi=300)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/pyplot.py", line 1228, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/figure.py", line 3395, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2167, in print_figure
+    renderer = _get_renderer(
+               ^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 1588, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backend_bases.py", line 2054, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 496, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 444, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 382, in draw
+    self.renderer = self.get_renderer()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 397, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/miniconda3/lib/python3.12/site-packages/matplotlib/backends/backend_agg.py", line 70, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Image size of 83700x33780 pixels is too large. It must be less than 2^16 in each direction.
+Created ../data/kdcdle_kbf
+Processing Frames: 1029it [00:21, 46.80it/s]
+Processed 1029 frames
+Detected 24 significant transitions in the signal
+Extracted frames to ../data/kdcdle_kbf_extracted_frames
+Saved PDF to ../data/kdcdle_kbf.pdf for Human Anatomy Lecture  Ch 10 Skeletal Muscle Tissue.mp4
+Created ../data/eupjay_ypb
+Processing Frames: 610it [00:10, 59.13it/s]
+Processed 610 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/eupjay_ypb_extracted_frames
+Saved PDF to ../data/eupjay_ypb.pdf for Human Anatomy Lecture  Ch 19 The Heart Pt 2.mp4
+Created ../data/wqyijj_ubo
+Processing Frames: 838it [00:15, 54.10it/s]
+Processed 838 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/wqyijj_ubo_extracted_frames
+Saved PDF to ../data/wqyijj_ubo.pdf for Patient Management | Evidence-Based Dentistry | INBDE, ADAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/gxtjwd_lau
+Processing Frames: 332it [00:08, 40.26it/s]
+Processed 332 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/gxtjwd_lau_extracted_frames
+Saved PDF to ../data/gxtjwd_lau.pdf for Oral Radiology | Film vs. Digital Imaging | INBDE, ADAT.mp4
+Created ../data/sdipnw_eua
+Processing Frames: 592it [00:11, 52.32it/s]
+Processed 592 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/sdipnw_eua_extracted_frames
+Saved PDF to ../data/sdipnw_eua.pdf for Perceptual Ability Test | Top Front End | DAT.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/pajaco_tkw
+Processing Frames: 944it [00:20, 46.32it/s]
+Processed 944 frames
+Detected 13 significant transitions in the signal
+Extracted frames to ../data/pajaco_tkw_extracted_frames
+Saved PDF to ../data/pajaco_tkw.pdf for Head & Neck Anatomy | Embryology & Pharyngeal Arches | INBDE.mp4
+Processing Frames: 0it [00:00, ?it/s]Created ../data/vtktbw_mhy
+Processing Frames: 1044it [00:21, 47.80it/s]
+Processed 1044 frames
+Detected 27 significant transitions in the signal
+Extracted frames to ../data/vtktbw_mhy_extracted_frames
+Saved PDF to ../data/vtktbw_mhy.pdf for Human Anatomy Lecture  Ch 20 Blood Vessels Pt 1.mp4
+Created ../data/sgmaal_aph
+Processing Frames: 519it [00:09, 56.11it/s]
+Processed 519 frames
+Detected 11 significant transitions in the signal
+Extracted frames to ../data/sgmaal_aph_extracted_frames
+Saved PDF to ../data/sgmaal_aph.pdf for Prosthodontics | General Considerations | INBDE, ADAT.mp4
+Created ../data/pbfssh_rlp
+Processing Frames: 1256it [05:46,  3.62it/s]
+Processed 1256 frames
+Created ../data/sdcniw_lej
+Processing Frames: 232it [00:04, 47.03it/s]
+Processed 232 frames
+Detected 8 significant transitions in the signal
+Extracted frames to ../data/sdcniw_lej_extracted_frames
+Saved PDF to ../data/sdcniw_lej.pdf for Periodontics | Local Factors | INBDE, ADAT.mp4
+Created ../data/gdvqpv_jsl
+Processing Frames: 0it [00:00, ?it/s][mov,mp4,m4a,3gp,3g2,mj2 @ 0x56ef2260a040] moov atom not found
+Processed 0 frames
+Processing Frames: 0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 110, in <module>
+    main()
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py", line 100, in main
+    directory = input_strategy.proceed()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/input_strategy/local_video_input_strategy.py", line 54, in proceed
+    DataPlotter.plot_data(
+  File "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/utils/data_plotter.py", line 36, in plot_data
+    min_y, max_y = min(y_data), max(y_data)
+                   ^^^^^^^^^^^
+ValueError: min() iterable argument is empty
+Created ../data/oyxwwk_oqe
+Processing Frames: 657it [00:13, 48.55it/s]
+Processed 657 frames
+Detected 9 significant transitions in the signal
+Extracted frames to ../data/oyxwwk_oqe_extracted_frames
+Saved PDF to ../data/oyxwwk_oqe.pdf for Developmental Psychology - Middle Adulthood - CH11.mp4
+Created ../data/plllkw_rsh
+Processing Frames: 182it [00:03, 46.54it/s]
+Processed 182 frames
+Detected 7 significant transitions in the signal
+Extracted frames to ../data/plllkw_rsh_extracted_frames
+Saved PDF to ../data/plllkw_rsh.pdf for Patient Management | Materials & Equipment Safety | INBDE, ADAT.mp4
+Created ../data/whsuyw_gqa
+Processing Frames: 208it [01:04,  3.25it/s]
+Processed 208 frames
+Detected 12 significant transitions in the signal
+Extracted frames to ../data/whsuyw_gqa_extracted_frames
+Saved PDF to ../data/whsuyw_gqa.pdf for What Is Organic Chemistry?: Crash Course Organic Chemistry #1.mp4
+Created ../data/tvtjdv_qzy
+Processing Frames: 530it [00:08, 64.54it/s]
+Processed 530 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/tvtjdv_qzy_extracted_frames
+Saved PDF to ../data/tvtjdv_qzy.pdf for Oral Surgery | Medical Emergencies | INBDE, ADAT.mp4
+Created ../data/tabwoi_nvk
+Processing Frames: 246it [00:05, 43.19it/s]
+Processed 246 frames
+Detected 10 significant transitions in the signal
+Extracted frames to ../data/tabwoi_nvk_extracted_frames
+Saved PDF to ../data/tabwoi_nvk.pdf for Histology- Taste Buds and Lingual Papillae.mp4
+Created ../data/etdnlx_yfu
+Processing Frames: 1018it [02:00,  8.44it/s]
+Processed 1018 frames
+Detected 22 significant transitions in the signal
+Extracted frames to ../data/etdnlx_yfu_extracted_frames
+Saved PDF to ../data/etdnlx_yfu.pdf for Chapter 39   Muscoloskeletal System.mp4
+Created ../data/ufwmpg_lyx
+Processing Frames: 1425it [01:06, 21.44it/s]
+Processed 1425 frames
+Detected 22 significant transitions in the signal
+Extracted frames to ../data/ufwmpg_lyx_extracted_frames
+Saved PDF to ../data/ufwmpg_lyx.pdf for Anatomy and Physiology Chapter 7 Part B Lecture: The Skelton.mp4
+
+Process finished with exit code 0

@@ -3,6 +3,7 @@ from pathlib import Path
 
 from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
 from video2pdf.extraction_strategy.key_moments_extraction_strategy import KeyMomentsExtractionStrategy
+from video2pdf.extraction_strategy.timestamp_extraction_strategy import TimestampExtractionStrategy
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
@@ -71,6 +72,10 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
         # TODO: Ideally, this should not be here. Check if there is a better way to do this.
         if isinstance(self.extraction_strategy, KeyMomentsExtractionStrategy):
             self.extraction_strategy.video_url = self.video_url
+            self.extraction_strategy.frame_rate = Helper.get_frame_rate(video_path)
+
+        # TODO: Ideally, this should not be here. Check if there is a better way to do this.
+        if isinstance(self.extraction_strategy, TimestampExtractionStrategy):
             self.extraction_strategy.frame_rate = Helper.get_frame_rate(video_path)
 
         extracted_frames = self.extraction_strategy.extract_frames(processed_frames)

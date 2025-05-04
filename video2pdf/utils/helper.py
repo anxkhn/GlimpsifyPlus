@@ -156,14 +156,15 @@ class Helper:
         return key_moment_start_seconds
 
     @staticmethod
-    def get_frame_number_from_seconds(seconds: int, frame_rate: int) -> int:
-        return seconds * frame_rate
+    def get_frame_number_from_seconds(seconds: float, frame_rate: int) -> int:
+        return round(seconds * frame_rate)
 
     @staticmethod
-    def get_key_moments_from_seconds(key_moments, frame_rate):
+    def get_key_frame_numbers(timestamps: List[float], frame_rate):
+        """Get key frame numbers from timestamps."""
         return [
-            Helper.get_frame_number_from_seconds(key_moment, frame_rate)
-            for key_moment in key_moments
+            Helper.get_frame_number_from_seconds(seconds, frame_rate)
+            for seconds in timestamps
         ]
 
     @staticmethod

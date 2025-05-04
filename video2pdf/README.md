@@ -27,3 +27,10 @@ Examples:
 > NOTE: The `url` is in double quotes as it contains special characters \
 >
 > The `start_from` parameter is optional and is used to skip the first n videos in the playlist
+
+
+### Video is on YouTube and you want to extract key moments using timestamps
+
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s"`
+`python main.py --input=local --dir=cpdnaj --extraction=timestamps`

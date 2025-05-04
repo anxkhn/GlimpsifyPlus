@@ -1,6 +1,6 @@
 import os
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.extraction_strategy.k_transactions_extraction_strategy import KTransactionsExtractionStrategy
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.input_strategy.youtube_video_url_input_strategy import YouTubeVideoURLInputStrategy
@@ -18,7 +18,7 @@ class PlaylistInputStrategy(InputStrategy):
             playlist_url: str,
             start_from: int,
             ocr_strategy: OCRStrategy,
-            extraction_strategy: ExtractionStrategy,
+            extraction_strategy: BaseExtractionStrategy,
             ocr_approval_strategy: OCRApprovalStrategy,
     ):
         self.playlist_url = playlist_url

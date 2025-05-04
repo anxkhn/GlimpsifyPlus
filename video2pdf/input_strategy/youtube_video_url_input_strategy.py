@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.extraction_strategy.key_moments_extraction_strategy import KeyMomentsExtractionStrategy
 from video2pdf.extraction_strategy.timestamp_extraction_strategy import TimestampExtractionStrategy
 from video2pdf.input_strategy.input_strategy import InputStrategy
@@ -21,7 +21,7 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             self,
             video_url: str,
             ocr_strategy: OCRStrategy,
-            extraction_strategy: ExtractionStrategy,
+            extraction_strategy: BaseExtractionStrategy,
             ocr_approval_strategy: OCRApprovalStrategy,
     ):
         self.video_url = video_url

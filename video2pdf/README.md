@@ -33,4 +33,4 @@ Examples:
 
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s"`
-`python main.py --input=local --dir=cpdnaj --extraction=timestamps`
+`python main.py --input=local --dir=cpdnaj --extraction=prominent_peaks`

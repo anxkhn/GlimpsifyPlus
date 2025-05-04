@@ -45,7 +45,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--extraction",
-        choices=["k_transactions", "key_moments", "timestamps"],
+        choices=["k_transactions", "key_moments", "timestamps", "prominent_peaks"],
         default="k_transactions",
         help="Specify the extraction strategy.",
     )

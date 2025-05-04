@@ -5,11 +5,11 @@ import pandas as pd
 from scipy import signal
 from scipy.ndimage import gaussian_filter1d
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.utils.processed_frame import ProcessedFrame
 
 
-class KTransactionsExtractionStrategy(ExtractionStrategy):
+class KTransactionsExtractionStrategy(BaseExtractionStrategy):
     def __init__(self):
         self.k = None
         self.auto_calculate_k = False

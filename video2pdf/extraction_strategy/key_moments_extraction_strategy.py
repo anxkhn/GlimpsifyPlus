@@ -1,11 +1,11 @@
 from typing import List
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.utils.helper import Helper
 from video2pdf.utils.processed_frame import ProcessedFrame
 
 
-class KeyMomentsExtractionStrategy(ExtractionStrategy):
+class KeyMomentsExtractionStrategy(BaseExtractionStrategy):
     def __init__(self):
         self.video_url = None
         self.frame_rate = None

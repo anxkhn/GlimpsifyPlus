@@ -1,6 +1,6 @@
 import os
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.input_strategy.input_strategy import InputStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.constants import BASE_DIR
@@ -17,7 +17,7 @@ class PythonObjectInputStrategy(InputStrategy):
             self,
             directory: str,
             ocr_strategy: OCRStrategy,
-            extraction_strategy: ExtractionStrategy,
+            extraction_strategy: BaseExtractionStrategy,
     ):
         self.directory = os.path.join(BASE_DIR, directory)
         self.ocr_strategy = ocr_strategy

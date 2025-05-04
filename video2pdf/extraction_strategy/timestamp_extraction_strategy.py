@@ -1,11 +1,11 @@
 from typing import List
 
-from video2pdf.extraction_strategy.extraction_strategy import ExtractionStrategy
+from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.utils.helper import Helper
 from video2pdf.utils.processed_frame import ProcessedFrame
 
 
-class TimestampExtractionStrategy(ExtractionStrategy):
+class TimestampExtractionStrategy(BaseExtractionStrategy):
     def __init__(self, timestamps: List):
         self.timestamps = timestamps
         self.frame_rate = None

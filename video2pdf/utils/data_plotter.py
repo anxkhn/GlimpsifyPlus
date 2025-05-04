@@ -18,6 +18,7 @@ class DataPlotter:
             y_ticks=None,
             extracted_frames: List[ProcessedFrame] = None,
     ):
+        max_size = 2 ** 15
         weight_y, weight_x = 10, 7
         num = None
         if y_data:
@@ -25,7 +26,12 @@ class DataPlotter:
         else:
             num = weight_y * 10
         h = num / weight_y
-        plt.figure(figsize=(max(20, len(x_data) / weight_x), h))
+        w = max(20, len(x_data) / weight_x)
+
+        h = min(h, max_size)
+        w = min(w, max_size)
+
+        plt.figure(figsize=(w, h))
         plt.plot(x_data, y_data, marker="o")
         plt.title(title)
         plt.xlabel(x_label)

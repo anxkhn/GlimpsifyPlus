@@ -82,9 +82,9 @@ class PostProcessor:
 
 
 if __name__ == "__main__":
-    input_dir = "data/lrpdqi_profits"
-    output_dir = "data/lrpdqi_profits_postprocessed"
-    pdf_output_path = "data/lrpdqi_profits.pdf"
+    input_dir = "data_archive_1/lrpdqi_profits"
+    output_dir = "data_archive_1/lrpdqi_profits_postprocessed"
+    pdf_output_path = "data_archive_1/lrpdqi_profits.pdf"
 
     DirectoryManager.create_directory(output_dir)
 

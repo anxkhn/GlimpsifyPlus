@@ -1,9 +1,9 @@
 import shutil
 
-from directory_manager import DirectoryManager
-from random_generator import RandomGenerator
-from utils.file_util import FileUtil
-from utils.text_util import TextUtil
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.random_generator import RandomGenerator
+from video2pdf.utils.file_util import FileUtil
+from video2pdf.utils.text_util import TextUtil
 
 
 def get_named_pdfs(index, input, new_directory):

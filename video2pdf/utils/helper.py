@@ -16,7 +16,7 @@ from video2pdf.utils.directory_manager import DirectoryManager
 class Helper:
     @staticmethod
     def setup():
-        output_directory = "data"
+        output_directory = BASE_DIR
         DirectoryManager.create_directory(output_directory)
 
     @staticmethod

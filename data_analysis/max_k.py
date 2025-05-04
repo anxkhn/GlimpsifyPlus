@@ -34,9 +34,9 @@ dir_name = "acjrso"
 base_dir = "D:\DPythonProjects\yt_summarizer\data"
 
 # %%
-# frames_pkl = r"D:\DPythonProjects\yt_summarizer\data\ixfwsm_frame_text_data\frames.pkl"
+# frames_pkl = r"D:\DPythonProjects\yt_summarizer\data_archive_1\ixfwsm_frame_text_data\frames.pkl"
 # frame_text_data_pkl = (
-#     r"D:\DPythonProjects\yt_summarizer\data\ixfwsm_frame_text_data\frame_text_data.pkl"
+#     r"D:\DPythonProjects\yt_summarizer\data_archive_1\ixfwsm_frame_text_data\frame_text_data.pkl"
 # )
 
 frames_pkl = f"{base_dir}\\{dir_name}_frame_text_data\\frames.pkl"

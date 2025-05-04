@@ -1,6 +1,5 @@
-from directory_manager import DirectoryManager
-from helper import Helper
-from video_processor import VideoProcessor
+from video2pdf.utils.directory_manager import DirectoryManager
+from video2pdf.utils.video_processor import VideoProcessor
 
 if __name__ == "__main__":
     directory = "data/aecnku"

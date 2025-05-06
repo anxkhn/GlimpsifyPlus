@@ -44,7 +44,8 @@ class LocalVideoInputStrategy(InputStrategy):
 
         Helper.log(f"Processed {len(processed_frames)} frames")
 
-        Helper.save_objects(video_path, processed_frames, new_directory)
+        # TODO: uncomment the temp code
+        # Helper.save_objects(video_path, processed_frames, new_directory)
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
 

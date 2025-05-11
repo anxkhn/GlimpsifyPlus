@@ -56,6 +56,12 @@ def parse_arguments():
         default=None,
     )
     parser.add_argument(
+        "--timestamps",
+        type=lambda x: eval(x),
+        help="Specify the key frame timestamps.",
+        default=None,
+    )
+    parser.add_argument(
         "--cleanup",
         action="store_true",
         help="Cleanup intermediate files after processing.",
@@ -78,7 +84,7 @@ def main():
     )
     ocr_strategy = OCRStrategyFactory.create_ocr_strategy(args.ocr)
     extraction_strategy = ExtractionStrategyFactory.create_extraction_strategy(
-        args.extraction
+        args.extraction, timestamps=args.timestamps
     )
 
     if args.k == "auto":
@@ -86,6 +92,9 @@ def main():
     else:
         if args.k:
             extraction_strategy.k = int(args.k)
+
+    if args.timestamps:
+        extraction_strategy.timestamps = args.timestamps
 
     input_strategy: InputStrategy = InputStrategyFactory.create_input_strategy(
         args.input,

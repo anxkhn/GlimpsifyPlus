@@ -57,7 +57,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--timestamps",
-        type=lambda x: eval(x),
+        type=lambda x: list(map(float, map(str.strip, x.split(",")))),
         help="Specify the key frame timestamps.",
         default=None,
     )

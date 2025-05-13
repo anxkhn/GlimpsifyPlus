@@ -44,7 +44,11 @@ class ProcessedFrame:
                 # result should be same as previous frame
                 processed_frame = ProcessedFrame()
                 processed_frame.frame_number = frame.frame_number
-                processed_frame.char_count = processed_frames[-1].char_count + 1
+
+                if processed_frames:
+                    processed_frame.char_count = processed_frames[-1].char_count + 1
+                else:
+                    processed_frame.char_count = 0
                 processed_frames.append(processed_frame)
                 continue
             old_frame = frame.frame.copy()

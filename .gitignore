@@ -13,3 +13,6 @@ TODO*.*
 .idea
 
 *archive*
+!*archive*.py
+
+*~*

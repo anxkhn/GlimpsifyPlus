@@ -32,5 +32,8 @@ Examples:
 ### Video is on YouTube and you want to extract key moments using timestamps
 
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps --timestamps=[1, 2, 3]`
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s"`
 `python main.py --input=local --dir=cpdnaj --extraction=prominent_peaks`
+
+

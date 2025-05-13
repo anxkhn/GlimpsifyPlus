@@ -16,7 +16,7 @@ def move_folders(dir: str | Path, archive_number: int) -> None:
         if re.fullmatch(to_move, folder.name) or re.fullmatch(to_move_2, folder.name):
             folders_to_move.append(folder)
 
-    archive_dir = dir.parent / f"data_archive_{archive_number}"
+    archive_dir = dir.parent / "archives" / f"data_archive_{archive_number}"
     archive_dir.mkdir()
 
     for folder in folders_to_move:
@@ -43,7 +43,7 @@ def move_files(dir: str | Path, archive_number: int) -> None:
         if re.fullmatch(to_move, file.name) or re.fullmatch(to_move_2, file.name):
             files_to_move.append(file)
 
-    archive_dir = dir.parent / f"data_archive_{archive_number}"
+    archive_dir = dir.parent / "archives" / f"data_archive_{archive_number}"
     archive_dir.mkdir()
 
     for file in files_to_move:
@@ -58,7 +58,9 @@ def move_results_file(archive_dir, dir):
 
 
 if __name__ == "__main__":
-    archive_number = 11
+    archive_number = 24
     dir = r"/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/data"
-    # move_folders(dir, archive_number)
+    move_folders(dir, archive_number)
+
+    archive_number += 1
     move_files(dir, archive_number)

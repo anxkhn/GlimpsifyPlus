@@ -33,7 +33,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--ocr_approval",
-        choices=["pixel_comparison", "approve_all"],
+        choices=["pixel_comparison", "approve_all", "reject_all"],
         default="pixel_comparison",
         help="Specify the OCR approval strategy.",
     )

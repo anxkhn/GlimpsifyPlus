@@ -50,8 +50,4 @@ class ExtractionStrategyFactory:
                 raise ValueError("Timestamps must be provided for timestamp extraction strategy")
             return strategy_class(timestamps)
 
-        # Handle parameters for other strategies
-        if kwargs:
-            return strategy_class(**kwargs)
-
         return strategy_class()

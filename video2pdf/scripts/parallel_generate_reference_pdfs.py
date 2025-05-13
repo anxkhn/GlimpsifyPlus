@@ -47,7 +47,7 @@ def main():
     df = pd.read_csv(input_file)  # Replace with your actual data source
 
     # Get optimal number of workers (use all available CPU cores)
-    max_workers = os.cpu_count()
+    max_workers = min(8, os.cpu_count())
     print(f"Running with {max_workers} workers")
 
     # Process videos in parallel

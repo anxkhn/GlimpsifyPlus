@@ -20,7 +20,8 @@ def main(dir):
     dir = Path(dir)
 
     for folder in dir.iterdir():
-        if reference_pdf_files_df[reference_pdf_files_df["internal_id"] == folder].empty:
+        if reference_pdf_files_df[reference_pdf_files_df["internal_id"] == folder.name].empty:
+            print(f"Skipping {folder}")
             continue
 
         try:

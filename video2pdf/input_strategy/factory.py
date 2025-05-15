@@ -1,5 +1,5 @@
 from video2pdf.input_strategy.base import BaseInputStrategy
-from video2pdf.input_strategy.video import VideoInput
+from video2pdf.input_strategy.local_file import LocalFileInput
 from video2pdf.input_strategy.playlist import PlaylistInput
 from video2pdf.input_strategy.pickle import PickleInput
 from video2pdf.input_strategy.youtube import YouTubeInput
@@ -17,7 +17,7 @@ class InputStrategyFactory:
                 url, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
         elif input_type == "local":
-            return VideoInput(
+            return LocalFileInput(
                 directory, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
         elif input_type == "object":

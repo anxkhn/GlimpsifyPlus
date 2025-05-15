@@ -14,7 +14,7 @@ from video2pdf.utils.processed_frame import ProcessedFrame
 from video2pdf.utils.random_generator import RandomGenerator
 
 
-class VideoInput(BaseInputStrategy):
+class LocalFileInput(BaseInputStrategy):
     def __init__(
             self,
             directory: str,

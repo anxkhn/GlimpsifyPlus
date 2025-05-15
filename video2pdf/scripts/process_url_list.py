@@ -1,7 +1,8 @@
 import subprocess
 import time
 
-from video2pdf.utils.helper import Helper
+
+# from video2pdf.utils.helper import Helper
 
 
 def main(urls):
@@ -10,8 +11,10 @@ def main(urls):
             subprocess.run(
                 [
                     "python", "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py",
-                    "--input=youtube",
-                    f"--url={url}", "--ocr=tesseract", "--extraction=k_transactions", "--k=auto"
+                    # "--input=youtube",
+                    "--input=object",
+                    # f"--dir={url}", "--ocr=tesseract", "--extraction=k_transactions", "--extraction=prominent_peak"
+                    f"--dir=whsuyw_zcp_python_object", "--ocr=tesseract", "--extraction=prominent_peaks"
                 ]
             )
             time.sleep(10)

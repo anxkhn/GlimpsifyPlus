@@ -9,7 +9,8 @@ from video2pdf.utils.helper import Helper
 from video2pdf.utils.post_processor import PostProcessor
 from video2pdf.utils.processed_frame import ProcessedFrame
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s",
+                    filename="input_strategy.local.log")
 logger = logging.getLogger(__name__)
 
 
@@ -24,34 +25,34 @@ class BaseInputStrategy(ABC):
     def process(self):
         # ---- Create internal_id
         self.internal_id = self.create_internal_id()
-        logger.info(f"Internal ID: {self.internal_id}")
+        logger.info(f"Internal ID: {self.internal_id!r}")
         self.metadata['internal_id'] = self.internal_id
 
         # ---- Get video path
         self.video_path = self.get_video_path()
-        logger.info(f"Video path: {self.video_path}")
+        logger.info(f"Video path: {self.video_path!r}")
         self.metadata['video_path'] = self.video_path
 
         # ---- Save mapping of internal_id to video_path
-        logger.info(f"Internal ID for video {self.video_path}: {self.internal_id}")
+        logger.info(f"Internal ID for video {self.video_path}: {self.internal_id!r}")
         logger.info(f"Saving internal_id to video_id mapping")
         self.save_video_path()
 
         # ---- Get frames
         logger.info(f"Getting frames...")
         frames = self.get_frames()
-        logger.info(f"Number of frames: {len(frames)}")
+        logger.info(f"Number of frames: {len(frames)!r}")
 
         # ---- Cache frames
         if self.cache_frames:
             logger.info(f"Caching frames...")
             cache_dir = self.cache_frames_(frames)
-            logger.info(f"Caching frames to {cache_dir}")
+            logger.info(f"Caching frames to {cache_dir!r}")
 
         # ---- Plot graph
         logger.info(f"Plotting signal of varying ocr text length...")
         plot_path = self.plot_graph(frames)
-        logger.info(f"Plot path: {plot_path}")
+        logger.info(f"Plot path: {plot_path!r}")
 
         # ---- Configuring extraction_strategy
         self.configure_extraction_strategy()
@@ -59,17 +60,17 @@ class BaseInputStrategy(ABC):
         # ---- Extracting key frames
         logger.info(f"Extracting frames...")
         extracted_frames = self.extract_frames(frames)
-        logger.info(f"Number of extracted frames: {len(extracted_frames)}")
+        logger.info(f"Number of extracted frames: {len(extracted_frames)!r}")
 
         # ---- Plotting key frames
         logger.info(f"Plotting key frames....")
         self.plot_graph(frames, extracted_frames)
-        logger.info(f"Plot path: {plot_path}")
+        logger.info(f"Plot path: {plot_path!r}")
 
         # ---- Saving key frames
         logger.info(f"Saving extracted frames...")
         output_dir = self.save_frames(extracted_frames)
-        logger.info(f"Extracted frames directory: {output_dir}")
+        logger.info(f"Extracted frames directory: {output_dir!r}")
 
         # ---- Post processing
         logger.info(f"Post processing...")
@@ -79,10 +80,10 @@ class BaseInputStrategy(ABC):
         # ---- Create PDF
         logger.info(f"Creating PDF...")
         pdf_path = self.create_pdf(output_dir)
-        logger.info(f"PDF path: {pdf_path}")
+        logger.info(f"PDF path: {pdf_path!r}")
 
         # ---- Save video_path to output_pdf_path mapping
-        logger.info(f"PDF for video {self.video_path}: {pdf_path}")
+        logger.info(f"PDF for video {self.video_path!r}: {pdf_path!r}")
         Helper.save_log(self.video_path, pdf_path)
         return self.internal_id
 

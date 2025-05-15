@@ -16,3 +16,6 @@ TODO*.*
 !*archive*.py
 
 *~*
+
+*local*
+!*local*.py

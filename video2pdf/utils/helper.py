@@ -171,6 +171,7 @@ class Helper:
     def log(message: str):
         print(message)
 
+    @staticmethod
     def save_objects(video_path, processed_frames, directory):
         python_object_directory = directory + "_python_object"
         DirectoryManager.create_directory(python_object_directory)
@@ -182,6 +183,7 @@ class Helper:
         )
         Helper.save_text(video_path, video_path_text_file_path)
         Helper.save_python_objects(processed_frames, python_object_path)
+        return python_object_directory
 
     @staticmethod
     def get_video_name(video_path):

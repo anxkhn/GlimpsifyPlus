@@ -106,7 +106,7 @@ def main():
         args.start_from,
     )
 
-    directory = input_strategy.proceed()
+    directory = input_strategy.process()
 
     if args.cleanup:
         cleanup_directory(directory)

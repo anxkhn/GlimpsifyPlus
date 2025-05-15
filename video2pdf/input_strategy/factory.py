@@ -1,6 +1,5 @@
 from video2pdf.input_strategy.base import BaseInputStrategy
 from video2pdf.input_strategy.local_file import LocalFileInput
-from video2pdf.input_strategy.playlist import PlaylistInput
 from video2pdf.input_strategy.pickle import PickleInput
 from video2pdf.input_strategy.youtube import YouTubeInput
 
@@ -24,14 +23,6 @@ class InputStrategyFactory:
             """The directory path should be like this `xxxxxx_python_object`"""
             return PickleInput(
                 directory, ocr_strategy, extraction_strategy
-            )
-        elif input_type == "playlist":
-            return PlaylistInput(
-                url,
-                start_from,
-                ocr_strategy,
-                extraction_strategy,
-                ocr_approval_strategy,
             )
         else:
             raise ValueError("Invalid input type")

@@ -1,10 +1,8 @@
 import os
-from pathlib import Path
 
 from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
-from video2pdf.extraction_strategy.key_moments_extraction_strategy import KeyMomentsExtractionStrategy
 from video2pdf.extraction_strategy.timestamp_extraction_strategy import TimestampExtractionStrategy
-from video2pdf.input_strategy.input_strategy import InputStrategy
+from video2pdf.input_strategy.base import BaseInputStrategy
 from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.constants import BASE_DIR
@@ -16,47 +14,42 @@ from video2pdf.utils.processed_frame import ProcessedFrame
 from video2pdf.utils.random_generator import RandomGenerator
 
 
-class YouTubeVideoURLInputStrategy(InputStrategy):
+class VideoInput(BaseInputStrategy):
     def __init__(
             self,
-            video_url: str,
+            directory: str,
             ocr_strategy: OCRStrategy,
             extraction_strategy: BaseExtractionStrategy,
             ocr_approval_strategy: OCRApprovalStrategy,
     ):
-        self.video_url = video_url
+        self.directory = os.path.join(BASE_DIR, directory)
         self.ocr_strategy = ocr_strategy
         self.extraction_strategy = extraction_strategy
         self.ocr_approval_strategy = ocr_approval_strategy
 
     def proceed(self):
-        directory = RandomGenerator.generate_random_word(6)
-        directory = os.path.join(BASE_DIR, directory)
-        DirectoryManager.create_directory(directory)
+        suffix = RandomGenerator.generate_random_word(3)
+        new_directory = self.directory + "_" + suffix
+        DirectoryManager.create_directory(new_directory)
 
-        Helper.download_youtube_video(self.video_url, directory)
+        Helper.log(f"Created {new_directory}")
 
-        Helper.log(f"Downloaded video to {directory}")
+        video_path = DirectoryManager.get_video_path(self.directory)
 
-        video_path = DirectoryManager.get_video_path(directory)
-
-        if Path(video_path).suffix != ".mp4":
-            Helper.log(f"Video file not found in {directory}")
-            return directory
-
-        Helper.index_results(directory, video_path)
+        Helper.index_results(new_directory, video_path)
 
         processed_frames = ProcessedFrame.from_video(
             video_path, self.ocr_strategy, self.ocr_approval_strategy
         )
 
-        Helper.save_objects(video_path, processed_frames, directory)
-
         Helper.log(f"Processed {len(processed_frames)} frames")
+
+        # TODO: uncomment the temp code
+        # Helper.save_objects(video_path, processed_frames, new_directory)
 
         x_data, y_data = ProcessedFrame.get_data_for_plotting(processed_frames)
 
-        plot_directory = directory + "_plot"
+        plot_directory = new_directory + "_plot"
         DirectoryManager.create_directory(plot_directory)
         plot_output_path = os.path.join(plot_directory, "plot.png")
 
@@ -68,11 +61,6 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             "Number of Characters in OCR Text",
             plot_output_path,
         )
-
-        # TODO: Ideally, this should not be here. Check if there is a better way to do this.
-        if isinstance(self.extraction_strategy, KeyMomentsExtractionStrategy):
-            self.extraction_strategy.video_url = self.video_url
-            self.extraction_strategy.frame_rate = Helper.get_frame_rate(video_path)
 
         # TODO: Ideally, this should not be here. Check if there is a better way to do this.
         if isinstance(self.extraction_strategy, TimestampExtractionStrategy):
@@ -90,7 +78,7 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             extracted_frames=extracted_frames,
         )
 
-        extracted_frames_directory = directory + "_extracted_frames"
+        extracted_frames_directory = new_directory + "_extracted_frames"
         DirectoryManager.create_directory(extracted_frames_directory)
 
         Helper.save_extracted_frames(
@@ -105,11 +93,11 @@ class YouTubeVideoURLInputStrategy(InputStrategy):
             extracted_frames_directory, list_of_files, extracted_frames_directory
         )
 
-        output_pdf_path = directory + ".pdf"
+        output_pdf_path = new_directory + ".pdf"
         PostProcessor.convert_images_to_pdf(
             extracted_frames_directory, list_of_files, output_pdf_path
         )
 
         Helper.save_log(video_path, output_pdf_path)
 
-        return directory
+        return new_directory

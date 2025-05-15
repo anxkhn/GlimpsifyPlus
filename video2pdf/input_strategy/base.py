@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class InputStrategy(ABC):
+class BaseInputStrategy(ABC):
     @abstractmethod
     def proceed(self):
         pass

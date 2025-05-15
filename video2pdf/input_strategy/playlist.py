@@ -2,8 +2,8 @@ import os
 
 from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.extraction_strategy.k_transactions_extraction_strategy import KTransactionsExtractionStrategy
-from video2pdf.input_strategy.input_strategy import InputStrategy
-from video2pdf.input_strategy.youtube_video_url_input_strategy import YouTubeVideoURLInputStrategy
+from video2pdf.input_strategy.base import BaseInputStrategy
+from video2pdf.input_strategy.youtube import YouTubeInput
 from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.constants import BASE_DIR
@@ -12,7 +12,7 @@ from video2pdf.utils.helper import Helper
 from video2pdf.utils.random_generator import RandomGenerator
 
 
-class PlaylistInputStrategy(InputStrategy):
+class PlaylistInput(BaseInputStrategy):
     def __init__(
             self,
             playlist_url: str,
@@ -56,7 +56,7 @@ class PlaylistInputStrategy(InputStrategy):
                     self.extraction_strategy.auto_calculate_k = True
                     self.extraction_strategy.k = None
 
-                video_input_strategy = YouTubeVideoURLInputStrategy(
+                video_input_strategy = YouTubeInput(
                     video_url,
                     self.ocr_strategy,
                     self.extraction_strategy,

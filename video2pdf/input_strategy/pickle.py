@@ -1,7 +1,7 @@
 import os
 
 from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
-from video2pdf.input_strategy.input_strategy import InputStrategy
+from video2pdf.input_strategy.base import BaseInputStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.constants import BASE_DIR
 from video2pdf.utils.data_plotter import DataPlotter
@@ -12,7 +12,7 @@ from video2pdf.utils.processed_frame import ProcessedFrame
 from video2pdf.utils.random_generator import RandomGenerator
 
 
-class PythonObjectInputStrategy(InputStrategy):
+class PickleInput(BaseInputStrategy):
     def __init__(
             self,
             directory: str,

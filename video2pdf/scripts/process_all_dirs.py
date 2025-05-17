@@ -32,7 +32,7 @@ def main(dir):
                 [
                     "python", "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py",
                     "--input=local",
-                    f"--dir={input}", "--ocr=tesseract", "--extraction=k_transactions", "--k=auto"
+                    f"--dir={input}", "--ocr=tesseract", "--extraction=prominent_peaks"
                 ]
             )
             time.sleep(10)

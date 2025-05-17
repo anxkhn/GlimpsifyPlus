@@ -29,7 +29,7 @@ def main(dir):
             subprocess.run(
                 [
                     "python", "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py",
-                    "--input=object",
+                    "--input=pickle",
                     f"--dir={input}", "--ocr=tesseract", "--extraction=prominent_peaks"
                 ]
             )

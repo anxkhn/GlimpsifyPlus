@@ -17,7 +17,7 @@ def parse_arguments():
     parser.add_argument(
         "--input",
         required=True,
-        choices=["youtube", "local", "object", "playlist"],
+        choices=["youtube", "local", "pickle", "playlist"],
         help="Specify the input type.",
     )
     parser.add_argument(

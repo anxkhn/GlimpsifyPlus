@@ -12,7 +12,7 @@ def main(urls):
                 [
                     "python", "/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/main.py",
                     # "--input=youtube",
-                    "--input=object",
+                    "--input=pickle",
                     # f"--dir={url}", "--ocr=tesseract", "--extraction=k_transactions", "--extraction=prominent_peak"
                     f"--dir=whsuyw_zcp_python_object", "--ocr=tesseract", "--extraction=prominent_peaks"
                 ]

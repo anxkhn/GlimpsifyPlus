@@ -19,7 +19,7 @@ class InputStrategyFactory:
             return LocalFileInput(
                 directory, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
-        elif input_type == "object":
+        elif input_type == "pickle":
             """The directory path should be like this `xxxxxx_python_object`"""
             return PickleInput(
                 directory, ocr_strategy, extraction_strategy

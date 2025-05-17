@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 class BaseInputStrategy(ABC):
     def __init__(self):
         self.cache_frames = True
+        self.skip_plot = True
         self.extraction_strategy = None
         self.internal_id = None
         self.video_path = None
@@ -49,10 +50,11 @@ class BaseInputStrategy(ABC):
             cache_dir = self.cache_frames_(frames)
             logger.info(f"Caching frames to {cache_dir!r}")
 
-        # ---- Plot graph
-        logger.info(f"Plotting signal of varying ocr text length...")
-        plot_path = self.plot_graph(frames)
-        logger.info(f"Plot path: {plot_path!r}")
+        if not self.skip_plot:
+            # ---- Plot graph
+            logger.info(f"Plotting signal of varying ocr text length...")
+            plot_path = self.plot_graph(frames)
+            logger.info(f"Plot path: {plot_path!r}")
 
         # ---- Configuring extraction_strategy
         self.configure_extraction_strategy()
@@ -62,10 +64,11 @@ class BaseInputStrategy(ABC):
         extracted_frames = self.extract_frames(frames)
         logger.info(f"Number of extracted frames: {len(extracted_frames)!r}")
 
-        # ---- Plotting key frames
-        logger.info(f"Plotting key frames....")
-        self.plot_graph(frames, extracted_frames)
-        logger.info(f"Plot path: {plot_path!r}")
+        if not self.skip_plot:
+            # ---- Plotting key frames
+            logger.info(f"Plotting key frames....")
+            self.plot_graph(frames, extracted_frames)
+            logger.info(f"Plot path: {plot_path!r}")
 
         # ---- Saving key frames
         logger.info(f"Saving extracted frames...")

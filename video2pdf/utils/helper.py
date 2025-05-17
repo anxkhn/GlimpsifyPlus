@@ -56,6 +56,7 @@ class Helper:
 
     @staticmethod
     def save_extracted_frames(extracted_frames, video_path, extracted_frames_directory):
+        """For all timestamps, reads the corresponding frame of the video and saves it to the dir"""
         cap = cv2.VideoCapture(video_path)
         for frame in extracted_frames:
             frame_output_path = os.path.join(
@@ -68,6 +69,7 @@ class Helper:
 
     @staticmethod
     def clean_text(text: str) -> str:
+        """Clean the OCR output"""
         # Replace multiple whitespaces with a single space
 
         # Remove punctuation and special characters
@@ -80,37 +82,44 @@ class Helper:
 
     @staticmethod
     def save_python_objects(python_objects, python_object_path):
+        """Save python object to pickle file"""
         with open(python_object_path, "wb") as f:
             pickle.dump(python_objects, f)
 
     @staticmethod
     def save_text(text, text_file_path):
+        """Save text to text file"""
         with open(text_file_path, "w") as f:
             f.write(text)
 
     @staticmethod
     def append_text(text, text_file_path):
+        """Append text to text file"""
         with open(text_file_path, "a") as f:
             f.write(text)
 
     @staticmethod
     def index_results(directory, video_file_path):
+        """Save directory to video name mapping"""
         formatted_text = f"\n{directory} -> {video_file_path}"
         result_file_path = os.path.join(BASE_DIR, "results.txt")
         Helper.append_text(formatted_text, result_file_path)
 
     @staticmethod
     def load_python_object(python_object_path):
+        """Load python object from pickle file"""
         with open(python_object_path, "rb") as f:
             return pickle.load(f)
 
     @staticmethod
     def load_text(text_file_path):
+        """Load text from text file"""
         with open(text_file_path, "r") as f:
             return f.read()
 
     @staticmethod
     def get_video_urls_from_playlist(playlist_url: str) -> list:
+        """Get video urls from YouTube playlist"""
         playlist = Playlist(playlist_url)
         return playlist.video_urls
 
@@ -148,6 +157,7 @@ class Helper:
 
     @staticmethod
     def get_key_moments(video_url: str) -> list:
+        """Get the key moments for the video"""
         video = YouTube(video_url)
         key_moments = video.key_moments
         key_moment_start_seconds = [
@@ -157,6 +167,7 @@ class Helper:
 
     @staticmethod
     def get_frame_number_from_seconds(seconds: float, frame_rate: int) -> int:
+        """Get approximate frame number for the timestamp"""
         return round(seconds * frame_rate)
 
     @staticmethod
@@ -169,10 +180,12 @@ class Helper:
 
     @staticmethod
     def log(message: str):
+        """Print log"""
         print(message)
 
     @staticmethod
     def save_objects(video_path, processed_frames, directory):
+        """Save processed_frames to pickle file. Save video path to a text file."""
         python_object_directory = directory + "_python_object"
         DirectoryManager.create_directory(python_object_directory)
         python_object_path = os.path.join(
@@ -187,22 +200,15 @@ class Helper:
 
     @staticmethod
     def get_video_name(video_path):
+        """Give video name from video_path"""
         video_name = os.path.basename(video_path)
         return video_name
 
     @staticmethod
-    def save_log(video_path, output_pdf_path):
-        video_name = Helper.get_video_name(video_path)
-        Helper.log(f"Saved PDF to {output_pdf_path} for {video_name}")
-
-    @staticmethod
     def get_frame_rate(video_path):
+        """Give video frame rate from video_path"""
         cap = cv2.VideoCapture(video_path)
         frame_rate = cap.get(cv2.CAP_PROP_FPS)
         cap.release()
         cv2.destroyAllWindows()
         return frame_rate
-
-
-if __name__ == "__main__":
-    print(Helper.get_digits("frame_234.jpg"))

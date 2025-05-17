@@ -84,7 +84,8 @@ class BaseInputStrategy(ABC):
 
         # ---- Save video_path to output_pdf_path mapping
         logger.info(f"PDF for video {self.video_path!r}: {pdf_path!r}")
-        Helper.save_log(self.video_path, pdf_path)
+        video_name = Helper.get_video_name(self.video_path)
+        logger.info(f"Saved PDF to {pdf_path!r} for video {video_name!r}")
         return self.internal_id
 
     @abstractmethod

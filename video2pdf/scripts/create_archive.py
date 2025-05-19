@@ -1,22 +1,23 @@
 import re
 import shutil
 from pathlib import Path
+from typing import List
+
+from video2pdf.utils.constants import BASE_DIR
 
 
-def move_folders(dir: str | Path, archive_number: int) -> None:
+def move_folders(dir: str | Path, archive_dir: Path, to_move: List[str]) -> None:
     dir = Path(dir)
-
-    to_move = r"\w{6}_\w{3}_.*"
-    to_move_2 = r"\w{6}_\w{3}"
 
     folders_to_move = []
 
     all_folders = dir.glob("*/")
     for folder in all_folders:
-        if re.fullmatch(to_move, folder.name) or re.fullmatch(to_move_2, folder.name):
-            folders_to_move.append(folder)
+        for pattern in to_move:
+            if re.fullmatch(pattern, folder.name):
+                folders_to_move.append(folder)
+                break
 
-    archive_dir = dir.parent / "archives" / f"data_archive_{archive_number}"
     archive_dir.mkdir()
 
     for folder in folders_to_move:
@@ -27,23 +28,24 @@ def move_folders(dir: str | Path, archive_number: int) -> None:
 
     result_dst = archive_dir / "results.txt"
 
-    shutil.move(str(result_src), str(result_dst))
+    try:
+        shutil.move(str(result_src), str(result_dst))
+    except FileNotFoundError:
+        pass
 
 
-def move_files(dir: str | Path, archive_number: int) -> None:
+def move_files(dir: str | Path, archive_dir: Path, patterns: List[str]) -> None:
     dir = Path(dir)
-
-    to_move = r"\w{6}_\w{3}_.*.pdf"
-    to_move_2 = r"\w{6}_\w{3}.pdf"
 
     files_to_move = []
 
     all_files = dir.glob("*.pdf")
     for file in all_files:
-        if re.fullmatch(to_move, file.name) or re.fullmatch(to_move_2, file.name):
-            files_to_move.append(file)
+        for pattern in patterns:
+            if re.fullmatch(pattern, file.name):
+                files_to_move.append(file)
+                break
 
-    archive_dir = dir.parent / "archives" / f"data_archive_{archive_number}"
     archive_dir.mkdir()
 
     for file in files_to_move:
@@ -57,10 +59,39 @@ def move_results_file(archive_dir, dir):
     shutil.move(str(result_src), str(result_dst))
 
 
-if __name__ == "__main__":
-    archive_number = 32
-    dir = r"/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/data"
-    move_folders(dir, archive_number)
+def main(archive_number):
+    """Move all the derived folders and files to an archive."""
+    # ---- Declare variables
+    dir = BASE_DIR
+    base_archive_dir = Path("/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/archives")
+    archive_number
 
-    archive_number += 1
-    move_files(dir, archive_number)
+    # ---- For moving, the object must be a full match of one of the following pattern
+    folder_patterns = [
+        r"\w{6}_\w{3}_\w{3}_.*",
+        r"\w{6}_\w{3}_\w{3}"
+    ]
+    file_patterns = [
+        r"\w{6}_\w{3}_\w{3}_.*.pdf",
+        r"\w{6}_\w{3}_\w{3}.pdf"
+    ]
+
+    # ---- Archiving folders
+    folder_archive = construct_archive_dir(archive_number, base_archive_dir)
+    move_folders(dir, folder_archive, folder_patterns)
+
+    # ---- Archiving files
+    files_archive = construct_archive_dir(archive_number, base_archive_dir, True)
+    move_files(dir, files_archive, file_patterns)
+
+
+def construct_archive_dir(archive_number: int, base_archive_dir: Path | str, for_files: bool = False) -> Path:
+    """Construct archive dir path"""
+    base_archive_dir = Path(base_archive_dir)
+    suffix = "_pdfs" if for_files else ""
+    return base_archive_dir / f"data_archive_{archive_number}{suffix}"
+
+
+if __name__ == "__main__":
+    archive_number = 42
+    main(archive_number)

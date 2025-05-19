@@ -10,7 +10,7 @@ from video2pdf.utils.post_processor import PostProcessor
 from video2pdf.utils.processed_frame import ProcessedFrame
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s",
-                    filename=f"input_strategy_1.local.log")
+                    filename=f"input_strategy_ref_timestamps.local.log")
 logger = logging.getLogger(__name__)
 
 

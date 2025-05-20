@@ -59,29 +59,18 @@ def move_results_file(archive_dir, dir):
     shutil.move(str(result_src), str(result_dst))
 
 
-def main(archive_number):
+def main(name, file_patterns, folder_patterns):
     """Move all the derived folders and files to an archive."""
     # ---- Declare variables
     dir = BASE_DIR
     base_archive_dir = Path("/home/vedant/Desktop/glimpsify/most_info_frame_extractor/video2pdf/archives")
-    archive_number
-
-    # ---- For moving, the object must be a full match of one of the following pattern
-    folder_patterns = [
-        r"\w{6}_\w{3}_\w{3}_.*",
-        r"\w{6}_\w{3}_\w{3}"
-    ]
-    file_patterns = [
-        r"\w{6}_\w{3}_\w{3}_.*.pdf",
-        r"\w{6}_\w{3}_\w{3}.pdf"
-    ]
 
     # ---- Archiving folders
-    folder_archive = construct_archive_dir(archive_number, base_archive_dir)
+    folder_archive = construct_archive_dir(name, base_archive_dir)
     move_folders(dir, folder_archive, folder_patterns)
 
     # ---- Archiving files
-    files_archive = construct_archive_dir(archive_number, base_archive_dir, True)
+    files_archive = construct_archive_dir(name, base_archive_dir, True)
     move_files(dir, files_archive, file_patterns)
 
 
@@ -93,5 +82,13 @@ def construct_archive_dir(archive_number: int, base_archive_dir: Path | str, for
 
 
 if __name__ == "__main__":
-    archive_number = 42
-    main(archive_number)
+    name = "44_everything_except_local_videos_"
+
+    # ---- For moving, the object must be a full match of one of the following pattern
+    folder_patterns = [
+        r"\w{6}_.*"
+    ]
+    file_patterns = [
+        r"\w{6}_.*.pdf",
+    ]
+    main(name, file_patterns, folder_patterns)

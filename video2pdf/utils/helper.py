@@ -2,9 +2,11 @@ import os
 import pickle
 import re
 from math import ceil
+from pathlib import Path
 from typing import List
 
 import cv2
+import pandas as pd
 from pytubefix import Playlist
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
@@ -101,9 +103,18 @@ class Helper:
     @staticmethod
     def index_results(directory, video_file_path):
         """Save directory to video name mapping"""
-        formatted_text = f"\n{directory} -> {video_file_path}"
-        result_file_path = os.path.join(BASE_DIR, "results.txt")
-        Helper.append_text(formatted_text, result_file_path)
+        result_file_path = Path(BASE_DIR) / "results.xlsx"
+
+        if not result_file_path.exists():
+            df = pd.DataFrame()
+        else:
+            df = pd.read_excel(result_file_path)
+        new_row = {
+            "internal_id": directory,
+            "video_path": video_file_path,
+        }
+        df = pd.concat([df, pd.DataFrame([new_row])])
+        df.to_excel(result_file_path, index=False)
 
     @staticmethod
     def load_python_object(python_object_path):

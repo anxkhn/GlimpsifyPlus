@@ -12,6 +12,8 @@ Examples:
 
 `python main.py --input=local --dir=whsuyw --cleanup --ocr=tesseract`
 
+`python main.py --input=local --dir=ufwmpg --ocr=tesseract --ocr_approval=phash --extraction=prominent_peaks`
+
 > NOTE: The video is in the directory `data/whsuyw`
 
 ### Video is on youtube and you want to extract key moments
@@ -28,8 +30,9 @@ Examples:
 >
 > The `start_from` parameter is optional and is used to skip the first n videos in the playlist
 
-
 ### Video is on YouTube and you want to extract key moments using timestamps
+
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
 
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
 `python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps --timestamps=[1, 2, 3]`

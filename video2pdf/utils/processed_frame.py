@@ -3,7 +3,7 @@ from typing import List
 
 from tqdm import tqdm
 
-from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
+from video2pdf.ocr_approval.base import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.directory_manager import DirectoryManager
 from video2pdf.utils.helper import Helper

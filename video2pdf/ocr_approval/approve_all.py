@@ -1,6 +1,6 @@
 import cv2
 
-from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
+from video2pdf.ocr_approval.base import OCRApprovalStrategy
 
 
 class ApproveAllApprovalStrategy(OCRApprovalStrategy):

@@ -4,7 +4,7 @@ from typing import List
 from video2pdf.extraction_strategy.base_extraction_strategy import BaseExtractionStrategy
 from video2pdf.extraction_strategy.timestamp_extraction_strategy import TimestampExtractionStrategy
 from video2pdf.input_strategy.base import BaseInputStrategy
-from video2pdf.ocr_approval.ocr_approval_strategy import OCRApprovalStrategy
+from video2pdf.ocr_approval.base import OCRApprovalStrategy
 from video2pdf.ocr_strategy.ocr_strategy import OCRStrategy
 from video2pdf.utils.constants import BASE_DIR
 from video2pdf.utils.directory_manager import DirectoryManager

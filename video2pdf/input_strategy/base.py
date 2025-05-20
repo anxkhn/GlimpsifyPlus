@@ -1,6 +1,7 @@
 import logging
 import os
 from abc import ABC, abstractmethod
+from datetime import datetime
 from typing import List, Optional
 
 from video2pdf.utils.data_plotter import DataPlotter
@@ -9,15 +10,17 @@ from video2pdf.utils.helper import Helper
 from video2pdf.utils.post_processor import PostProcessor
 from video2pdf.utils.processed_frame import ProcessedFrame
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s",
-                    filename=f"input_strategy_ref_timestamps.local.log")
-logger = logging.getLogger(__name__)
+timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
+# filename=f"video2pdf.{timestamp}.local.log")
+
+logger = logging.getLogger()
 
 
 class BaseInputStrategy(ABC):
     def __init__(self):
         self.cache_frames = True
-        self.skip_plot = True
+        self.skip_plot = False
         self.extraction_strategy = None
         self.internal_id = None
         self.video_path = None

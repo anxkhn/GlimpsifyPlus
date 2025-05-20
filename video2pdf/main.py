@@ -29,19 +29,19 @@ def parse_arguments():
     parser.add_argument(
         "--ocr_approval",
         choices=["pixel_comparison", "approve_all", "reject_all", "phash"],
-        default="pixel_comparison",
+        default="phash",
         help="Specify the OCR approval strategy.",
     )
     parser.add_argument(
         "--ocr",
         choices=["tesseract", "easy"],
-        default="easy",
+        default="tesseract",
         help="Specify the OCR strategy.",
     )
     parser.add_argument(
         "--extraction",
         choices=["k_transactions", "key_moments", "timestamps", "prominent_peaks"],
-        default="k_transactions",
+        default="prominent_peaks",
         help="Specify the extraction strategy.",
     )
     parser.add_argument(

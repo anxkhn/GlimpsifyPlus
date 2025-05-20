@@ -25,7 +25,6 @@ def main(dir):
                     f"--dir={input}", "--ocr=tesseract", "--extraction=prominent_peaks"
                 ]
             )
-            break
             # break
         except:
             print("Exception occurred for: ", folder)

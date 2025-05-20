@@ -82,7 +82,7 @@ def construct_archive_dir(archive_number: int, base_archive_dir: Path | str, for
 
 
 if __name__ == "__main__":
-    name = "44_everything_except_local_videos_"
+    name = "44_everything_except_local_videos"
 
     # ---- For moving, the object must be a full match of one of the following pattern
     folder_patterns = [

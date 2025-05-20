@@ -23,10 +23,10 @@ def move_folders(dir: str | Path, archive_dir: Path, to_move: List[str]) -> None
     for folder in folders_to_move:
         shutil.move(str(folder), str(archive_dir))
 
-    result_src = dir / "results.txt"
+    result_src = dir / "results.xlsx"
     result_src.is_file()
 
-    result_dst = archive_dir / "results.txt"
+    result_dst = archive_dir / "results.xlsx"
 
     try:
         shutil.move(str(result_src), str(result_dst))

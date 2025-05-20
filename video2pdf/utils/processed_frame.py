@@ -26,6 +26,7 @@ class ProcessedFrame:
                     ocr_strategy.extract_clean_text(os.path.join(directory, filename))
                 )
                 processed_frames.append(frame)
+        return processed_frames
 
     @staticmethod
     def from_video(

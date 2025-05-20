@@ -24,11 +24,6 @@ def parse_arguments():
         "--url", help="Provide YouTube video/playlist URL if applicable."
     )
     parser.add_argument(
-        "--start_from",
-        type=int,
-        help="Specify the start frame number for playlist input.",
-    )
-    parser.add_argument(
         "--dir", help="Specify the local directory if input type is 'local'."
     )
     parser.add_argument(
@@ -103,7 +98,6 @@ def main():
         ocr_approval_strategy,
         args.url,
         args.dir,
-        args.start_from,
     )
 
     directory = input_strategy.process()

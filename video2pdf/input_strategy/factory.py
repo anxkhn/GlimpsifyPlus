@@ -9,7 +9,7 @@ class InputStrategyFactory:
     @staticmethod
     def create_input_strategy(
             input_type, ocr_strategy, extraction_strategy, ocr_approval_strategy, url=None, directory=None,
-            start_from=None
+
     ) -> BaseInputStrategy:
         if input_type == "youtube":
             return YouTubeInput(

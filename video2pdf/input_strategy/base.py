@@ -11,8 +11,8 @@ from video2pdf.utils.post_processor import PostProcessor
 from video2pdf.utils.processed_frame import ProcessedFrame
 
 timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
-# filename=f"video2pdf.{timestamp}.local.log")
+logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO,
+                    filename="logs/1_process_all_dirs.log")
 
 logger = logging.getLogger()
 

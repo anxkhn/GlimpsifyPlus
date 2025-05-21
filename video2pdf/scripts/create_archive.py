@@ -20,6 +20,12 @@ def move_folders(dir: str | Path, archive_dir: Path, to_move: List[str]) -> None
 
     archive_dir.mkdir()
 
+    print("Preview: ")
+    for folder in folders_to_move:
+        print(folder)
+
+    input("Press Enter to continue...")
+
     for folder in folders_to_move:
         shutil.move(str(folder), str(archive_dir))
 
@@ -48,15 +54,15 @@ def move_files(dir: str | Path, archive_dir: Path, patterns: List[str]) -> None:
 
     archive_dir.mkdir()
 
+    print("Preview: ")
+    for file in files_to_move:
+        print(file)
+
+    input("Press Enter to continue...")
     for file in files_to_move:
         shutil.move(str(file), str(archive_dir / file.name))
 
 
-def move_results_file(archive_dir, dir):
-    result_src = dir / "results.txt"
-    result_src.is_file()
-    result_dst = archive_dir / "results.txt"
-    shutil.move(str(result_src), str(result_dst))
 
 
 def main(name, file_patterns, folder_patterns):
@@ -82,11 +88,13 @@ def construct_archive_dir(archive_number: int, base_archive_dir: Path | str, for
 
 
 if __name__ == "__main__":
-    name = "47_tmp_everything_except_local_videos"
+    name = "50_output_all_dirs_phash_approval_strategy"
 
     # ---- For moving, the object must be a full match of one of the following pattern
     folder_patterns = [
-        r"\w{6}_.*"
+        r"\w{6}_\w{3}_.*",
+        r"\w{6}_\w{3}"
+
     ]
     file_patterns = [
         r"\w{6}_.*.pdf",

@@ -7,14 +7,14 @@ def main(dir):
     already_processed_video_names = set()
 
     for folder in dir.iterdir():
-        video_file_path: Path = list(folder.glob("*.mp4"))[0]
-        if video_file_path.stem in already_processed_video_names:
-            print(f"Skipping {folder}")
-            continue
-
-        already_processed_video_names.add(video_file_path.stem)
-
         try:
+            video_file_path: Path = list(folder.glob("*.mp4"))[0]
+            if video_file_path.stem in already_processed_video_names:
+                print(f"Skipping {folder}")
+                continue
+
+            already_processed_video_names.add(video_file_path.stem)
+
             input = folder.name
             if len(input) != 6:
                 continue

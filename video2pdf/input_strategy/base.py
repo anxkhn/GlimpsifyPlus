@@ -19,7 +19,7 @@ logger = logging.getLogger()
 
 class BaseInputStrategy(ABC):
     def __init__(self):
-        self.cache_frames = True
+        self.cache_frames = False
         self.skip_plot = True
         self.extraction_strategy = None
         self.internal_id = None

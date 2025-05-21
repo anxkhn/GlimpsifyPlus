@@ -88,15 +88,15 @@ def construct_archive_dir(archive_number: int, base_archive_dir: Path | str, for
 
 
 if __name__ == "__main__":
-    name = "50_output_all_dirs_phash_approval_strategy"
+    name = "51_to_del"
 
     # ---- For moving, the object must be a full match of one of the following pattern
     folder_patterns = [
-        r"\w{6}_\w{3}_.*",
-        r"\w{6}_\w{3}"
+        r"\w{6}_\w{3}_\w{3}_.*",
+        r"\w{6}_\w{3}_\w{3}"
 
     ]
     file_patterns = [
-        r"\w{6}_.*.pdf",
+        r"\w{6}_\w{3}.*.pdf",
     ]
     main(name, file_patterns, folder_patterns)

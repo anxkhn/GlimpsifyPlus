@@ -79,6 +79,7 @@ def evaluate(evaluation_data_df: pd.DataFrame) -> pd.DataFrame:
                               'generated_pdf_key_frame_count',
                               'reference_pdf_key_frame_count',
                               'accuracy',
+                              'precision',
                               'similarity_score']
     # Initialize an empty DataFrame to store evaluation results
     evaluation_report_df = pd.DataFrame(columns=evaluation_report_cols)
@@ -167,6 +168,7 @@ def evaluate(evaluation_data_df: pd.DataFrame) -> pd.DataFrame:
             'generated_pdf_key_frame_count': generated_pdf_key_frame_count,
             'reference_pdf_key_frame_count': reference_pdf_key_frame_count,
             'accuracy': accuracy,
+            'precision': num_true_positives / generated_pdf_key_frame_count,
             'similarity_score': similarity_score
         }
         new_rows_list.append(current_eval_results)

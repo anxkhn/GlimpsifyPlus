@@ -1,4 +1,5 @@
 import argparse
+import logging
 import os
 
 from video2pdf.extraction_strategy.extraction_strategy_factory import ExtractionStrategyFactory
@@ -8,6 +9,9 @@ from video2pdf.ocr_approval.factory import OCRApprovalStrategyFactory
 from video2pdf.ocr_strategy.ocr_strategy_factory import OCRStrategyFactory
 from video2pdf.utils.directory_manager import DirectoryManager
 from video2pdf.utils.helper import Helper
+
+logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO,
+                    filename="logs/1_process_all_dirs.log")
 
 
 def parse_arguments():

@@ -470,8 +470,8 @@ $ python main.py --input youtube --url "https://www.youtube.com/watch?v=example"
 🔄 Duplicate Detection: phash
 ------------------------------------------------------------
 📥 Downloading: "Machine Learning Fundamentals - Lecture 1"
-🎞️  Processing 1,247 frames...
-Processing Frames: 1247it [01:23, 15.02it/s]
+🎞️  Processing 1,864 frames...
+Processing Frames: 1864/1864 (100.0%) | 02:34 | ETA: 00:00 | 13.80frames/s
 🔍 Analyzing content density...
 📊 Detected 15 prominent peaks, selecting top 10
 🧹 Removing 3 duplicate frames using pHash

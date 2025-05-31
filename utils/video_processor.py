@@ -8,6 +8,23 @@ from utils.frame import Frame
 class VideoProcessor:
 
     @staticmethod
+    def get_total_frame_count(video_path: str, interval: int) -> int:
+        """Get the total number of frames that will be processed with the given interval"""
+        cap = cv2.VideoCapture(video_path)
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        frame_interval = int(fps * interval)
+
+        # Calculate how many frames will actually be processed
+        processed_frame_count = 0
+        for frame_number in range(total_frames):
+            if frame_number % frame_interval == 0:
+                processed_frame_count += 1
+
+        cap.release()
+        return processed_frame_count
+
+    @staticmethod
     def get_frames(video_path: str, interval: int) -> Iterator[Frame]:
         cap = cv2.VideoCapture(video_path)
         fps = cap.get(cv2.CAP_PROP_FPS)

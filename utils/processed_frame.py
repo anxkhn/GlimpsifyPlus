@@ -38,9 +38,19 @@ class ProcessedFrame:
         processed_frames: List[ProcessedFrame] = []
         old_frame = None
 
-        for frame in tqdm(
-            VideoProcessor.get_frames(video_path, 3), desc="Processing Frames"
-        ):
+        # Get total frame count for progress tracking
+        total_frames = VideoProcessor.get_total_frame_count(video_path, 3)
+
+        # Create progress bar with custom format
+        progress_bar = tqdm(
+            VideoProcessor.get_frames(video_path, 3),
+            total=total_frames,
+            desc="Processing Frames",
+            bar_format="{desc}: {n}/{total} ({percentage:3.1f}%) | {elapsed} | ETA: {remaining} | {rate_fmt}",
+            unit="frames",
+        )
+
+        for frame in progress_bar:
 
             if not ocr_approval_strategy.permit_ocr(frame.frame, old_frame):
                 # result should be same as previous frame

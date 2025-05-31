@@ -439,32 +439,23 @@ python main.py --help
 
 ## 📊 Enhanced User Experience
 
-### Before vs After Comparison
+### Issues with the Original Version
 
-#### Original Glimpsify Experience:
+The original project had several problems that made it difficult to use:
 
-```
-1. Clone repository
-2. Navigate to v2 folder
-3. Manual dependency installation
-4. Create data folder manually
-5. Run script and wait
-6. Manually check output directory
-7. Manually open PDF files
-8. Manually clean up files
-```
+**Missing Dependencies**: The requirements.txt was incomplete. Many essential libraries like `pytubefix`, `imagehash`, and others were missing, causing import errors.
 
-#### Glimpsify Plus Experience:
+**Missing v2 Folder**: The README referenced a "v2" folder that didn't exist in the repository, leaving users confused about which files to run.
 
-```
-1. Run one setup command
-2. Execute with clear parameter guidance
-3. See real-time progress with configuration summary
-4. Get completion notification with file details
-5. Choose video retention interactively
-6. PDF opens automatically in default viewer
-7. Clean summary of all generated files
-```
+**No Setup Process**: Users had to manually install Tesseract OCR, create directories, and figure out dependencies on their own.
+
+**File Management Issues**: The tool generated lots of intermediate files (extracted frames, pickle objects, plots) but provided no way to clean them up automatically. Users had to manually delete gigabytes of leftover data.
+
+**Platform-Specific Problems**: The original code didn't handle different operating systems well.
+
+**Incomplete Documentation**: Examples didn't work because of missing parameters, and error messages weren't helpful for troubleshooting.
+
+Glimpsify Plus fixes all these issues with proper dependency management, automated setup, file cleanup options, and a guided user experience.
 
 ### Interactive Session Example
 
@@ -503,6 +494,47 @@ Would you like to keep the downloaded video for later use? (y/n): y
    📊 Frames analyzed: 1,247
    🎯 Key frames extracted: 10
 ```
+
+---
+
+```
+usage: main.py [-h] --input {youtube,local,object,playlist} [--url URL] [--start_from START_FROM] [--dir DIR]
+               [--ocr_approval {pixel_comparison,approve_all}] [--ocr {tesseract,easy}]
+               [--extraction {k_transactions,key_moments}] [--k K] [--cleanup]
+```
+
+Examples:
+
+### Video is already downloaded in local directory and you want to extract key moments
+
+`python main.py --input=local --dir=whsuyw --cleanup --ocr=tesseract`
+
+`python main.py --input=local --dir=ufwmpg --ocr=tesseract --ocr_approval=phash --extraction=prominent_peaks`
+
+> NOTE: The video is in the directory `data/whsuyw`
+
+### Video is on youtube and you want to extract key moments
+
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=PmvLB5dIEp8&list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4&index=3" --cleanup --k=15 --ocr=tesseract`
+
+> NOTE: The `url` is in double quotes as it contains special characters
+
+### Video is a playlist and you want to extract key moments
+
+`python main.py --input=playlist --url="https://www.youtube.com/playlist?list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4" --start_from=3 --cleanup`
+
+> NOTE: The `url` is in double quotes as it contains special characters \
+>
+> The `start_from` parameter is optional and is used to skip the first n videos in the playlist
+
+### Video is on YouTube and you want to extract key moments using timestamps
+
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
+
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps --timestamps=[1, 2, 3]`
+`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s"`
+`python main.py --input=local --dir=cpdnaj --extraction=prominent_peaks`
 
 ---
 
@@ -624,25 +656,6 @@ Glimpsify Plus builds upon several research areas:
 - **Content Density**: Measuring information content per frame
 - **Redundancy Reduction**: Duplicate detection using perceptual hashing
 - **Optimization**: Maximizing information while minimizing frame count
-
-### Validation Studies
-
-#### Test Dataset Results
-
-Based on analysis of educational videos:
-
-- **Video Length**: 5-60 minutes
-- **Content Types**: Lectures, presentations, tutorials, demonstrations
-- **Frame Accuracy**: 85-95% capture rate of key content moments
-- **Redundancy Reduction**: 45-60% fewer frames than uniform sampling
-
-#### Comparison with Manual Selection
-
-Human experts vs Glimpsify Plus on lecture videos:
-
-- **Agreement Rate**: 78% overlap in selected key frames
-- **Time Savings**: 95% reduction in manual effort
-- **Content Coverage**: 92% of manually identified key points captured
 
 ### Related Research Papers
 
@@ -844,42 +857,3 @@ The tool continues to evolve based on user feedback and advancing research in co
 ---
 
 _Built with ❤️ for students, educators, and researchers worldwide_
-
-```
-usage: main.py [-h] --input {youtube,local,object,playlist} [--url URL] [--start_from START_FROM] [--dir DIR]
-               [--ocr_approval {pixel_comparison,approve_all}] [--ocr {tesseract,easy}]
-               [--extraction {k_transactions,key_moments}] [--k K] [--cleanup]
-```
-
-Examples:
-
-### Video is already downloaded in local directory and you want to extract key moments
-
-`python main.py --input=local --dir=whsuyw --cleanup --ocr=tesseract`
-
-`python main.py --input=local --dir=ufwmpg --ocr=tesseract --ocr_approval=phash --extraction=prominent_peaks`
-
-> NOTE: The video is in the directory `data/whsuyw`
-
-### Video is on youtube and you want to extract key moments
-
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=PmvLB5dIEp8&list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4&index=3" --cleanup --k=15 --ocr=tesseract`
-
-> NOTE: The `url` is in double quotes as it contains special characters
-
-### Video is a playlist and you want to extract key moments
-
-`python main.py --input=playlist --url="https://www.youtube.com/playlist?list=PL8dPuuaLjXtONguuhLdVmq0HTKS0jksS4" --start_from=3 --cleanup`
-
-> NOTE: The `url` is in double quotes as it contains special characters \
->
-> The `start_from` parameter is optional and is used to skip the first n videos in the playlist
-
-### Video is on YouTube and you want to extract key moments using timestamps
-
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
-
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps`
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s" --extraction=timestamps --timestamps=[1, 2, 3]`
-`python main.py --input=youtube --url="https://www.youtube.com/watch?v=_8xHh1tk7jY&t=165s"`
-`python main.py --input=local --dir=cpdnaj --extraction=prominent_peaks`

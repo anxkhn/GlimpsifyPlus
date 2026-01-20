@@ -18,8 +18,7 @@ from utils.random_generator import RandomGenerator
 class LocalFileInput(BaseInputStrategy):
     def configure_extraction_strategy(self):
         if isinstance(self.extraction_strategy, TimestampExtractionStrategy):
-            self.extraction_strategy.frame_rate = Helper.get_frame_rate(
-                self.video_path)
+            self.extraction_strategy.frame_rate = Helper.get_frame_rate(self.video_path)
 
     def create_internal_id(self):
         suffix = RandomGenerator.generate_random_word(3)

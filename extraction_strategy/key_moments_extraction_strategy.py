@@ -12,8 +12,7 @@ class KeyMomentsExtractionStrategy(BaseExtractionStrategy):
 
     def extract_frames(self, frames: List[ProcessedFrame]) -> List[ProcessedFrame]:
         key_moments = Helper.get_key_moments(self.video_url)
-        key_frame_numbers = Helper.get_key_frame_numbers(
-            key_moments, self.frame_rate)
+        key_frame_numbers = Helper.get_key_frame_numbers(key_moments, self.frame_rate)
         key_frames = []
 
         for frame_number in key_frame_numbers:

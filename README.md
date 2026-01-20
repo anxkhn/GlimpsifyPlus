@@ -749,6 +749,18 @@ python tests/test_integration.py
 python main.py --input youtube --url "TEST_VIDEO_URL" --k 5
 ```
 
+### Code Style
+
+This project uses [black](https://github.com/psf/black) for code formatting and [isort](https://pycqa.github.io/isort/) for import sorting.
+
+```bash
+# Format code
+isort .
+black .
+```
+
+Configuration is in `pyproject.toml`. Always run formatters before committing.
+
 ### Code Structure
 
 ```

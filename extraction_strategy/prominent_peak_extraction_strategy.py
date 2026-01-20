@@ -45,8 +45,7 @@ class ProminentPeakExtractionStrategy(BaseExtractionStrategy):
         if not isinstance(prominence, (int, float)) or prominence <= 0:
             raise ValueError("Prominence must be a positive number.")
         if not isinstance(distance, int) or distance < 1:
-            raise ValueError(
-                "Distance must be an integer greater than or equal to 1.")
+            raise ValueError("Distance must be an integer greater than or equal to 1.")
 
         self.prominence = prominence
         self.distance = distance
@@ -73,8 +72,7 @@ class ProminentPeakExtractionStrategy(BaseExtractionStrategy):
 
         # Extract the character count signal as a NumPy array
         # Using float type for compatibility with SciPy functions
-        char_counts = np.array(
-            [frame.char_count for frame in frames], dtype=float)
+        char_counts = np.array([frame.char_count for frame in frames], dtype=float)
 
         # Handle edge case: find_peaks requires a signal of certain length
         # for meaningful results (at least 3 points for prominence).

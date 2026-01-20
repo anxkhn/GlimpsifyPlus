@@ -17,8 +17,7 @@ def build_pdf_files_df(files: List[Path]):
     """Build PDF files dataframe having columns `internal_id` and `pdf_path`"""
     pdfs_files_df = pd.DataFrame(columns=["internal_id", "pdf_path"])
     for file in files:
-        new_row = {"internal_id": file.stem.split(
-            "_")[0], "pdf_path": str(file)}
+        new_row = {"internal_id": file.stem.split("_")[0], "pdf_path": str(file)}
         pdfs_files_df = pd.concat([pdfs_files_df, pd.DataFrame([new_row])])
     return pdfs_files_df
 
@@ -123,8 +122,7 @@ def evaluate(evaluation_data_df: pd.DataFrame) -> pd.DataFrame:
 
         # Identify True Positives: Unique generated frames that are also in reference frames.
         # These are the correctly identified keyframes.
-        true_positives_hashes_set = unique_gen_hashes_set.intersection(
-            ref_hashes_set)
+        true_positives_hashes_set = unique_gen_hashes_set.intersection(ref_hashes_set)
         num_true_positives = len(true_positives_hashes_set)
 
         # METRIC 2: Number of missing keyframes
@@ -135,8 +133,7 @@ def evaluate(evaluation_data_df: pd.DataFrame) -> pd.DataFrame:
         # METRIC 3: Number of non-key frames (False Positives)
         # These are frames present in the unique generated set but not found in the reference set.
         # These are incorrectly identified as keyframes.
-        non_key_frame_hashes_set = unique_gen_hashes_set.difference(
-            ref_hashes_set)
+        non_key_frame_hashes_set = unique_gen_hashes_set.difference(ref_hashes_set)
         num_of_non_key_frames = len(non_key_frame_hashes_set)
 
         # METRIC 4: Accuracy

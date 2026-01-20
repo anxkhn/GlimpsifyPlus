@@ -28,8 +28,7 @@ class PickleInput(BaseInputStrategy):
         return new_directory
 
     def get_frames(self) -> List[ProcessedFrame]:
-        python_object_path = os.path.join(
-            self.directory, "processed_frames.pkl")
+        python_object_path = os.path.join(self.directory, "processed_frames.pkl")
         processed_frames = Helper.load_python_object(python_object_path)
         if len(processed_frames) < 800:
             raise Exception("Too few processed frames")
@@ -37,8 +36,7 @@ class PickleInput(BaseInputStrategy):
 
     def configure_extraction_strategy(self):
         if isinstance(self.extraction_strategy, TimestampExtractionStrategy):
-            self.extraction_strategy.frame_rate = Helper.get_frame_rate(
-                self.video_path)
+            self.extraction_strategy.frame_rate = Helper.get_frame_rate(self.video_path)
 
     def __init__(
         self,

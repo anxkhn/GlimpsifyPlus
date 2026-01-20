@@ -12,8 +12,7 @@ class TimestampExtractionStrategy(BaseExtractionStrategy):
 
     def extract_frames(self, frames: List[ProcessedFrame]) -> List[ProcessedFrame]:
         key_moments = self.timestamps
-        key_frame_numbers = Helper.get_key_frame_numbers(
-            key_moments, self.frame_rate)
+        key_frame_numbers = Helper.get_key_frame_numbers(key_moments, self.frame_rate)
         key_frames = []
 
         for frame_number in key_frame_numbers:

@@ -113,8 +113,7 @@ Frame Count Options:
 
     parser.add_argument(
         "--extraction",
-        choices=["k_transactions", "key_moments",
-                 "timestamps", "prominent_peaks"],
+        choices=["k_transactions", "key_moments", "timestamps", "prominent_peaks"],
         default="prominent_peaks",
         help="Frame extraction algorithm:\n"
         "  prominent_peaks - Find frames with most information (default)\n"
@@ -217,8 +216,7 @@ def main():
             extraction_strategy.k = k_value
             print(f"Extracting {k_value} key frames")
         except ValueError:
-            print(
-                f"Error: Invalid --k value '{args.k}'. Use 'auto' or a number.")
+            print(f"Error: Invalid --k value '{args.k}'. Use 'auto' or a number.")
             return 1
 
     if args.timestamps:

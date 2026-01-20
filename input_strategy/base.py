@@ -36,8 +36,7 @@ class BaseInputStrategy(ABC):
         self.metadata["video_path"] = self.video_path
 
         # ---- Save mapping of internal_id to video_path
-        logger.info(
-            f"Internal ID for video {self.video_path}: {self.internal_id!r}")
+        logger.info(f"Internal ID for video {self.video_path}: {self.internal_id!r}")
         logger.info(f"Saving internal_id to video_id mapping")
         self.save_video_path()
 
@@ -159,15 +158,13 @@ class BaseInputStrategy(ABC):
         """Add text to extracted frames"""
         list_of_files = os.listdir(output_dir)
 
-        PostProcessor.add_text_to_frames_and_save(
-            output_dir, list_of_files, output_dir)
+        PostProcessor.add_text_to_frames_and_save(output_dir, list_of_files, output_dir)
 
     def create_pdf(self, output_dir):
         """Create PDF of the extracted frames"""
         output_pdf_path = self.internal_id + ".pdf"
         list_of_files = os.listdir(output_dir)
-        PostProcessor.convert_images_to_pdf(
-            output_dir, list_of_files, output_pdf_path)
+        PostProcessor.convert_images_to_pdf(output_dir, list_of_files, output_pdf_path)
         return output_pdf_path
 
     def cache_frames_(self, frames):

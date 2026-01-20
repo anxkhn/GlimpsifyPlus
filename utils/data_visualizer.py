@@ -22,8 +22,7 @@ class DataVisualizer:
             func(*args, **kwargs)
             # plt.grid(True, axis="both", linestyle="--", alpha=0.7)
             # color should be light of the grid
-            plt.grid(True, axis="both", linestyle="--",
-                     alpha=0.7, color="lightgrey")
+            plt.grid(True, axis="both", linestyle="--", alpha=0.7, color="lightgrey")
             plt.xticks(args[0].df["frame_id"], rotation=45, ha="right")
 
             plt.show()
@@ -33,8 +32,7 @@ class DataVisualizer:
     @plot_decorator
     def plot_char_count(self):
         # Plot a histogram of the character count
-        plt.hist(self.df["char_count"], bins=30,
-                 color="skyblue", edgecolor="black")
+        plt.hist(self.df["char_count"], bins=30, color="skyblue", edgecolor="black")
         plt.title("Character Count in Text")
         plt.xlabel("Character Count")
         plt.ylabel("Frequency")
@@ -42,8 +40,7 @@ class DataVisualizer:
     @plot_decorator
     def plot_frame_id_vs_char_count(self):
         # Plot the frame_id vs char_count
-        plt.scatter(self.df["frame_id"],
-                    self.df["char_count"], color="skyblue")
+        plt.scatter(self.df["frame_id"], self.df["char_count"], color="skyblue")
         plt.title("Frame ID vs Character Count")
         plt.xlabel("Frame ID")
         plt.ylabel("Character Count")

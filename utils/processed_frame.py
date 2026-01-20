@@ -23,8 +23,7 @@ class ProcessedFrame:
                 frame = ProcessedFrame()
                 frame.frame_number = Helper.get_digits(filename)
                 frame.char_count = len(
-                    ocr_strategy.extract_clean_text(
-                        os.path.join(directory, filename))
+                    ocr_strategy.extract_clean_text(os.path.join(directory, filename))
                 )
                 processed_frames.append(frame)
         return processed_frames
@@ -67,8 +66,7 @@ class ProcessedFrame:
 
             processed_frame = ProcessedFrame()
             processed_frame.frame_number = frame.frame_number
-            processed_frame.char_count = ocr_strategy.get_char_count(
-                frame.frame)
+            processed_frame.char_count = ocr_strategy.get_char_count(frame.frame)
             processed_frames.append(processed_frame)
         return processed_frames
 

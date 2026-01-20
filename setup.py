@@ -70,9 +70,7 @@ def main():
 
     # Install Tesseract
     if not install_tesseract():
-        print(
-            "\nSetup failed. Please install Tesseract manually and run setup again."
-        )
+        print("\nSetup failed. Please install Tesseract manually and run setup again.")
         return 1
 
     # Install Python requirements

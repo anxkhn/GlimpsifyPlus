@@ -76,8 +76,13 @@ class PostProcessor:
                 images.append(img)
 
         if first_image:
-            first_image.save(output_pdf_path, save_all=True,
-                             append_images=images)
+            first_image.save(
+                output_pdf_path,
+                save_all=True,
+                append_images=images,
+                quality=85,
+                optimize=True,
+            )
             return True
         return False
 
@@ -92,8 +97,7 @@ if __name__ == "__main__":
     list_of_files = os.listdir(input_dir)
 
     # Process and save individual frames
-    PostProcessor.add_text_to_frames_and_save(
-        input_dir, list_of_files, output_dir)
+    PostProcessor.add_text_to_frames_and_save(input_dir, list_of_files, output_dir)
 
     # Convert processed images to PDF
     processed_files = os.listdir(output_dir)

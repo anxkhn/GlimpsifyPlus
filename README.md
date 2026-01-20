@@ -1,4 +1,4 @@
-# 🎬 Glimpsify Plus
+# Glimpsify Plus
 
 **An Enhanced Video-to-PDF Frame Extraction Tool**
 
@@ -8,16 +8,11 @@ Transform lengthy educational videos into concise PDF summaries by automatically
 
 ---
 
-## 🎯 What is Glimpsify Plus?
+## What is Glimpsify Plus?
 
-❌ Watch an entire 34-minute lecture video on YouTube? Naah 👎  
-✅ Get PDF notes of screenshots of important parts of the video instead? Hell yessss! 👌
+You pass it a YouTube link of a lecture video and it gives you PDF notes of the key frames containing maximum information content. Instead of manually scrubbing through hours of video content, get the essential visual information extracted automatically.
 
-That's what Glimpsify Plus does! 💻
-
-You pass it a YouTube link 🔗 of a lecture video 🎥 and it gives you PDF notes 📑 of the key frames containing maximum information content. Instead of manually scrubbing through hours of video content, get the essential visual information extracted automatically.
-
-### 📚 Perfect For:
+### Perfect For:
 
 - **Students**: Creating last-minute revision PDFs from lecture videos
 - **Educators**: Extracting slide content from recorded presentations
@@ -25,34 +20,34 @@ You pass it a YouTube link 🔗 of a lecture video 🎥 and it gives you PDF not
 - **Professionals**: Converting training videos to reference documents
 - **Content Creators**: Generating thumbnails and key moments
 
-### 🆚 Glimpsify vs Glimpsify Plus
+### Glimpsify vs Glimpsify Plus
 
 **Original Glimpsify** was a research project focusing on algorithmic development and experimentation.
 
 **Glimpsify Plus** is the enhanced, user-friendly version with:
 
-- 🚀 **One-command setup** with automated dependency installation
-- 🎛️ **Interactive user experience** with guided choices
-- 🖥️ **Cross-platform compatibility** (Windows, macOS, Linux)
-- 📊 **Smart defaults** and automatic parameter detection
-- 🧹 **Intelligent file management** with user control
-- 📖 **Automatic PDF opening** in default viewer
-- 📋 **Comprehensive documentation** with examples
-- 🎯 **Production-ready** with enterprise-level user experience
+- **One-command setup** with automated dependency installation
+- **Interactive user experience** with guided choices
+- **Cross-platform compatibility** (Windows, macOS, Linux)
+- **Smart defaults** and automatic parameter detection
+- **Intelligent file management** with user control
+- **Automatic PDF opening** in default viewer
+- **Comprehensive documentation** with examples
+- **Production-ready** with enterprise-level user experience
 
 ---
 
-## ✨ Key Features & Enhancements
+## Key Features & Enhancements
 
-### 🎛️ Interactive User Experience
+### Interactive User Experience
 
 - **Smart Video Management**: After processing, asks if you want to keep or delete the downloaded video
 - **Automatic File Opening**: Opens generated PDF in your default viewer automatically
 - **Folder Management**: For playlists, opens the results folder with all PDFs
-- **Progress Tracking**: Real-time feedback with emoji-rich status messages
+- **Progress Tracking**: Real-time feedback with status messages
 - **Configuration Display**: Shows all your settings before processing begins
 
-### 🔧 Advanced Frame Extraction
+### Advanced Frame Extraction
 
 - **Prominent Peaks Algorithm**: Identifies frames with maximum information density using signal processing
 - **OCR-Based Analysis**: Uses Tesseract or EasyOCR to measure text content in each frame
@@ -60,7 +55,7 @@ You pass it a YouTube link 🔗 of a lecture video 🎥 and it gives you PDF not
 - **Auto K-Detection**: Automatically calculates optimal number of frames to extract
 - **Multiple Strategies**: Choose from transaction-based, key moments, timestamps, or prominent peaks
 
-### 🎯 Smart Configuration Options
+### Smart Configuration Options
 
 - **Frame Count Control**: From quick 5-frame previews to detailed 50-frame analyses
 - **OCR Engine Choice**: Fast Tesseract or accurate EasyOCR
@@ -68,7 +63,7 @@ You pass it a YouTube link 🔗 of a lecture video 🎥 and it gives you PDF not
 - **Duplicate Detection**: Four different methods from aggressive to conservative
 - **Output Control**: Choose what files to generate and keep
 
-### 🖥️ Cross-Platform Compatibility
+### Cross-Platform Compatibility
 
 - **Windows**: Uses `os.startfile()` for file opening
 - **macOS**: Uses `open` command
@@ -77,7 +72,7 @@ You pass it a YouTube link 🔗 of a lecture video 🎥 and it gives you PDF not
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
@@ -105,15 +100,15 @@ python main.py --input youtube --url "https://www.youtube.com/watch?v=VIDEO_ID"
 
 After processing, Glimpsify Plus will:
 
-1. ✅ Show you the generated PDF details
-2. 💾 Ask if you want to keep or delete the downloaded video
-3. 📖 Automatically open the PDF in your default viewer
-4. 📁 For playlists, open the results folder instead
-5. 🎯 Provide a clean summary of all generated files
+1. Show you the generated PDF details
+2. Ask if you want to keep or delete the downloaded video
+3. Automatically open the PDF in your default viewer
+4. For playlists, open the results folder instead
+5. Provide a clean summary of all generated files
 
 ---
 
-## 📋 Detailed Usage Examples
+## Detailed Usage Examples
 
 ### Basic Frame Extraction
 
@@ -173,9 +168,9 @@ python main.py --input youtube --url "YOUR_URL" --create-results
 
 ---
 
-## ⚙️ Complete Parameter Reference
+## Complete Parameter Reference
 
-### 🔢 Frame Count Control (`--k`)
+### Frame Count Control (`--k`)
 
 Controls how many key frames to extract from your video:
 
@@ -189,7 +184,7 @@ Controls how many key frames to extract from your video:
 
 **Technical Details**: The auto-detection algorithm analyzes the information density curve of the video using signal processing techniques to identify the optimal number of peaks representing maximum information content.
 
-### 📥 Input Source Types (`--input`)
+### Input Source Types (`--input`)
 
 Specify where your video content comes from:
 
@@ -200,18 +195,18 @@ Specify where your video content comes from:
 | `playlist` | YouTube playlist          | `--url`           | YouTube playlist URL              |
 | `pickle`   | Previously processed data | `--dir`           | Resume from saved processing data |
 
-### 🔍 OCR Engine Selection (`--ocr`)
+### OCR Engine Selection (`--ocr`)
 
 Choose the text recognition engine for analyzing frame content:
 
-| Engine      | Speed     | Accuracy     | Memory Usage | Best For                        |
-| ----------- | --------- | ------------ | ------------ | ------------------------------- |
-| `tesseract` | ⚡ Fast   | 📊 Good      | Low          | Most videos, general text       |
-| `easyOCR`   | 🐌 Slower | 🎯 Excellent | High         | Complex text, equations, charts |
+| Engine      | Speed  | Accuracy  | Memory Usage | Best For                        |
+| ----------- | ------ | --------- | ------------ | ------------------------------- |
+| `tesseract` | Fast   | Good      | Low          | Most videos, general text       |
+| `easyOCR`   | Slower | Excellent | High         | Complex text, equations, charts |
 
 **Technical Note**: Tesseract uses traditional OCR methods optimized for speed, while EasyOCR employs deep learning models for higher accuracy at the cost of processing time.
 
-### 🎯 Extraction Algorithms (`--extraction`)
+### Extraction Algorithms (`--extraction`)
 
 Different algorithms for identifying the most informative frames:
 
@@ -224,7 +219,7 @@ Different algorithms for identifying the most informative frames:
 
 **Algorithm Details**: The prominent peaks method uses scipy's signal processing to find local maxima in the information content curve, filtered by prominence thresholds to avoid noise.
 
-### 🔄 Duplicate Detection Methods (`--ocr_approval`)
+### Duplicate Detection Methods (`--ocr_approval`)
 
 Controls how similar frames are identified and removed:
 
@@ -237,7 +232,7 @@ Controls how similar frames are identified and removed:
 
 **Technical Implementation**: Perceptual hashing (pHash) creates a fingerprint of the image's visual structure, allowing detection of similar content even with minor differences in position or lighting.
 
-### 📊 Output and File Management
+### Output and File Management
 
 Control what files are generated and how they're managed:
 
@@ -247,7 +242,7 @@ Control what files are generated and how they're managed:
 | `--create-results` | Generate Excel analysis file | No analysis file   | Provides detailed statistics   |
 | `--start_from N`   | Skip first N playlist videos | Process all videos | Useful for resuming processing |
 
-### ⏱️ Timestamp-Based Extraction
+### Timestamp-Based Extraction
 
 Extract frames at specific time points in your video:
 
@@ -263,7 +258,7 @@ python main.py --input youtube --url "YOUR_URL" --timestamps "60,180" --k 10
 
 ---
 
-## 🔬 How It Works: Technical Deep Dive
+## How It Works: Technical Deep Dive
 
 ### Research Background
 
@@ -396,7 +391,7 @@ Based on research validation:
 
 ---
 
-## 🛠️ Installation Guide
+## Installation Guide
 
 ### Automatic Installation (Recommended)
 
@@ -437,7 +432,7 @@ python main.py --help
 
 ---
 
-## 📊 Enhanced User Experience
+## Enhanced User Experience
 
 ### Issues with the Original Version
 
@@ -456,44 +451,6 @@ The original project had several problems that made it difficult to use:
 **Incomplete Documentation**: Examples didn't work because of missing parameters, and error messages weren't helpful for troubleshooting.
 
 Glimpsify Plus fixes all these issues with proper dependency management, automated setup, file cleanup options, and a guided user experience.
-
-### Interactive Session Example
-
-```bash
-$ python main.py --input youtube --url "https://www.youtube.com/watch?v=example" --k 10
-
-🎬 Glimpsify Plus: Extracting key frames from your video...
-============================================================
-📊 Extracting 10 key frames
-🔍 OCR Engine: tesseract
-🎯 Extraction Strategy: prominent_peaks
-🔄 Duplicate Detection: phash
-------------------------------------------------------------
-📥 Downloading: "Machine Learning Fundamentals - Lecture 1"
-🎞️  Processing 1,864 frames...
-Processing Frames: 1864/1864 (100.0%) | 02:34 | ETA: 00:00 | 13.80frames/s
-🔍 Analyzing content density...
-📊 Detected 15 prominent peaks, selecting top 10
-🧹 Removing 3 duplicate frames using pHash
-------------------------------------------------------------
-✅ Frame extraction complete!
-📄 PDF generated: ml_fundamentals_lecture1.pdf (2.3 MB)
-
-💾 Video Storage:
-Would you like to keep the downloaded video for later use? (y/n): y
-✅ Video kept in: data/ml_fundamentals_lecture1
-
-🎉 Processing complete!
-📖 Opening PDF...
-✅ Opened PDF: ml_fundamentals_lecture1.pdf
-
-🎯 Summary:
-   📄 PDF: ml_fundamentals_lecture1.pdf (2.3 MB)
-   🎥 Video: ml_fundamentals_lecture1 (127 MB)
-   ⏱️  Processing time: 1m 23s
-   📊 Frames analyzed: 1,247
-   🎯 Key frames extracted: 10
-```
 
 ---
 
@@ -538,7 +495,7 @@ Examples:
 
 ---
 
-## 🔍 Troubleshooting Guide
+## Troubleshooting Guide
 
 ### Common Issues and Solutions
 
@@ -624,16 +581,16 @@ pip install -r requirements.txt
 
 ### Performance Optimization Tips
 
-- 🚀 **Quick Testing**: Use `--k 5` for rapid iteration
-- ⚡ **Speed Priority**: Use `tesseract` OCR engine
-- 🎯 **Accuracy Priority**: Use `easy` OCR engine
-- 🧹 **Disk Space**: Always use `--cleanup` flag
-- 📊 **Analysis**: Only use `--create-results` when needed
-- 🎥 **Video Management**: Delete videos you don't need to keep
+- **Quick Testing**: Use `--k 5` for rapid iteration
+- **Speed Priority**: Use `tesseract` OCR engine
+- **Accuracy Priority**: Use `easy` OCR engine
+- **Disk Space**: Always use `--cleanup` flag
+- **Analysis**: Only use `--create-results` when needed
+- **Video Management**: Delete videos you don't need to keep
 
 ---
 
-## 📚 Research Background & Validation
+## Research Background & Validation
 
 ### Academic Foundation
 
@@ -660,17 +617,14 @@ Glimpsify Plus builds upon several research areas:
 ### Related Research Papers
 
 1. **"Lecture Presentations Multimodal Dataset"** (ICCV 2023)
-
    - Multimodal understanding in educational videos
    - Baseline for educational content analysis
 
 2. **"SliTraNet: Automatic Detection of Slide Transitions"** (TU Graz)
-
    - CNN-based slide transition detection
    - Relevant for presentation-style videos
 
 3. **"Content Based Lecture Video Retrieval"** (IEEE)
-
    - Speech and video text information fusion
    - Foundation for multimodal content analysis
 
@@ -687,7 +641,7 @@ Glimpsify Plus builds upon several research areas:
 
 ---
 
-## 💡 Pro Tips for Different Users
+## Pro Tips for Different Users
 
 ### For Students
 
@@ -737,7 +691,7 @@ python main.py --input youtube --url "DRAFT_VIDEO" --k 5 --cleanup
 
 ---
 
-## 📄 Output Files Reference
+## Output Files Reference
 
 ### Always Generated
 
@@ -764,7 +718,7 @@ python main.py --input youtube --url "DRAFT_VIDEO" --k 5 --cleanup
 
 ---
 
-## 🤝 Contributing & Development
+## Contributing & Development
 
 ### Contributing Guidelines
 
@@ -813,7 +767,7 @@ GlimpsifyPlus/
 
 ---
 
-## 🙏 Acknowledgments & Credits
+## Acknowledgments & Credits
 
 ### Original Research
 
@@ -844,15 +798,13 @@ This enhanced version incorporates feedback and suggestions from the educational
 
 ---
 
-## 🎓 Final Words
+## Final Words
 
 Glimpsify Plus represents the evolution of academic research into a practical, user-friendly tool. While maintaining the sophisticated algorithmic foundation of the original project, it fixes a lot of issues, prioritizes ease of use, reliability, and real-world applicability.
 
 Whether you're a student creating study materials, an educator processing lecture content, or a researcher analyzing video data, Glimpsify Plus aims to save you time while providing high-quality results.
 
 The tool continues to evolve based on user feedback and advancing research in computer vision and educational technology. Your contributions, bug reports, and feature suggestions help make it better for everyone.
-
-**Happy frame extracting! 🎬📚**
 
 ---
 

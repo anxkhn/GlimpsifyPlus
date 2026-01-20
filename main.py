@@ -35,12 +35,12 @@ def open_file_cross_platform(file_path):
             subprocess.run(["xdg-open", file_path])
         else:
             print(
-                f"⚠️  Cannot auto-open file on {system}. Please open manually: {file_path}"
+                f"Cannot auto-open file on {system}. Please open manually: {file_path}"
             )
             return False
         return True
     except Exception as e:
-        print(f"⚠️  Failed to open file: {e}")
+        print(f"Failed to open file: {e}")
         return False
 
 
@@ -55,7 +55,7 @@ def get_user_input(prompt, valid_responses=None):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="🎬 Glimpsify: Extract key frames from educational videos and convert to PDF",
+        description="Glimpsify: Extract key frames from educational videos and convert to PDF",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -179,23 +179,23 @@ def cleanup_directory(directory):
     """Remove a directory if it exists."""
     if os.path.exists(directory):
         DirectoryManager.delete_directory(directory)
-        print(f"🗑️  Cleaned up: {os.path.basename(directory)}")
+        print(f"Cleaned up: {os.path.basename(directory)}")
 
 
 def main():
     args = parse_arguments()
     Helper.setup()
 
-    print("🎬 Glimpsify: Extracting key frames from your video...")
+    print("Glimpsify: Extracting key frames from your video...")
     print("=" * 60)
 
     # Validate arguments
     if args.input in ["youtube", "playlist"] and not args.url:
-        print("❌ Error: --url is required for YouTube input")
+        print("Error: --url is required for YouTube input")
         return 1
 
     if args.input == "local" and not args.dir:
-        print("❌ Error: --dir is required for local input")
+        print("Error: --dir is required for local input")
         return 1
 
     # Setup strategies
@@ -210,25 +210,25 @@ def main():
     # Configure frame count
     if args.k == "auto":
         extraction_strategy.auto_calculate_k = True
-        print("📊 Using automatic frame count detection")
+        print("Using automatic frame count detection")
     else:
         try:
             k_value = int(args.k)
             extraction_strategy.k = k_value
-            print(f"📊 Extracting {k_value} key frames")
+            print(f"Extracting {k_value} key frames")
         except ValueError:
             print(
-                f"❌ Error: Invalid --k value '{args.k}'. Use 'auto' or a number.")
+                f"Error: Invalid --k value '{args.k}'. Use 'auto' or a number.")
             return 1
 
     if args.timestamps:
         extraction_strategy.timestamps = args.timestamps
-        print(f"⏱️  Using specific timestamps: {args.timestamps}")
+        print(f"Using specific timestamps: {args.timestamps}")
 
     # Show configuration
-    print(f"🔍 OCR Engine: {args.ocr}")
-    print(f"🎯 Extraction Strategy: {args.extraction}")
-    print(f"🔄 Duplicate Detection: {args.ocr_approval}")
+    print(f"OCR Engine: {args.ocr}")
+    print(f"Extraction Strategy: {args.extraction}")
+    print(f"Duplicate Detection: {args.ocr_approval}")
     print("-" * 60)
 
     # Process video
@@ -244,18 +244,18 @@ def main():
     directory = input_strategy.process()
 
     print("-" * 60)
-    print("✅ Frame extraction complete!")
+    print("Frame extraction complete!")
 
     # Find generated files
     pdf_path = f"{directory}.pdf"
     is_playlist = args.input == "playlist"
 
     if os.path.exists(pdf_path):
-        print(f"📄 PDF generated: {os.path.basename(pdf_path)}")
+        print(f"PDF generated: {os.path.basename(pdf_path)}")
 
         # Ask about video retention (only for single videos, not playlists)
         if not is_playlist and os.path.exists(directory):
-            print("\n💾 Video Storage:")
+            print("\nVideo Storage:")
             keep_video = get_user_input(
                 "Would you like to keep the downloaded video for later use? (y/n): ",
                 ["y", "yes", "n", "no"],
@@ -263,33 +263,33 @@ def main():
 
             if keep_video in ["n", "no"]:
                 cleanup_directory(directory)
-                print("✅ Video deleted to save disk space")
+                print("Video deleted to save disk space")
             else:
-                print(f"✅ Video kept in: {directory}")
+                print(f"Video kept in: {directory}")
 
         # Open PDF or folder
-        print(f"\n🎉 Processing complete!")
+        print(f"\nProcessing complete!")
 
         if is_playlist:
             data_dir = os.path.dirname(pdf_path)
-            print(f"📁 Opening results folder...")
+            print(f"Opening results folder...")
             if open_file_cross_platform(data_dir):
-                print(f"✅ Opened folder: {data_dir}")
+                print(f"Opened folder: {data_dir}")
         else:
-            print(f"📖 Opening PDF...")
+            print(f"Opening PDF...")
             if open_file_cross_platform(pdf_path):
-                print(f"✅ Opened PDF: {os.path.basename(pdf_path)}")
+                print(f"Opened PDF: {os.path.basename(pdf_path)}")
     else:
-        print("❌ Error: PDF was not generated")
+        print("Error: PDF was not generated")
         return 1
 
     # Handle cleanup of intermediate files
     if args.cleanup:
-        print(f"\n🧹 Cleaning up intermediate files...")
+        print(f"\nCleaning up intermediate files...")
         cleanup_directory(directory + "_extracted_frames")
         cleanup_directory(directory + "_python_object")
         cleanup_directory(directory + "_plot")
-        print("✅ Cleanup complete")
+        print("Cleanup complete")
 
     # Optionally remove results file
     if not args.create_results:
@@ -299,14 +299,14 @@ def main():
     else:
         results_file = "data/results.xlsx"
         if os.path.exists(results_file):
-            print(f"📊 Analysis results saved: {results_file}")
+            print(f"Analysis results saved: {results_file}")
 
-    print(f"\n🎯 Summary:")
-    print(f"   📄 PDF: {os.path.basename(pdf_path)}")
+    print(f"\nSummary:")
+    print(f"   PDF: {os.path.basename(pdf_path)}")
     if not is_playlist and os.path.exists(directory):
-        print(f"   🎥 Video: {os.path.basename(directory)}")
+        print(f"   Video: {os.path.basename(directory)}")
     if args.create_results and os.path.exists("data/results.xlsx"):
-        print(f"   📊 Results: results.xlsx")
+        print(f"   Results: results.xlsx")
 
     return 0
 

@@ -29,7 +29,7 @@ class Helper:
     def download_youtube_video(
         video_url: str,
         directory: str,
-        res_priority: List[str] = ["480p", "360p", "720p"],
+        res_priority: List[str] = ["720p", "480p", "360p"],
     ) -> str:
 
         yt = YouTube(video_url, on_progress_callback=on_progress)

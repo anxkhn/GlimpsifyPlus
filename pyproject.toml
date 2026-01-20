@@ -4,3 +4,32 @@ line-length = 88
 [tool.isort]
 profile = "black"
 line_length = 88
+
+[tool.pylint.main]
+ignore-patterns = ["test_.*\\.py"]
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "C0103",  # invalid-name (for constants like BASE_DIR)
+    "E0401",  # import-error (false positive - imports work at runtime)
+    "E1101",  # no-member (false positive for cv2)
+    "R0903",  # too-few-public-methods (strategy pattern classes)
+    "R0801",  # duplicate-code (acceptable in extraction strategies)
+    "R0917",  # too-many-positional-arguments
+    "W0511",  # fixme (TODOs are fine)
+    "W0612",  # unused-variable (algorithm intermediates)
+    "W0613",  # unused-argument (interface implementations)
+    "W0718",  # broad-exception-caught (intentional for graceful handling)
+    "W1203",  # logging-fstring-interpolation (preference, not bug)
+    "W1309",  # f-string-without-interpolation
+]
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.pylint.design]
+max-args = 8
+max-locals = 20

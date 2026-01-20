@@ -15,16 +15,15 @@ class InputStrategyFactory:
         url=None,
         directory=None,
     ) -> BaseInputStrategy:
+        # The directory path for pickle should be like `xxxxxx_python_object`
         if input_type == "youtube":
             return YouTubeInput(
                 url, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
-        elif input_type == "local":
+        if input_type == "local":
             return LocalFileInput(
                 directory, ocr_strategy, extraction_strategy, ocr_approval_strategy
             )
-        elif input_type == "pickle":
-            """The directory path should be like this `xxxxxx_python_object`"""
+        if input_type == "pickle":
             return PickleInput(directory, ocr_strategy, extraction_strategy)
-        else:
-            raise ValueError("Invalid input type")
+        raise ValueError("Invalid input type")

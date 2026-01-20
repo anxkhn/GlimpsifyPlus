@@ -11,11 +11,10 @@ class OCRApprovalStrategyFactory:
     def create_strategy(input_type: str) -> OCRApprovalStrategy:
         if input_type == "pixel_comparison":
             return PixelComparison()
-        elif input_type == "approve_all":
+        if input_type == "approve_all":
             return ApproveAllApprovalStrategy()
-        elif input_type == "reject_all":
+        if input_type == "reject_all":
             return RejectAllApprovalStrategy()
-        elif input_type == "phash":
+        if input_type == "phash":
             return PHash()
-        else:
-            raise ValueError("Invalid OCR approval strategy")
+        raise ValueError("Invalid OCR approval strategy")
